@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenoLandMainScreen : MonoBehaviour
+namespace Com.TrashSpotter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GreenoLandMainScreen : Screen
     {
-        
-    }
+        protected override void Open()
+        {
+            base.Open();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Close()
+        {
+            base.Close();
+        }
     }
 }

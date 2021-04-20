@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Screens : MonoBehaviour
+namespace Com.TrashSpotter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Screen : MonoBehaviour
     {
-        
-    }
+        [Header("Animations")]
+        [SerializeField] protected Animator animator = null;
+        [SerializeField] protected const string OpenTrigger = "Open";
+        [SerializeField] protected const string CloseTrigger = "Close";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected virtual void Open()
+        {
+            if (animator != null) animator.SetTrigger(CloseTrigger);
+            else transform.gameObject.SetActive(false);
+        }
+
+        protected virtual void Close()
+        {
+            if (animator != null) animator.SetTrigger(OpenTrigger);
+            else transform.gameObject.SetActive(true);
+        }
     }
 }

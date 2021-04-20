@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: fb511eefe9c7124439fcc4f61854ab91
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Abside
+  fontNames:
+  - Abside
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c5ba71687430084439e089c6402c93bc, type: 3}
+  - {fileID: 12800000, guid: 84f1e149ec746ca45a078237d3d191ba, type: 3}
+  - {fileID: 12800000, guid: e91feb7a1eccfb14395d47f027de8806, type: 3}
+  - {fileID: 12800000, guid: bba77fda3812db944a5502ec6b183250, type: 3}
+  - {fileID: 12800000, guid: a413c15ea7d88e84ca72fa8e54503102, type: 3}
+  - {fileID: 12800000, guid: 950e595e9bde44a4591c7318a719c567, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
