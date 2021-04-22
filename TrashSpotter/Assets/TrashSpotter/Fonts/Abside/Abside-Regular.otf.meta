@@ -11,9 +11,7 @@ TrueTypeFontImporter:
   fontName: Abside
   fontNames:
   - Abside
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 84f1e149ec746ca45a078237d3d191ba, type: 3}
-  - {fileID: 12800000, guid: a413c15ea7d88e84ca72fa8e54503102, type: 3}
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

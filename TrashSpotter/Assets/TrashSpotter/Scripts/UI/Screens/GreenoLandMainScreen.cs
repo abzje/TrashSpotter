@@ -1,19 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Com.TrashSpotter
 {
     public class GreenoLandMainScreen : Screen
     {
-        protected override void Open()
+
+        [Header ("Buttons")]
+        [SerializeField] private Button statesButton = null;
+        [SerializeField] private Button customisationButton = null;
+        [SerializeField] private Button giveForestButton = null;
+
+        protected override void Start()
         {
-            base.Open();
+            base.Start();
+            
+            statesButton.onClick.AddListener(OnClickStates);
+            customisationButton.onClick.AddListener(OnClickCustomisation);
+            giveForestButton.onClick.AddListener(OnClickGiveForest);
         }
 
-        protected override void Close()
+        private void OnClickStates()
         {
-            base.Close();
+            Debug.Log("states");
+        }
+
+        private void OnClickCustomisation()
+        {
+            Debug.Log("custo");
+        }
+
+        private void OnClickGiveForest()
+        {
+            Debug.Log("forest");
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            statesButton.onClick.RemoveListener(OnClickStates);
+            customisationButton.onClick.RemoveListener(OnClickCustomisation);
+            giveForestButton.onClick.RemoveListener(OnClickGiveForest);
         }
     }
 }
