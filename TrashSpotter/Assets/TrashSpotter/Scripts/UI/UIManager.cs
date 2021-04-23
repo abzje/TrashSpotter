@@ -1,18 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UIManager : MonoBehaviour
+namespace Com.TrashSpotter
 {
-    // Start is called before the first frame update
-    void Start()
+    public class UIManager : MonoBehaviour
     {
-        
-    }
+        private Screen currentScreen;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private static UIManager instance;
+        public static UIManager Instance => instance;
+
+        private void Awake()
+        {
+            if (instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            instance = this;
+        }
+
+        private void Start()
+        {
+            GreenoLandMainScreen.Instance.Open();
+        }
+
+        public void SwitchScreen(Screen screen)
+        {
+            if (currentScreen != null) currentScreen.Close();
+
+            OpenScreen(screen);
+            currentScreen = screen;
+        }
+
+        public void OpenScreen(Screen screen)
+        {
+            screen.Open();
+        }
+
+        public void CloseScreen(Screen screen)
+        {
+            screen.Close();
+        }
+
+        private void OnDestroy()
+        {
+            if (this == instance) instance = null;
+
+        }
     }
 }
