@@ -8,7 +8,8 @@ public enum EBodypartType
     EYES,
     MOUTH,
     TATTOO,
-    TOP_HEAD_ORNAMENT,
+    HAIR,
+    TOP_HEAD,
     CLOTHES,
     FACE_ORNAMENT,
     BODY_ORNAMENT
@@ -17,7 +18,7 @@ public enum EBodypartType
 [CreateAssetMenu(fileName = "BodypartAsset", menuName = "Greenoide/BodypartAsset", order = 1)]
 public class BodypartAsset : ScriptableObject
 {
-    public Sprite _Sprite;
-    public int _Id;
-    public EBodypartType _Type;
+    public Sprite _Sprite = null;
+    public int _Id = 0;
+    public EBodypartType _Type = EBodypartType.EYES;
 }

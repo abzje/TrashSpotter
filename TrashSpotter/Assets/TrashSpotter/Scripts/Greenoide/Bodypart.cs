@@ -5,14 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Bodypart : MonoBehaviour
 {
-    public BodypartAsset _Asset;
-    public SpriteRenderer _Renderer;
+    SpriteRenderer _Renderer;
 
-    void Start()
+    void Awake()
     {
         _Renderer = GetComponent<SpriteRenderer>();
-        if (_Asset == null)
-            return;
-        _Renderer.sprite = _Asset._Sprite;
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        _Renderer.sprite = sprite;
     }
 }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
-  m_Name: Eyes
+  m_Name: 901_BodyOrnament01
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: ca57c35aa0a2d9f40a35c451b54da442, type: 3}
-  _Id: 2
-  _Type: 1
+  _Sprite: {fileID: 21300000, guid: 69fb3d6f34d8cd442b311523645ea15a, type: 3}
+  _Id: 901
+  _Type: 8
