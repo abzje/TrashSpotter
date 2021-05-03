@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6169b48b2779679459d0c017484ea2ce, type: 3}
+  m_Name: GreenoidHead01
+  m_EditorClassIdentifier: 
+  _HeadAssetId: 1
+  _EyesPos: {x: 0, y: 0}
+  _MouthPos: {x: 0, y: 0}
+  _TattooPos: {x: 0, y: 0}
+  _TopHeadOrnamentPos: {x: 0, y: 0}
+  _ClothesPos: {x: 0, y: 0}
+  _FaceOrnamentPos: {x: 0, y: 0}
+  _BodyOrnamentPos: {x: 0, y: 0}
