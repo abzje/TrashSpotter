@@ -39,7 +39,7 @@ namespace Com.TrashSpotter
 
         private void OnClickCustomisation()
         {
-            UIManager.Instance.SwitchScreen(GreenoLandCustomisationScreen.Instance);
+            UIManager.Instance.SwitchScreen(CustomisationScreen.Instance);
         }
 
         private void OnClickGiveForest()

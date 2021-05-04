@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Com.TrashSpotter
 {
-    public class GreenoLandTotemScreen : Screen
+    public class AnimalTotemScreen : Screen
     {
-		private static GreenoLandTotemScreen instance;
-		public static GreenoLandTotemScreen Instance => instance;
+		private static AnimalTotemScreen instance;
+		public static AnimalTotemScreen Instance => instance;
 
 		private void Awake()
 		{
