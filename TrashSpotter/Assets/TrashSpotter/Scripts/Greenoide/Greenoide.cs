@@ -12,19 +12,21 @@ public class Greenoide : MonoBehaviour
     [SerializeField] int _TattooAssetId = 0;
     [SerializeField] int _HairAssetId = 0;
     [SerializeField] int _TopHeadAssetId = 0;
-    [SerializeField] int _ClothesAssetId = 0;
-    [SerializeField] int _FaceOrnamentAssetId = 0;
-    [SerializeField] int _BodyOrnamentAssetId = 0;
+    [SerializeField] int _EarAssetId = 0;
+    [SerializeField] int _ClothAssetId = 0;
+    [SerializeField] int _OrnamentAssetId = 0;
+    [SerializeField] int _EarBackAssetId = 0;
 
-    [SerializeField] Bodypart _Head = null;
     [SerializeField] Bodypart _Eyes = null;
     [SerializeField] Bodypart _Mouth = null;
     [SerializeField] Bodypart _Tattoo = null;
     [SerializeField] Bodypart _Hair = null;
     [SerializeField] Bodypart _TopHead = null;
-    [SerializeField] Bodypart _Clothes = null;
-    [SerializeField] Bodypart _FaceOrnament = null;
-    [SerializeField] Bodypart _BodyOrnament = null;
+    [SerializeField] Bodypart _Ear = null;
+    [SerializeField] Bodypart _Cloth = null;
+    [SerializeField] Bodypart _Ornament = null;
+    [SerializeField] Bodypart _EarBack = null;
+    [SerializeField] Bodypart _Head = null;
 
     private void Start() 
     {
@@ -53,15 +55,18 @@ public class Greenoide : MonoBehaviour
 
             if (_TopHead != null)
                 _TopHead.transform.position = _HeadAsset._TopHeadPos;
+            
+            if (_Ear != null)
+                _Ear.transform.position = _HeadAsset._EarPos;
 
-            if (_Clothes != null)
-                _Clothes.transform.position = _HeadAsset._ClothesPos;
+            if (_Cloth != null)
+                _Cloth.transform.position = _HeadAsset._ClothPos;
 
-            if (_FaceOrnament != null)
-                _FaceOrnament.transform.position = _HeadAsset._FaceOrnamentPos;
+            if (_Ornament != null)
+                _Ornament.transform.position = _HeadAsset._OrnamentPos;
                 
-            if (_BodyOrnament != null)
-                _BodyOrnament.transform.position = _HeadAsset._BodyOrnamentPos;
+            if (_EarBack != null)
+                _EarBack.transform.position = _HeadAsset._EarBackPos;
         }
 
         // sets the sprite for all body parts
@@ -93,6 +98,13 @@ public class Greenoide : MonoBehaviour
                 _Hair.SetSprite(asset._Sprite);
         }
 
+        if (_Ear != null)
+        {
+            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_EarAssetId);
+            if (asset != null)
+                _Ear.SetSprite(asset._Sprite);
+        }
+
         if (_TopHead != null)
         {
             BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_TopHeadAssetId);
@@ -100,25 +112,25 @@ public class Greenoide : MonoBehaviour
                 _TopHead.SetSprite(asset._Sprite);
         }        
         
-        if (_Clothes != null)
+        if (_Cloth != null)
         {
-            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_ClothesAssetId);
+            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_ClothAssetId);
             if (asset != null)
-                _Clothes.SetSprite(asset._Sprite);
+                _Cloth.SetSprite(asset._Sprite);
         }
 
-        if (_FaceOrnament != null)
+        if (_Ornament != null)
         {
-            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_FaceOrnamentAssetId);
+            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_OrnamentAssetId);
             if (asset != null)
-                _FaceOrnament.SetSprite(asset._Sprite);
+                _Ornament.SetSprite(asset._Sprite);
         }
         
-        if (_BodyOrnament != null)
+        if (_EarBack != null)
         {
-            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_BodyOrnamentAssetId);
+            BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_EarBackAssetId);
             if (asset != null)
-                _BodyOrnament.SetSprite(asset._Sprite);
+                _EarBack.SetSprite(asset._Sprite);
         }
     }
 }

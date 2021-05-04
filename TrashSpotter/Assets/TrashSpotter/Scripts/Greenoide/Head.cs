@@ -9,13 +9,14 @@ public class Head : ScriptableObject
     Sprite _HeadSprite;
 
     // Other body parts position are decided from the head
-    [SerializeField] public Vector2 _EyesPos = new Vector2();
-    [SerializeField] public Vector2 _MouthPos = new Vector2();
-    [SerializeField] public Vector2 _TattooPos = new Vector2();
-    [SerializeField] public Vector2 _HairPos = new Vector2();
-    [SerializeField] public Vector2 _TopHeadPos = new Vector2();
-    [SerializeField] public Vector2 _ClothesPos = new Vector2();
-    [SerializeField] public Vector2 _FaceOrnamentPos = new Vector2();
-    [SerializeField] public Vector2 _BodyOrnamentPos = new Vector2();
+    [SerializeField] public Vector3 _EyesPos = new Vector3();
+    [SerializeField] public Vector3 _MouthPos = new Vector3();
+    [SerializeField] public Vector3 _TattooPos = new Vector3();
+    [SerializeField] public Vector3 _HairPos = new Vector3();
+    [SerializeField] public Vector3 _TopHeadPos = new Vector3();
+    [SerializeField] public Vector3 _EarPos = new Vector3();
+    [SerializeField] public Vector3 _ClothPos = new Vector3();
+    [SerializeField] public Vector3 _OrnamentPos = new Vector3();
+    [SerializeField] public Vector3 _EarBackPos = new Vector3();
 
 }

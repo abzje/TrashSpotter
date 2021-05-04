@@ -4,15 +4,16 @@ using UnityEngine;
 
 public enum EBodypartType
 {
-    HEAD,
     EYES,
     MOUTH,
     TATTOO,
     HAIR,
     TOP_HEAD,
-    CLOTHES,
-    FACE_ORNAMENT,
-    BODY_ORNAMENT
+    EARS,
+    CLOTH,
+    ORNAMENT,
+    EAR_BACK,
+    HEAD
 }
 
 [CreateAssetMenu(fileName = "BodypartAsset", menuName = "Greenoide/BodypartAsset", order = 1)]
