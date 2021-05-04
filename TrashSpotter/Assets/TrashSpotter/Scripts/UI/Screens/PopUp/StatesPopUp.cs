@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Com.TrashSpotter
 {
-    public class StatesScreen : PopUp
+    public class StatesPopUp : PopUp
     {
 		[Header("Cutsomisation")]
 		[SerializeField] private Text greenoidName = null;
@@ -30,20 +30,6 @@ namespace Com.TrashSpotter
 		[Header("Button")]
 		[SerializeField] private Button adventurfacebookButton = null;
 
-		private static StatesScreen instance;
-		public static StatesScreen Instance => instance;
-
-		private void Awake()
-		{
-			if (instance)
-			{
-				Destroy(gameObject);
-				return;
-			}
-
-			instance = this;
-		}
-
         private void Start()
         {
 			adventurfacebookButton.onClick.AddListener(OnClickFacebookButton);
@@ -60,8 +46,6 @@ namespace Com.TrashSpotter
             base.OnDestroy();
 
 			adventurfacebookButton.onClick.RemoveListener(OnClickFacebookButton);
-
-			if (this == instance) instance = null;
 
 		}
     }

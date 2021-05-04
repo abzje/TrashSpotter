@@ -11,20 +11,6 @@ namespace Com.TrashSpotter
         [SerializeField] private Button customisationButton = null;
         [SerializeField] private Button giveForestButton = null;
 
-        private static GreenoLandMainScreen instance;
-        public static GreenoLandMainScreen Instance => instance;
-
-        private void Awake()
-        {
-            if (instance)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            instance = this;
-        }
-
         private void Start()
         {
             statesButton.onClick.AddListener(OnClickStates);
@@ -34,17 +20,17 @@ namespace Com.TrashSpotter
 
         private void OnClickStates()
         {
-            UIManager.Instance.OpenScreen(StatesScreen.Instance);
+            UIManager.Instance.OpenScreen(UIManager.Instance.statesPopUp);
         }
 
         private void OnClickCustomisation()
         {
-            UIManager.Instance.SwitchScreen(CustomisationScreen.Instance);
+            UIManager.Instance.SwitchScreen(UIManager.Instance.customisationScreen);
         }
 
         private void OnClickGiveForest()
         {
-            UIManager.Instance.SwitchScreen(GiveForestScreen.Instance);
+            UIManager.Instance.SwitchScreen(UIManager.Instance.giveForestMainScreen);
         }
 
         protected override void OnDestroy()
@@ -54,8 +40,6 @@ namespace Com.TrashSpotter
             statesButton.onClick.RemoveListener(OnClickStates);
             customisationButton.onClick.RemoveListener(OnClickCustomisation);
             giveForestButton.onClick.RemoveListener(OnClickGiveForest);
-
-            if (this == instance) instance = null;
         }
     }
 }

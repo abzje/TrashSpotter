@@ -13,23 +13,21 @@ namespace Com.TrashSpotter
         [SerializeField] protected Animator animator = null;
 
         /// <summary>
-        /// Méthode apelé lorsque qu'un écran doit s'ouvrir
-        /// Lance l'animation d'ouverture si un aniamtor est présent sinon il s'active
+        /// Method called when a screen should be opened
+        /// Start the open animation
         /// </summary>
         public virtual void Open()
         {
-            if (animator != null) animator.SetTrigger(OPEN_TRIGGER_TEXT);
-            else transform.gameObject.SetActive(true);
+            animator.SetTrigger(OPEN_TRIGGER_TEXT);
         }
 
         /// <summary>
-        /// Méthode apelé lorsque qu'un écran doit se fermer
-        /// Lance l'animation de femeture si un aniamtor est présent sinon il se désactive
+        /// Method called when a screen should be closed
+        /// Start the close animation
         /// </summary>
         public virtual void Close()
         {
-            if (animator != null) animator.SetTrigger(CLOSE_TRIGGER_TEXT);
-            else transform.gameObject.SetActive(false);
+            animator.SetTrigger(CLOSE_TRIGGER_TEXT);
         }
 
         protected virtual void OnDestroy()

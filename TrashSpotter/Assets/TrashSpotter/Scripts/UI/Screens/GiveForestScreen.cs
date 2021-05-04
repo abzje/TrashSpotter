@@ -18,20 +18,6 @@ namespace Com.TrashSpotter
         [Header ("Money")]
         [SerializeField] private Text moneyValueText = null;
 
-        private static GiveForestScreen instance;
-        public static GiveForestScreen Instance => instance;
-
-        private void Awake()
-        {
-            if (instance)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            instance = this;
-        }
-
         private void Start()
         {
             assoButton.onClick.AddListener(OnClickAssoButton);
@@ -75,8 +61,6 @@ namespace Com.TrashSpotter
             assoEcologyButton.onClick.RemoveListener(OnClickAssoEcologyButton);
             assoIndustryButton.onClick.RemoveListener(OnClickAssoIndustryButton);
             assoEnergyButton.onClick.RemoveListener(OnClickAssoEnergyButton);
-
-            if (this == instance) instance = null;
 
         }
     }

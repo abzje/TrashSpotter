@@ -35,20 +35,6 @@ namespace Com.TrashSpotter
 
 		private bool inputFieldCouldBeSelected;
 
-		private static CustomisationScreen instance;
-		public static CustomisationScreen Instance => instance;
-
-		private void Awake()
-		{
-			if (instance)
-			{
-				Destroy(gameObject);
-				return;
-			}
-
-			instance = this;
-		}
-
 		private void Start()
 		{
 
@@ -63,7 +49,7 @@ namespace Com.TrashSpotter
 
         private void OnClickPrefixName()
         {
-			//UIManager.Instance.OpenScreen();
+			UIManager.Instance.OpenScreen(UIManager.Instance.prefixNamePopUp);
 		}
 
 		private void OnClickSufixName(string value)
@@ -175,8 +161,6 @@ namespace Com.TrashSpotter
 			sufixNameInputField.onValueChanged.RemoveListener((value) => OnClickSufixName(value));
 			sufixNameInputField.onEndEdit.RemoveListener(OnEndEditSufixName);
 			switchCustoToggle.onValueChanged.RemoveListener((value) => OnSwitchCustoToggle(value));
-
-			if (this == instance) instance = null;
 
 		}
 	}

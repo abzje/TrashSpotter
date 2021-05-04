@@ -6,6 +6,6 @@ namespace Com.TrashSpotter
 {
     public class PrefixNamePopUp : PopUp
     {
-        
+       
     }
 }
