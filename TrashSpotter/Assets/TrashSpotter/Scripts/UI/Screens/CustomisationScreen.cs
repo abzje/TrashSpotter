@@ -24,6 +24,7 @@ namespace Com.TrashSpotter
 		[SerializeField] private Scrollbar scrollBar = null;
 		[SerializeField] private GameObject content = null;
 		[SerializeField] private int sectionNumber = 1;
+		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 		
 		private Toggle[] toggles = null;
 
@@ -43,8 +44,10 @@ namespace Com.TrashSpotter
 			sufixNameInputField.onValueChanged.AddListener((value) => OnClickSufixName(value));
 			sufixNameInputField.onEndEdit.AddListener(OnEndEditSufixName);
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
+			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
-			InitScrollSnap();
+			//InitScrollSnap();
+			scrollsnap.InitScrollSnap(3);
 		}
 
         private void OnClickPrefixName()
@@ -69,6 +72,11 @@ namespace Com.TrashSpotter
 			totemCusto.SetActive(!value);
 		}
 
+		private void OnClickAnimalTotem()
+        {
+			UIManager.Instance.OpenScreen(UIManager.Instance.animalTotemPopUp);
+        }
+
 		private void Update()
 		{
 			if (EventSystem.current.currentSelectedGameObject == sufixNameInputField.gameObject)
@@ -80,10 +88,14 @@ namespace Com.TrashSpotter
                 }
 			}
 
-			UpdateScrollSnap();
+			//UpdateScrollSnap();
 		}
 
-		#region Scrollsnap
+		/*#region Scrollsnap
+		/// <summary>
+		/// Initialize variable for scrollsnap
+		/// Set the first toggle as default toggle activated
+		/// </summary>
 		private void InitScrollSnap()
         {
 			toggles = paginationToggleGroup.GetComponentsInChildren<Toggle>();
@@ -101,8 +113,12 @@ namespace Com.TrashSpotter
 			}
 		}
 
+		/// <summary>
+		/// Do scrollsnap (as to be call in Update function)
+		/// </summary>
 		private void UpdateScrollSnap()
         {
+			
 			if (Input.GetMouseButton(0))
 			{
 				scroll_pos = scrollBar.value;
@@ -137,21 +153,23 @@ namespace Com.TrashSpotter
 			}
 		}
 
+		/// <summary>
+		/// Set the scroll position as the position assigne of the toggle clicked
+		/// It is called inside each toggle component inside the editor and in the initialize scrollsnap method
+		/// </summary>
+		/// <param name="tog">The toggle that has been clicked</param>
 		public void WhichTogClicked(Toggle tog)
 		{
-			tog.transform.name = "clicked";
 			for (int i = 0; i < toggles.Length; i++)
 			{
-				if (toggles[i] != tog) toggles[i].name = ".";
-				else
+				if (toggles[i] == tog)
                 {
 					togNumber = i;
 					scroll_pos = (pos[togNumber]);
 				}
 			}
 		}
-
-#endregion
+		#endregion*/
 
         protected override void OnDestroy()
 		{
@@ -161,6 +179,7 @@ namespace Com.TrashSpotter
 			sufixNameInputField.onValueChanged.RemoveListener((value) => OnClickSufixName(value));
 			sufixNameInputField.onEndEdit.RemoveListener(OnEndEditSufixName);
 			switchCustoToggle.onValueChanged.RemoveListener((value) => OnSwitchCustoToggle(value));
+			animalTotemButton.onClick.RemoveListener(OnClickAnimalTotem);
 
 		}
 	}
