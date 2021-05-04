@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Com.TrashSpotter
 {
-    public class GreenoLandTotemScreen : Screen
+    public class PrefixNamePopUp : PopUp
     {
-
+        
     }
 }

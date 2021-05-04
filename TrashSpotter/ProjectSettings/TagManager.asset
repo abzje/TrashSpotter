@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GreenoLandFront_Greenoid
+    uniqueID: 1182173891
+    locked: 0
+  - name: GreenoLandFront_Totem
+    uniqueID: 277590511
+    locked: 0
