@@ -46,7 +46,6 @@ namespace Com.TrashSpotter
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
-			//InitScrollSnap();
 			scrollsnap.InitScrollSnap(3);
 		}
 

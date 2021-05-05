@@ -20,30 +20,43 @@ namespace Com.TrashSpotter
 
 		private bool canScroll = false;
 
-		/// <summary>
-		/// Instantiate all toggle and content
-		/// Initialize position of sections
-		/// Set the first toggle as default toggle activated
-		/// </summary>
-		public void InitScrollSnap(int number)
+
+        /// <summary>
+        /// Instantiate all toggle and content
+        /// Initialize position of sections
+        /// Set the first toggle as default toggle activated
+        /// </summary>
+        public void InitScrollSnap(int number)
 		{
 			//Init number of toggle and section
 			toggles = new Toggle[number];
 			pos = new float[number];
 			distance = 1 / (pos.Length - 1f);
 
+			Toggle tog;
+
 			for (int i = 0; i < number; i++)
 			{
-				toggles[i] = Instantiate(pageTogglePrefab, paginationToggleGroup.transform);
-				Instantiate(contentChildPrefab, content.transform);
+
+				tog = Instantiate(pageTogglePrefab, paginationToggleGroup.transform);
+				toggles[i] = tog;
+
+				//Instantiate(contentChildPrefab, content.transform);
+
+				//toggles[i].onValueChanged.AddListener((value) => WhichTogClicked(tog));
 
 				pos[i] = distance * i;
 			}
+			
+			toggles[0].onValueChanged.AddListener((value) => WhichTogClicked(toggles[0]));
+			toggles[1].onValueChanged.AddListener((value) => WhichTogClicked(toggles[1]));
+			toggles[2].onValueChanged.AddListener((value) => WhichTogClicked(toggles[2]));
 
 			//Init first toggle as default selected toggle
 			WhichTogClicked(toggles[0]);
 			toggles[0].Select();
 
+			scrollBar.gameObject.SetActive(true);
 			canScroll = true;
 		}
 
@@ -83,6 +96,9 @@ namespace Com.TrashSpotter
 					}
 				}
 			}
+
+			
+			Debug.Log(content.transform.childCount + "    " +paginationToggleGroup.transform.childCount);
 
 			for (int i = 0; i < pos.Length; i++)
 			{
