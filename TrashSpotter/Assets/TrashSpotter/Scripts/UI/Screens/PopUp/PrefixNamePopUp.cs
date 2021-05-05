@@ -8,7 +8,6 @@ namespace Com.TrashSpotter
     public class PrefixNamePopUp : PopUp
     {
         [SerializeField] private GameObject nameContainer = null;
-
         [SerializeField] private GameObject prefixContainer = null;
 
         private void Start()
@@ -17,15 +16,6 @@ namespace Com.TrashSpotter
             {
                 item.onValueChanged.AddListener((value) => ChangePrefix(item.GetComponent<Text>()));
             }
-        }
-
-        public override void Open()
-        {
-            base.Open();
-
-            Debug.Log("Set layer order of " + nameContainer.name + " at front");
-
-            
         }
 
         private void ChangePrefix(Text text)

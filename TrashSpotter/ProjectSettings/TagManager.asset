@@ -47,3 +47,12 @@ TagManager:
   - name: GreenoLandFront_Totem
     uniqueID: 277590511
     locked: 0
+  - name: Foreground
+    uniqueID: 1522542869
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 3111529201
+    locked: 0
+  - name: BackGround
+    uniqueID: 2750392517
+    locked: 0
