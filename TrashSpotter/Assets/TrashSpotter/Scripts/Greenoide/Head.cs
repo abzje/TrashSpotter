@@ -8,6 +8,8 @@ public class Head : ScriptableObject
     [SerializeField] public int _HeadAssetId = 0;
     Sprite _HeadSprite;
 
+    [SerializeField] public Sprite _Mask = null;
+
     // Other body parts position are decided from the head
     [SerializeField] public Vector3 _EyesPos = new Vector3();
     [SerializeField] public Vector3 _MouthPos = new Vector3();

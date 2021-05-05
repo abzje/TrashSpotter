@@ -19,7 +19,7 @@ public class Greenoide : MonoBehaviour
 
     [SerializeField] Bodypart _Eyes = null;
     [SerializeField] Bodypart _Mouth = null;
-    [SerializeField] Bodypart _Tattoo = null;
+    [SerializeField] Tattoo   _Tattoo = null;
     [SerializeField] Bodypart _Hair = null;
     [SerializeField] Bodypart _TopHead = null;
     [SerializeField] Bodypart _Ear = null;
@@ -88,7 +88,11 @@ public class Greenoide : MonoBehaviour
         {
             BodypartAsset asset = _BodypartAvailable.GetBodypartAsset(_TattooAssetId);
             if (asset != null)
+            {
                 _Tattoo.SetSprite(asset._Sprite);
+                _Tattoo.SetMask(_HeadAsset._Mask);
+            }
+            
         }
         
         if (_Hair != null)

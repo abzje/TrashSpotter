@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SentriesHead2
   m_EditorClassIdentifier: 
   _HeadAssetId: 2
+  _Mask: {fileID: 21300000, guid: ea38c7114f0f4174fb6feca33d465055, type: 3}
   _EyesPos: {x: -0.3, y: 0.5, z: -0.5}
   _MouthPos: {x: -0.45, y: -0.5, z: -0.5}
   _TattooPos: {x: 0, y: 0, z: -0.5}

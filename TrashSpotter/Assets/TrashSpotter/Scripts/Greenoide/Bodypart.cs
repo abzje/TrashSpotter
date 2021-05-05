@@ -7,7 +7,7 @@ public class Bodypart : MonoBehaviour
 {
     SpriteRenderer _Renderer;
 
-    void Awake()
+    protected virtual void Awake()
     {
         _Renderer = GetComponent<SpriteRenderer>();
     }
