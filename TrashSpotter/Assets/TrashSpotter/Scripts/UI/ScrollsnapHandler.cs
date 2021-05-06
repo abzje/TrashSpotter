@@ -99,5 +99,13 @@ namespace Com.TrashSpotter
 				}
 			}
 		}
-	}
+
+        private void OnDisable()
+        {
+            foreach (Toggle toggle in toggles)
+            {
+				toggle.onValueChanged.RemoveListener((value) => WhichTogClicked(toggle));
+			}
+        }
+    }
 }

@@ -12,6 +12,9 @@ namespace Com.TrashSpotter
         [Header ("Animation")]
         [SerializeField] protected Animator animator = null;
 
+        [Header ("Navigation Settings")]
+        [SerializeField] public Screen previousScreen = null;
+
         /// <summary>
         /// Method called when a screen should be opened
         /// Start the open animation

@@ -13,7 +13,7 @@ namespace Com.TrashSpotter
         [SerializeField] public Screen prefixNamePopUp = null;
         [SerializeField] public Screen animalTotemPopUp = null;
 
-        private Screen currentScreen;
+        [HideInInspector] public Screen currentScreen;
 
         private static UIManager instance;
         public static UIManager Instance => instance;
@@ -36,19 +36,27 @@ namespace Com.TrashSpotter
 
         /// <summary>
         /// Close the current screen by calling his method Close()
-        /// Open the new screen by calling his method Open() and set this as value for currentScreen
+        /// Open the new screen by calling his method Open()
         /// </summary>
         /// <param name="screen">The instance of the screen you want to open</param>
         public void SwitchScreen(Screen screen)
         {
             if (currentScreen != null) currentScreen.Close();
-
+            
             OpenScreen(screen);
-            currentScreen = screen;
+        }
+
+        public void OpenPopUpAndFillIt(Screen screen, PopUpFillableDynamicaly.enAssoCategory assoCategory)
+        {
+            if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
+
+            screen.Open();
+            screen.GetComponent<PopUpFillableDynamicaly>().SetPopUp(assoCategory);
         }
 
         /// <summary>
-        /// Open the given screen if it is active or set to active
+        /// Open the given screen and set it to active if it's not already done
+        /// Set this as value for currentScreen
         /// </summary>
         /// <param name="screen">The instance of the screen you want to open</param>
         public void OpenScreen(Screen screen)
@@ -56,6 +64,7 @@ namespace Com.TrashSpotter
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
+            currentScreen = screen;
         }
 
         /// <summary>

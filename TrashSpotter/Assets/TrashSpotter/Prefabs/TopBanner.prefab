@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3983639561814524176}
   - component: {fileID: 3983639561814524177}
   - component: {fileID: 2467996405561936603}
+  - component: {fileID: 1353023998879035540}
   m_Layer: 5
   m_Name: TopBanner
   m_TagString: Untagged
@@ -98,6 +99,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1353023998879035540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983639561814524175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e125c45661ff043805e128cf423174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: {fileID: 3983639562112646759}
+  profileButton: {fileID: 3983639562783967286}
 --- !u!1 &3983639562112646754
 GameObject:
   m_ObjectHideFlags: 0
