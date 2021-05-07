@@ -12,11 +12,9 @@ namespace Com.TrashSpotter
         [SerializeField] public Screen assosPopUp = null;
         [SerializeField] public Screen assoDetailsPopUp = null;
         [SerializeField] public Screen statesPopUp = null;
-        [SerializeField] public Screen prefixNamePopUp = null;
+        [SerializeField] public Screen anteNamePopUp = null;
+        [SerializeField] public Screen editableNameNamePopUp = null;
         [SerializeField] public Screen animalTotemPopUp = null;
-
-        [Header ("Settings")]
-        [SerializeField] public BodypartList bodyPartList;
 
         [HideInInspector] public Screen currentScreen;
 
@@ -46,6 +44,7 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void SwitchScreen(Screen screen)
         {
+            if (currentScreen == screen) return;
             if (currentScreen != null) currentScreen.Close();
 
             Debug.Log("closed one " + currentScreen);
@@ -68,6 +67,7 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void OpenScreen(Screen screen)
         {
+            if (currentScreen == screen) return;
 
             Debug.Log(screen);
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
