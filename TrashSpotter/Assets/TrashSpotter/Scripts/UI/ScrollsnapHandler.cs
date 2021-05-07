@@ -9,42 +9,55 @@ namespace Com.TrashSpotter
 		[SerializeField] private Scrollbar scrollBar = null;
 		[SerializeField] private GameObject content = null;
 		[SerializeField] private Toggle pageTogglePrefab = null;
-		[SerializeField] private GameObject contentChildPrefab = null;
+		[SerializeField] private GameObject sectionPrefab = null;
+		[SerializeField] private GameObject elementInSectionPrefab = null;
+		[SerializeField] private float numberElementPerSection = 0;
 
-		private Toggle[] toggles;
+		private Toggle[] paginationToggles;
 		private float[] pos;
 		private float scroll_pos = 0;
 		private float distance;
+		private int sectioNumber;
 
 		/// <summary>
 		/// Instantiate all toggle and content
 		/// Initialize position of sections
 		/// Set the first toggle as default toggle activated
 		/// </summary>
-		/// <param name="number">The number of section you can snap on</param>
+		/// <param name="number">The number of element inside section you can snap on</param>
 		public void InitScrollSnap(int number)
 		{
+			sectioNumber = (int)Mathf.Ceil(number / numberElementPerSection);
+
 			//Init number of toggle and section
-			toggles = new Toggle[number];
-			pos = new float[number];
-			distance = 1 / ((float)number - 1);
+			paginationToggles = new Toggle[sectioNumber];
+			pos = new float[sectioNumber];
+			distance = 1 / ((float)sectioNumber - 1);
 
-			for (int i = 0; i < number; i++)
-			{
-				//this index is use to prevent the closure bug
-				int closureIndex = i;
+			GameObject lCurrentSection;
 
-				toggles[closureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
-				toggles[closureIndex].onValueChanged.AddListener((value) => WhichTogClicked(toggles[closureIndex]));
+			//Section and toggle creation
+            for (int i = 0; i < sectioNumber; i++)
+            {
+				int lClosureIndex = i;
 
-				Instantiate(contentChildPrefab, content.transform);
+				paginationToggles[lClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
+				paginationToggles[lClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lClosureIndex]));
 
-				pos[closureIndex] = distance * closureIndex;
+				lCurrentSection = Instantiate(sectionPrefab, content.transform);
+
+				pos[lClosureIndex] = distance * lClosureIndex;
+
+				//Element in section creation
+                for (int j = 0; j < numberElementPerSection; j++)
+                {
+					Instantiate(elementInSectionPrefab, lCurrentSection.transform);
+				}
 			}
 
 			//Init first toggle as default selected toggle
-			WhichTogClicked(toggles[0]);
-			toggles[0].Select();
+			WhichTogClicked(paginationToggles[0]);
+			paginationToggles[0].Select();
 		}
 
 		/// <summary>
@@ -54,7 +67,7 @@ namespace Com.TrashSpotter
 		/// <param name="tog">The toggle that has been clicked</param>
 		public void WhichTogClicked(Toggle tog)
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < sectioNumber; i++)
 			{
 				if (paginationToggleGroup.GetChild(i).GetComponent<Toggle>().GetInstanceID() == tog.GetInstanceID())
 				{
@@ -102,7 +115,7 @@ namespace Com.TrashSpotter
 
         private void OnDisable()
         {
-            foreach (Toggle toggle in toggles)
+            foreach (Toggle toggle in paginationToggles)
             {
 				toggle.onValueChanged.RemoveListener((value) => WhichTogClicked(toggle));
 			}

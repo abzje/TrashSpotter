@@ -33,7 +33,7 @@ namespace Com.TrashSpotter
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
 			Debug.Log("Here add the right number of section in scrollsnap");
-			scrollsnap.InitScrollSnap(3);
+			scrollsnap.InitScrollSnap(6);
 		}
 
         private void OnClickPrefixName()
