@@ -9015,8 +9015,9 @@ MonoBehaviour:
   content: {fileID: 1449753042}
   pageTogglePrefab: {fileID: 4750579583068885484, guid: 6b59288f9307b754aa5a103ee50a3bbe,
     type: 3}
-  contentChildPrefab: {fileID: 6165858408792391853, guid: 14c588e34d561e44692d707e39360c71,
-    type: 3}
+  sectionPrefab: {fileID: 0}
+  elementInSectionPrefab: {fileID: 0}
+  numberElementPerSection: 0
 --- !u!222 &867697445
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17499,6 +17500,7 @@ MonoBehaviour:
   previousScreen: {fileID: 1297019379}
   prefixNameButton: {fileID: 248056694}
   sufixNameInputField: {fileID: 461758103}
+  sufixWarning: {fileID: 0}
   switchCustoToggle: {fileID: 1808458629}
   scrollsnap: {fileID: 500456695}
   greenoidCusto: {fileID: 1032187562}
