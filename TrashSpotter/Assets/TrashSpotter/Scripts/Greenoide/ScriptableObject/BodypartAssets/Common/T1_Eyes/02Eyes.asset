@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: 02Eyes
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: ca57c35aa0a2d9f40a35c451b54da442, type: 3}
+  _Sprite: {fileID: 2589442475105739671, guid: 2c2bc7a596af1bf47958f95c569c0aeb, type: 3}
   _Id: 102
   _Type: 0

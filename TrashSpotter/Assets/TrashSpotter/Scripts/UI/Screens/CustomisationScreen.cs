@@ -16,16 +16,19 @@ namespace Com.TrashSpotter
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
 		[SerializeField] private ToggleGroup filterToggleGroup = null;
+		[SerializeField] private Greenoide greenoide = null;
 
 		[Header("Totem settings")]
 		[SerializeField] private GameObject totemCusto = null;
 		[SerializeField] private Button animalTotemButton = null;
+		[SerializeField] private Image totemImage = null;
+
+		private GameObject[] scrollsnapElements;
 
 		private bool inputFieldCouldBeSelected;
 
 		private void Start()
 		{
-
 			inputFieldCouldBeSelected = true;
 			prefixNameButton.onClick.AddListener(OnClickPrefixName);
 			sufixNameInputField.onValueChanged.AddListener((value) => OnClickSufixName(value));
@@ -33,9 +36,71 @@ namespace Com.TrashSpotter
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
-			Debug.Log("Here add the right number of section in scrollsnap");
-			scrollsnap.InitScrollSnap(6);
+			//Set scrollsnap & content
+			scrollsnapElements = scrollsnap.InitScrollSnap(UIManager.Instance.bodyPartList._BodypartList.Count);
+
+			BodypartAsset lBodyPartAsset;
+
+            for (int i = 0; i < scrollsnapElements.Length; i++)
+            {
+				int lClosureIndex = i;
+				lBodyPartAsset = UIManager.Instance.bodyPartList._BodypartList[lClosureIndex];
+
+				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lBodyPartAsset._Sprite;
+
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));
+			}
 		}
+
+		private void OnClickBodyPartButton(BodypartAsset bodypart)
+        {
+			/*
+			switch (bodypart._Type)
+            {
+                case EBodypartType.EYES:
+					greenoide._Eyes = bodypart;
+
+					break;
+                case EBodypartType.MOUTH:
+					mouthSelected = bodypart;
+
+					break;
+                case EBodypartType.TATTOO:
+					tattooSelected = bodypart;
+
+					break;
+                case EBodypartType.HAIR:
+					hairSelected = bodypart;
+
+					break;
+                case EBodypartType.TOP_HEAD:
+					Debug.LogError("not already implemented");
+
+                    break;
+                case EBodypartType.EARS:
+					earsSelected = bodypart;
+
+					break;
+                case EBodypartType.CLOTH:
+					clothSelected = bodypart;
+
+					break;
+                case EBodypartType.ORNAMENT:
+					ornamentSelected = bodypart;
+
+					break;
+                case EBodypartType.EAR_BACK:
+					earBackSelected = bodypart;
+
+					break;
+                case EBodypartType.HEAD:
+					headSelected = bodypart;
+
+					break;
+                default:
+                    break;
+            }*/
+        }
 
         private void OnClickPrefixName()
         {

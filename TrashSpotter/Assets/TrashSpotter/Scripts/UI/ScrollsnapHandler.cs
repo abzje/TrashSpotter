@@ -11,9 +11,10 @@ namespace Com.TrashSpotter
 		[SerializeField] private Toggle pageTogglePrefab = null;
 		[SerializeField] private GameObject sectionPrefab = null;
 		[SerializeField] private GameObject elementInSectionPrefab = null;
-		[SerializeField] private float numberElementPerSection = 0;
+		[SerializeField] private int numberElementPerSection = 0;
 
 		private Toggle[] paginationToggles;
+		private GameObject[] elements;
 		private float[] pos;
 		private float scroll_pos = 0;
 		private float distance;
@@ -25,39 +26,49 @@ namespace Com.TrashSpotter
 		/// Set the first toggle as default toggle activated
 		/// </summary>
 		/// <param name="number">The number of element inside section you can snap on</param>
-		public void InitScrollSnap(int number)
+		public GameObject[] InitScrollSnap(int number)
 		{
-			sectioNumber = (int)Mathf.Ceil(number / numberElementPerSection);
+			sectioNumber = (int)Mathf.Ceil(number / (float)numberElementPerSection);
 
 			//Init number of toggle and section
 			paginationToggles = new Toggle[sectioNumber];
+			elements = new GameObject[number];
 			pos = new float[sectioNumber];
 			distance = 1 / ((float)sectioNumber - 1);
 
 			GameObject lCurrentSection;
+			GameObject lElement;
 
 			//Section and toggle creation
             for (int i = 0; i < sectioNumber; i++)
             {
-				int lClosureIndex = i;
+				int lIClosureIndex = i;
 
-				paginationToggles[lClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
-				paginationToggles[lClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lClosureIndex]));
+				paginationToggles[lIClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
+				paginationToggles[lIClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lIClosureIndex]));
 
 				lCurrentSection = Instantiate(sectionPrefab, content.transform);
 
-				pos[lClosureIndex] = distance * lClosureIndex;
+				pos[lIClosureIndex] = distance * lIClosureIndex;
 
+				
 				//Element in section creation
                 for (int j = 0; j < numberElementPerSection; j++)
                 {
-					Instantiate(elementInSectionPrefab, lCurrentSection.transform);
+					lElement = Instantiate(elementInSectionPrefab, lCurrentSection.transform);
+
+					if (j + (lIClosureIndex * numberElementPerSection) < number)
+					{
+						elements[j + (lIClosureIndex * numberElementPerSection)] = lElement;
+					}
 				}
 			}
 
 			//Init first toggle as default selected toggle
 			WhichTogClicked(paginationToggles[0]);
 			paginationToggles[0].Select();
+
+			return elements;
 		}
 
 		/// <summary>

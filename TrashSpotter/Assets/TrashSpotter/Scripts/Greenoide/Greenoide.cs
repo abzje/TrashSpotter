@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Greenoide : MonoBehaviour
 {
@@ -17,16 +15,16 @@ public class Greenoide : MonoBehaviour
     [SerializeField] int _OrnamentAssetId = 0;
     [SerializeField] int _EarBackAssetId = 0;
 
-    [SerializeField] Bodypart _Eyes = null;
-    [SerializeField] Bodypart _Mouth = null;
-    [SerializeField] Bodypart _Tattoo = null;
-    [SerializeField] Bodypart _Hair = null;
-    [SerializeField] Bodypart _TopHead = null;
-    [SerializeField] Bodypart _Ear = null;
-    [SerializeField] Bodypart _Cloth = null;
-    [SerializeField] Bodypart _Ornament = null;
-    [SerializeField] Bodypart _EarBack = null;
-    [SerializeField] Bodypart _Head = null;
+    [SerializeField] public Bodypart _Eyes = null;
+    [SerializeField] public Bodypart _Mouth = null;
+    [SerializeField] public Bodypart _Tattoo = null;
+    [SerializeField] public Bodypart _Hair = null;
+    [SerializeField] public Bodypart _TopHead = null;
+    [SerializeField] public Bodypart _Ear = null;
+    [SerializeField] public Bodypart _Cloth = null;
+    [SerializeField] public Bodypart _Ornament = null;
+    [SerializeField] public Bodypart _EarBack = null;
+    [SerializeField] public Bodypart _Head = null;
 
     private void Start() 
     {

@@ -4,6 +4,7 @@ namespace Com.TrashSpotter
 {
     public class UIManager : MonoBehaviour
     {
+        [Header ("Screens")]
         [SerializeField] public Screen greenoLandMainScreen = null;
         [SerializeField] public Screen customisationScreen = null;
         [SerializeField] public Screen giveForestMainScreen = null;
@@ -12,6 +13,9 @@ namespace Com.TrashSpotter
         [SerializeField] public Screen statesPopUp = null;
         [SerializeField] public Screen prefixNamePopUp = null;
         [SerializeField] public Screen animalTotemPopUp = null;
+
+        [Header ("Settings")]
+        [SerializeField] public BodypartList bodyPartList;
 
         [HideInInspector] public Screen currentScreen;
 
