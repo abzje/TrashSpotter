@@ -1,10 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4d98d24b6c3d04346927f35da8e6d316
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 155805940199204096
     second: 07Eyes_0
+=======
+guid: c0d0696f721e1bc448dd8b93957b8741
+TextureImporter:
+  internalIDToNameTable: []
+>>>>>>> origin/greenoide_dev
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -74,6 +80,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -134,6 +141,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> origin/greenoide_dev
     outline: []
     physicsShape: []
     bones: []

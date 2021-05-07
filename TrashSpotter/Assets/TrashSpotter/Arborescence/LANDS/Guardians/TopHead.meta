@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 72c36dcbabfd8284d9b708506c09c782
+=======
+guid: 3d9c2c38d8f15ce46903564996016fbd
+>>>>>>> origin/greenoide_dev
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

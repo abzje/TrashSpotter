@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bcddf33437f358c41874c484c8a4f4aa
+=======
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Animations/AnimalTotemScreen.meta
+guid: 2570f207e978a9d4196d7fbd23a92166
+=======
+guid: 28bf575ed0781684b89247cd71fe94db
+>>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Mouth.meta
+>>>>>>> origin/greenoide_dev
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
