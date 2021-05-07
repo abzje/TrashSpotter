@@ -9,6 +9,7 @@ namespace Com.TrashSpotter
 		[Header("General settings")]
 		[SerializeField] private Button prefixNameButton = null;
 		[SerializeField] private InputField sufixNameInputField = null;
+		[SerializeField] private GameObject sufixWarning = null;
 		[SerializeField] private Toggle switchCustoToggle = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 
