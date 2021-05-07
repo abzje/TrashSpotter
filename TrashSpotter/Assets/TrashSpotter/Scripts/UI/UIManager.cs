@@ -5,6 +5,7 @@ namespace Com.TrashSpotter
     public class UIManager : MonoBehaviour
     {
         [Header ("Screens")]
+        [SerializeField] public Screen trashSpotterMainScreen = null;
         [SerializeField] public Screen greenoLandMainScreen = null;
         [SerializeField] public Screen customisationScreen = null;
         [SerializeField] public Screen giveForestMainScreen = null;
@@ -46,7 +47,9 @@ namespace Com.TrashSpotter
         public void SwitchScreen(Screen screen)
         {
             if (currentScreen != null) currentScreen.Close();
-            
+
+            Debug.Log("closed one " + currentScreen);
+
             OpenScreen(screen);
         }
 
@@ -65,6 +68,8 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void OpenScreen(Screen screen)
         {
+
+            Debug.Log(screen);
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
@@ -77,6 +82,16 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to close</param>
         public void CloseScreen(Screen screen)
         {
+            screen.Close();
+        }
+
+        /// <summary>
+        /// Close the the given screen
+        /// </summary>
+        /// <param name="screen">The instance of the screen you want to close</param>
+        public void ClosePopUp(Screen screen)
+        {
+            currentScreen = currentScreen.previousScreen;
             screen.Close();
         }
 

@@ -15,18 +15,6 @@ public class Greenoide : MonoBehaviour
     [SerializeField] int _ClothAssetId = 0;
     [SerializeField] int _OrnamentAssetId = 0;
 
-<<<<<<< HEAD
-    [SerializeField] public Bodypart _Eyes = null;
-    [SerializeField] public Bodypart _Mouth = null;
-    [SerializeField] public Bodypart _Tattoo = null;
-    [SerializeField] public Bodypart _Hair = null;
-    [SerializeField] public Bodypart _TopHead = null;
-    [SerializeField] public Bodypart _Ear = null;
-    [SerializeField] public Bodypart _Cloth = null;
-    [SerializeField] public Bodypart _Ornament = null;
-    [SerializeField] public Bodypart _EarBack = null;
-    [SerializeField] public Bodypart _Head = null;
-=======
     [SerializeField] Bodypart _Head = null;
     [SerializeField] Bodypart _Tattoo = null;
     [SerializeField] Bodypart _Eyes = null;
@@ -38,7 +26,6 @@ public class Greenoide : MonoBehaviour
     [SerializeField] Bodypart _Cloth = null;
     [SerializeField] Bodypart _Ornament = null;
     [SerializeField] SpriteMask _HeadMask = null;
->>>>>>> origin/greenoide_dev
 
     private void Start() 
     {
