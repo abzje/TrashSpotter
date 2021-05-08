@@ -1290,6 +1290,7 @@ MonoBehaviour:
   statesPopUp: {fileID: 625362793}
   prefixNamePopUp: {fileID: 1620546597}
   animalTotemPopUp: {fileID: 773524961}
+  bodyPartList: {fileID: 0}
   currentScreen: {fileID: 0}
 --- !u!4 &134577411
 Transform:
@@ -17505,8 +17506,10 @@ MonoBehaviour:
   scrollsnap: {fileID: 500456695}
   greenoidCusto: {fileID: 1032187562}
   filterToggleGroup: {fileID: 1277400306}
+  greenoide: {fileID: 0}
   totemCusto: {fileID: 1396070019}
   animalTotemButton: {fileID: 811710725}
+  totemImage: {fileID: 0}
 --- !u!114 &1931240290
 MonoBehaviour:
   m_ObjectHideFlags: 0

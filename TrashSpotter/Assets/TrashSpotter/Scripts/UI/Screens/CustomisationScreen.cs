@@ -37,18 +37,19 @@ namespace Com.TrashSpotter
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
 			//Set scrollsnap & content
-			scrollsnapElements = scrollsnap.InitScrollSnap(UIManager.Instance.bodyPartList._BodypartList.Count);
+			scrollsnapElements = scrollsnap.InitScrollSnap(UIManager.Instance.bodyPartList.GetCount());
 
 			BodypartAsset lBodyPartAsset;
 
             for (int i = 0; i < scrollsnapElements.Length; i++)
             {
-				int lClosureIndex = i;
+				// Brocken because _bodyPartList is now a collection of several lists
+				/*int lClosureIndex = i;
 				lBodyPartAsset = UIManager.Instance.bodyPartList._BodypartList[lClosureIndex];
 
 				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lBodyPartAsset._Sprite;
 
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));*/
 			}
 		}
 
