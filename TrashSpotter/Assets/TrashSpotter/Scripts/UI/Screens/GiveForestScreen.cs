@@ -13,13 +13,15 @@ namespace Com.TrashSpotter
         [SerializeField] private Button assoEnergyButton = null;
 
         [Header ("Tree")]
-        [SerializeField] private Image treeTopImage = null;
+        [SerializeField] private Button treeButton = null;
 
         [Header ("Money")]
         [SerializeField] private Text moneyValueText = null;
 
         private void Start()
         {
+            treeButton.onClick.AddListener(OnClickTree);
+
             assoHumanButton.onClick.AddListener(OnClickAssoHumanButton);
             assoAgricultureButton.onClick.AddListener(OnClickAssoAgricultureButton);
             assoEcologyButton.onClick.AddListener(OnClickAssoEcologyButton);
@@ -27,34 +29,45 @@ namespace Com.TrashSpotter
             assoEnergyButton.onClick.AddListener(OnClickAssoEnergyButton);
         }
 
+        private void OnClickTree()
+        {
+            UIManager.Instance.OpenScreen(UIManager.Instance.smashSeedPopUp);
+        }
+
+        #region assos
+
         private void OnClickAssoHumanButton()
         {
-            UIManager.Instance.OpenPopUpAndFillIt(UIManager.Instance.assosPopUp, PopUpFillableDynamicaly.enAssoCategory.Human);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Human);
         }
 
         private void OnClickAssoAgricultureButton()
         {
-            UIManager.Instance.OpenPopUpAndFillIt(UIManager.Instance.assosPopUp, PopUpFillableDynamicaly.enAssoCategory.Agriculture);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Agriculture);
         }
 
         private void OnClickAssoEcologyButton()
         {
-            UIManager.Instance.OpenPopUpAndFillIt(UIManager.Instance.assosPopUp, PopUpFillableDynamicaly.enAssoCategory.Ecology);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Ecology);
         }
 
         private void OnClickAssoIndustryButton()
         {
-            UIManager.Instance.OpenPopUpAndFillIt(UIManager.Instance.assosPopUp, PopUpFillableDynamicaly.enAssoCategory.Industry);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Industry);
         }
 
         private void OnClickAssoEnergyButton()
         {
-            UIManager.Instance.OpenPopUpAndFillIt(UIManager.Instance.assosPopUp, PopUpFillableDynamicaly.enAssoCategory.Energy);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Energy);
         }
+
+        #endregion
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
+
+            treeButton.onClick.RemoveListener(OnClickTree);
 
             assoHumanButton.onClick.RemoveListener(OnClickAssoHumanButton);
             assoAgricultureButton.onClick.RemoveListener(OnClickAssoAgricultureButton);

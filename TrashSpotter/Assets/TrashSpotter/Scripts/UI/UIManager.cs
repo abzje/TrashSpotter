@@ -15,6 +15,7 @@ namespace Com.TrashSpotter
         [SerializeField] public Screen anteNamePopUp = null;
         [SerializeField] public Screen editableNameNamePopUp = null;
         [SerializeField] public Screen animalTotemPopUp = null;
+        [SerializeField] public Screen smashSeedPopUp = null;
 
         [HideInInspector] public Screen currentScreen;
 
@@ -52,12 +53,20 @@ namespace Com.TrashSpotter
             OpenScreen(screen);
         }
 
-        public void OpenPopUpAndFillIt(Screen screen, PopUpFillableDynamicaly.enAssoCategory assoCategory)
+        public void OpenAssosPopUp(Screen screen, AssosPopUp.enAssoCategory assoCategory)
         {
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
-            screen.GetComponent<PopUpFillableDynamicaly>().SetPopUp(assoCategory);
+            screen.GetComponent<AssosPopUp>().SetPopUp(assoCategory);
+        }
+
+        public void OpenAssoDetailsPopUp(Screen screen)
+        {
+            if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
+
+            screen.Open();
+            screen.GetComponent<AssoDetailsPopUp>().SetPopUp();
         }
 
         /// <summary>
