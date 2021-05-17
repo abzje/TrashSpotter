@@ -19,7 +19,6 @@ namespace Com.TrashSpotter
         {
             if (UIManager.Instance.currentScreen is PopUp)
             {
-                Debug.Log("popup");
                 UIManager.Instance.ClosePopUp(UIManager.Instance.currentScreen);
                 return;
             }

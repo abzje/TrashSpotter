@@ -9,6 +9,8 @@ namespace Com.TrashSpotter
         [SerializeField] public Screen greenoLandMainScreen = null;
         [SerializeField] public Screen customisationScreen = null;
         [SerializeField] public Screen giveForestMainScreen = null;
+
+        [Header ("PopUps")]
         [SerializeField] public Screen assosPopUp = null;
         [SerializeField] public Screen assoDetailsPopUp = null;
         [SerializeField] public Screen statesPopUp = null;

@@ -29,7 +29,7 @@ namespace Com.TrashSpotter
 
         private void OnClickCancel()
         {
-
+            UIManager.Instance.ClosePopUp(this);
         }
 
         private void OnClickSmashSeed()
