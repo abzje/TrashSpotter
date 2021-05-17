@@ -5,17 +5,19 @@ namespace Com.TrashSpotter
     public class UIManager : MonoBehaviour
     {
         [Header ("Screens")]
+        [SerializeField] public Screen trashSpotterMainScreen = null;
         [SerializeField] public Screen greenoLandMainScreen = null;
         [SerializeField] public Screen customisationScreen = null;
         [SerializeField] public Screen giveForestMainScreen = null;
+
+        [Header ("PopUps")]
         [SerializeField] public Screen assosPopUp = null;
         [SerializeField] public Screen assoDetailsPopUp = null;
         [SerializeField] public Screen statesPopUp = null;
-        [SerializeField] public Screen prefixNamePopUp = null;
+        [SerializeField] public Screen anteNamePopUp = null;
+        [SerializeField] public Screen editableNameNamePopUp = null;
         [SerializeField] public Screen animalTotemPopUp = null;
-
-        [Header ("Settings")]
-        [SerializeField] public BodypartList bodyPartList;
+        [SerializeField] public Screen smashSeedPopUp = null;
 
         [HideInInspector] public Screen currentScreen;
 
@@ -45,17 +47,28 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void SwitchScreen(Screen screen)
         {
+            if (currentScreen == screen) return;
             if (currentScreen != null) currentScreen.Close();
-            
+
+            Debug.Log("closed one " + currentScreen);
+
             OpenScreen(screen);
         }
 
-        public void OpenPopUpAndFillIt(Screen screen, PopUpFillableDynamicaly.enAssoCategory assoCategory)
+        public void OpenAssosPopUp(Screen screen, AssosPopUp.enAssoCategory assoCategory)
         {
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
-            screen.GetComponent<PopUpFillableDynamicaly>().SetPopUp(assoCategory);
+            screen.GetComponent<AssosPopUp>().SetPopUp(assoCategory);
+        }
+
+        public void OpenAssoDetailsPopUp(Screen screen)
+        {
+            if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
+
+            screen.Open();
+            screen.GetComponent<AssoDetailsPopUp>().SetPopUp();
         }
 
         /// <summary>
@@ -65,6 +78,9 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void OpenScreen(Screen screen)
         {
+            if (currentScreen == screen) return;
+
+            Debug.Log(screen);
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
@@ -77,6 +93,16 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to close</param>
         public void CloseScreen(Screen screen)
         {
+            screen.Close();
+        }
+
+        /// <summary>
+        /// Close the the given screen
+        /// </summary>
+        /// <param name="screen">The instance of the screen you want to close</param>
+        public void ClosePopUp(Screen screen)
+        {
+            currentScreen = currentScreen.previousScreen;
             screen.Close();
         }
 

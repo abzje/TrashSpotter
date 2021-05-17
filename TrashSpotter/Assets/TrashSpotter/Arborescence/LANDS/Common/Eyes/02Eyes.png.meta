@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2c2bc7a596af1bf47958f95c569c0aeb
 TextureImporter:
   internalIDToNameTable:
@@ -14,6 +15,15 @@ TextureImporter:
   - first:
       213: -1778143275805401908
     second: 02Eyes_3
+=======
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Heads/01HeadMask.png.meta
+guid: d22d132ecf5c53c4b83a44c75ded4f0a
+=======
+guid: b28aeac320a993642993f9cde7a0ba31
+>>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Eyes/02Eyes.png.meta
+TextureImporter:
+  internalIDToNameTable: []
+>>>>>>> origin/greenoide_dev
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,6 +93,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -206,6 +217,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> origin/greenoide_dev
     outline: []
     physicsShape: []
     bones: []

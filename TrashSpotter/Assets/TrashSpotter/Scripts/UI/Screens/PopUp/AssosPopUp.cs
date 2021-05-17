@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 namespace Com.TrashSpotter
 {
-    public class AssosPopUp : PopUpFillableDynamicaly
+    public class AssosPopUp : PopUp
     {
         [Header ("General Settings")]
         [SerializeField] private Transform assosButtonContainer = null;
+        [SerializeField] private GameObject assoButtonPrefab = null;
 
         [Header ("Category Image")]
         [SerializeField] private Image assoCategoryImage = null;
@@ -16,9 +17,11 @@ namespace Com.TrashSpotter
         [SerializeField] private Sprite industryCategoryImage = null;
         [SerializeField] private Sprite energyCategoryImage = null;
 
-        public override void SetPopUp(enAssoCategory assoCategory)
+        public enum enAssoCategory { Human, Agriculture, Ecology, Industry, Energy };
+        [HideInInspector] public enAssoCategory currentAssoCategorySelected;
+
+        public void SetPopUp(enAssoCategory assoCategory)
         {
-            base.SetPopUp(assoCategory);
 
             switch (assoCategory)
             {
@@ -45,19 +48,24 @@ namespace Com.TrashSpotter
 
         private void Start()
         {
-            for (int i = 0; i < assosButtonContainer.childCount; i++)
+            //nombre à remplacer par le nombre d'asso dans cette catégorie
+
+            GameObject assoButton;
+
+            for (int i = 0; i < 10; i++)
             {
-                int lClosureIndex = i;
-                assosButtonContainer.GetChild(lClosureIndex).GetComponent<Button>().onClick.AddListener(delegate { 
-                    OnCLickAssoButton(assosButtonContainer.GetChild(lClosureIndex)); 
-                });
+                assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
+                //Set sprite here
+                //assoButton.GetComponent<Image>().sprite = 
+
+                assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(assoButton.transform); });
             }
         }
 
         private void OnCLickAssoButton(Transform assoButton)
         {
             UIManager.Instance.CloseScreen(this);
-            UIManager.Instance.OpenScreen(UIManager.Instance.assoDetailsPopUp);
+            UIManager.Instance.OpenAssoDetailsPopUp(UIManager.Instance.assoDetailsPopUp);
         }
 
         private void OnDisable()
@@ -65,6 +73,17 @@ namespace Com.TrashSpotter
             for (int i = 0; i < assosButtonContainer.childCount; i++)
             {
                 assosButtonContainer.GetChild(i).GetComponent<Button>().onClick.RemoveAllListeners();
+            }
+        }
+
+        override protected void OnDestroy()
+        {
+            base.OnDestroy();
+
+            for (int i = 0; i < assosButtonContainer.childCount; i++)
+            {
+                int closureIndex = i;
+                assosButtonContainer.GetChild(closureIndex).GetComponent<Button>().onClick.RemoveAllListeners();
             }
         }
     }

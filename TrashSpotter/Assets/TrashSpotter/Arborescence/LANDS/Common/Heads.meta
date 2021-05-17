@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ddf981f22efd2fb45aff8a7cf75dc7df
+=======
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Animations/AssosPopUp.meta
+guid: 56b11f0f35f732448b06b03b02d25b6b
+=======
+guid: f5a574ffc386a25409a30f8822fd3aa1
+>>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Heads.meta
+>>>>>>> origin/greenoide_dev
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

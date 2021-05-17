@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d504fe6506c97d34da25ea2801fea82d
+=======
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Mouth/01Mouth.png.meta
+guid: d504fe6506c97d34da25ea2801fea82d
+=======
+guid: 149ad3444abefed47a8ab1461263e4ed
+>>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/01Mouth.png.meta
+>>>>>>> UI
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

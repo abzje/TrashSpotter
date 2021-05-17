@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d22d132ecf5c53c4b83a44c75ded4f0a
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Heads/01HeadMask.png.meta
+guid: d22d132ecf5c53c4b83a44c75ded4f0a
+=======
+guid: b28aeac320a993642993f9cde7a0ba31
+>>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Common/Eyes/02Eyes.png.meta
+=======
+guid: 2c7851314fb023745b0ef8c442bec1d0
+>>>>>>> origin/greenoide_dev
+>>>>>>> UI
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -7,11 +7,13 @@ namespace Com.TrashSpotter
     public class CustomisationScreen : Screen
     {
 		[Header("General settings")]
-		[SerializeField] private Button prefixNameButton = null;
-		[SerializeField] private InputField sufixNameInputField = null;
-		[SerializeField] private GameObject sufixWarning = null;
 		[SerializeField] private Toggle switchCustoToggle = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
+
+		[Header("Name settings")]
+		[SerializeField] public Button anteNameButton = null;
+		[SerializeField] private InputField editNameInputField = null;
+		[SerializeField] public GameObject fadedBackground = null;
 
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
@@ -30,27 +32,27 @@ namespace Com.TrashSpotter
 		private void Start()
 		{
 			inputFieldCouldBeSelected = true;
-			prefixNameButton.onClick.AddListener(OnClickPrefixName);
-			sufixNameInputField.onValueChanged.AddListener((value) => OnClickSufixName(value));
-			sufixNameInputField.onEndEdit.AddListener(OnEndEditSufixName);
+			anteNameButton.onClick.AddListener(OnClickAnteName);
+			editNameInputField.onEndEdit.AddListener(OnEndEditName);
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
 			//Set scrollsnap & content
-			scrollsnapElements = scrollsnap.InitScrollSnap(UIManager.Instance.bodyPartList.GetCount());
+
+			scrollsnapElements = scrollsnap.InitScrollSnap(10/*nombre au pif en attedant*/);
+			/*scrollsnapElements = scrollsnap.InitScrollSnap(UIManager.Instance.bodyPartList._BodypartList.Count);
 
 			BodypartAsset lBodyPartAsset;
 
             for (int i = 0; i < scrollsnapElements.Length; i++)
             {
-				// Brocken because _bodyPartList is now a collection of several lists
-				/*int lClosureIndex = i;
+				int lClosureIndex = i;
 				lBodyPartAsset = UIManager.Instance.bodyPartList._BodypartList[lClosureIndex];
 
 				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lBodyPartAsset._Sprite;
 
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));*/
-			}
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));
+			}*/
 		}
 
 		private void OnClickBodyPartButton(BodypartAsset bodypart)
@@ -103,19 +105,16 @@ namespace Com.TrashSpotter
             }*/
         }
 
-        private void OnClickPrefixName()
+        private void OnClickAnteName()
         {
-			UIManager.Instance.OpenScreen(UIManager.Instance.prefixNamePopUp);
+			UIManager.Instance.OpenScreen(UIManager.Instance.anteNamePopUp);
+			fadedBackground.SetActive(true);
 		}
 
-		private void OnClickSufixName(string value)
-		{
-			Debug.Log("Save name " + value + " here.");
-		}
-
-		private void OnEndEditSufixName(string value)
+		private void OnEndEditName(string value)
 		{
 			inputFieldCouldBeSelected = true;
+			//if (UIManager.Instance.editableNameNamePopUp.isOpen) UIManager.Instance.ClosePopUp(UIManager.Instance.editableNameNamePopUp);
 			Debug.Log("Do animations of leaving input editing here");
 		}
 
@@ -132,11 +131,11 @@ namespace Com.TrashSpotter
 
 		private void Update()
 		{
-			if (EventSystem.current.currentSelectedGameObject == sufixNameInputField.gameObject)
+			if (EventSystem.current.currentSelectedGameObject == editNameInputField.gameObject)
 			{
-				if (sufixNameInputField.isFocused && inputFieldCouldBeSelected)
+				if (editNameInputField.isFocused && inputFieldCouldBeSelected)
                 {
-					Debug.Log("Do animations for editing input here");
+					UIManager.Instance.OpenScreen(UIManager.Instance.editableNameNamePopUp);
 					inputFieldCouldBeSelected = false;
                 }
 			}
@@ -146,9 +145,8 @@ namespace Com.TrashSpotter
 		{
 			base.OnDestroy();
 
-			prefixNameButton.onClick.RemoveListener(OnClickPrefixName);
-			sufixNameInputField.onValueChanged.RemoveListener((value) => OnClickSufixName(value));
-			sufixNameInputField.onEndEdit.RemoveListener(OnEndEditSufixName);
+			anteNameButton.onClick.RemoveListener(OnClickAnteName);
+			editNameInputField.onEndEdit.RemoveListener(OnEndEditName);
 			switchCustoToggle.onValueChanged.RemoveListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.RemoveListener(OnClickAnimalTotem);
 

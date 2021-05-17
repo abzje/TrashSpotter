@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.TrashSpotter
 {
-    public class PrefixNamePopUp : PopUp
+    public class PrefixNamePopUp : NamePopUp
     {
-        [SerializeField] private GameObject nameContainer = null;
         [SerializeField] private GameObject prefixContainer = null;
 
         private void Start()
@@ -20,13 +17,7 @@ namespace Com.TrashSpotter
 
         private void ChangePrefix(Text text)
         {
-            for (int i = 0; i < nameContainer.transform.childCount; i++)
-            {
-                if (nameContainer.transform.GetChild(i).name == "NamePrefix")
-                {
-                    nameContainer.transform.GetChild(i).GetComponentInChildren<Text>().text = text.text;
-                }
-            }
+            custoScreen.anteNameButton.transform.GetChild(0).GetComponentInChildren<Text>().text = text.text;
         }
     }
 }

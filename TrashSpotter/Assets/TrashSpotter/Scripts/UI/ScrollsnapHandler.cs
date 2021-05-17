@@ -44,8 +44,11 @@ namespace Com.TrashSpotter
             {
 				int lIClosureIndex = i;
 
-				paginationToggles[lIClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
-				paginationToggles[lIClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lIClosureIndex]));
+				if (paginationToggleGroup != null)
+                {
+					paginationToggles[lIClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
+					paginationToggles[lIClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lIClosureIndex]));
+				}
 
 				lCurrentSection = Instantiate(sectionPrefab, content.transform);
 
@@ -65,8 +68,11 @@ namespace Com.TrashSpotter
 			}
 
 			//Init first toggle as default selected toggle
-			WhichTogClicked(paginationToggles[0]);
-			paginationToggles[0].Select();
+			if (paginationToggleGroup != null)
+			{
+				WhichTogClicked(paginationToggles[0]);
+				paginationToggles[0].Select();
+			}
 
 			return elements;
 		}
@@ -126,6 +132,8 @@ namespace Com.TrashSpotter
 
         private void OnDisable()
         {
+			if (paginationToggles == null) return;
+
             foreach (Toggle toggle in paginationToggles)
             {
 				toggle.onValueChanged.RemoveListener((value) => WhichTogClicked(toggle));

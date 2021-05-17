@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d216de8e819ace448b015d6836f50d41
+=======
+<<<<<<< HEAD
+guid: d216de8e819ace448b015d6836f50d41
+=======
+guid: 80b7ec3d0aff35f4d95f8492ebd778c2
+>>>>>>> origin/greenoide_dev
+>>>>>>> UI
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
