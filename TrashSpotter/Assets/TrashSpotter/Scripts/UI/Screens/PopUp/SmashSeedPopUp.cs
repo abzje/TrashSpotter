@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Com.TrashSpotter
 {
@@ -18,6 +19,8 @@ namespace Com.TrashSpotter
         {
             cancelButton.onClick.AddListener(OnClickCancel);
             smashSeedButton.onClick.AddListener(OnClickSmashSeed);
+
+            DOTween.Init(false);
         }
 
         public override void Open()
@@ -37,20 +40,24 @@ namespace Com.TrashSpotter
             smashCount++;
 
             float ratio = (float)smashCount / smashCountToLevelUp;
-            seedFiller.fillAmount = ratio;
 
-            Debug.Log(ratio);
+            //punch on scale effect
+            smashSeedButton.transform.DOPunchScale(Vector2.one * 0.4f, 0.1f, 10, 1f);
 
-            if (ratio == 1)
+            //lerp fill amount
+            seedFiller.DOFillAmount(ratio, 0.25f).OnComplete(() => 
             {
-                UpdateLevel();
-                smashCount = 0;
-            }
+                if (ratio == 1)
+                {
+                    UpdateLevel();
+                    smashCount = 0;
+                }
+            } );
         }
 
         private void UpdateLevel()
         {
-
+            seedFiller.fillAmount = 0;
         }
 
         protected override void OnDestroy()
