@@ -43,64 +43,54 @@ namespace Com.TrashSpotter
 
             for (int i = 0; i < scrollsnapElements.Length; i++)
             {
-				// Brocken because _bodyPartList is now a collection of several lists
-				/*int lClosureIndex = i;
-				lBodyPartAsset = UIManager.Instance.bodyPartList._BodypartList[lClosureIndex];
+				int lClosureIndex = i;
+				lBodyPartAsset = UIManager.Instance.bodyPartList.GetBodypartAsset(lClosureIndex);
 
 				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lBodyPartAsset._Sprite;
 
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lBodyPartAsset));*/
+				BodypartAsset currentBodypart = lBodyPartAsset;
+
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(currentBodypart));
 			}
 		}
 
 		private void OnClickBodyPartButton(BodypartAsset bodypart)
         {
-			/*
 			switch (bodypart._Type)
             {
-                case EBodypartType.EYES:
-					greenoide._Eyes = bodypart;
+                case EBodypartType.HEAD: 	 
+					greenoide.ChangeHead(bodypart._Sprite, bodypart._Id); break;
 
-					break;
-                case EBodypartType.MOUTH:
-					mouthSelected = bodypart;
+                case EBodypartType.TATTOO: 	 
+					greenoide.ChangeTattoo(bodypart._Sprite, bodypart._Id); break;
 
-					break;
-                case EBodypartType.TATTOO:
-					tattooSelected = bodypart;
+				case EBodypartType.EYES:	 
+					greenoide.ChangeEyes(bodypart._Sprite, bodypart._Id); break;
 
-					break;
-                case EBodypartType.HAIR:
-					hairSelected = bodypart;
+                case EBodypartType.MOUTH:	 
+					greenoide.ChangeMouth(bodypart._Sprite, bodypart._Id); break;
 
-					break;
-                case EBodypartType.TOP_HEAD:
-					Debug.LogError("not already implemented");
+                case EBodypartType.HAIR:	 
+					greenoide.ChangeHair(bodypart._Sprite, bodypart._Id); break;
 
-                    break;
+                case EBodypartType.TOP_HEAD: 
+					greenoide.ChangeTopHead(bodypart._Sprite, bodypart._Id); break;
+
                 case EBodypartType.EARS:
-					earsSelected = bodypart;
+					greenoide.ChangeEars(bodypart._Sprite, bodypart._Id); break;
 
-					break;
-                case EBodypartType.CLOTH:
-					clothSelected = bodypart;
+                case EBodypartType.EARS_BACK:
+					greenoide.ChangeEarsBack(bodypart._Sprite, bodypart._Id); break;
 
-					break;
+                case EBodypartType.CLOTHES:
+					greenoide.ChangeClothes(bodypart._Sprite, bodypart._Id); break;
+
                 case EBodypartType.ORNAMENT:
-					ornamentSelected = bodypart;
-
-					break;
-                case EBodypartType.EAR_BACK:
-					earBackSelected = bodypart;
-
-					break;
-                case EBodypartType.HEAD:
-					headSelected = bodypart;
-
-					break;
-                default:
+					greenoide.ChangeOrnament(bodypart._Sprite, bodypart._Id); break;
+                
+				default:
                     break;
-            }*/
+            }
         }
 
         private void OnClickPrefixName()

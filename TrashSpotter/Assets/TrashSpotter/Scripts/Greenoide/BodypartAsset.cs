@@ -16,10 +16,20 @@ public enum EBodypartType
     ORNAMENT
 }
 
+public enum EBodypartFamily
+{
+    COMMON,
+    GUARDIANS,
+    NAVIGATORS,
+    SENTRIES
+}
+
 [CreateAssetMenu(fileName = "BodypartAsset", menuName = "Greenoide/BodypartAsset", order = 1)]
 public class BodypartAsset : ScriptableObject
 {
     public Sprite _Sprite = null;
     public int _Id = 0;
     public EBodypartType _Type = EBodypartType.EYES;
+
+    public EBodypartFamily _Family = EBodypartFamily.COMMON;
 }
