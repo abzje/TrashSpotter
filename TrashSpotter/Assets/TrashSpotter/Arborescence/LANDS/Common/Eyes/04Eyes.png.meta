@@ -1,25 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> UI
 guid: e0f605150743ce14f8756cf8069140bf
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7695987392144647098
-    second: 04Eyes_0
-  - first:
-      213: 303519884949685113
-    second: 04Eyes_1
-<<<<<<< HEAD
-=======
-=======
-guid: ac5e3d31a30246b4ab0c4d8981ac54cf
-TextureImporter:
   internalIDToNameTable: []
->>>>>>> origin/greenoide_dev
->>>>>>> UI
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,99 +71,9 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> UI
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  spriteSheet:
-    serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: 04Eyes_0
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 492
-        width: 82
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64c555fed3c523590800000000000000
-      internalID: -7695987392144647098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 04Eyes_1
-      rect:
-        serializedVersion: 2
-        x: 507
-        y: 492
-        width: 100
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97381bc2ab1563400800000000000000
-      internalID: 303519884949685113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-<<<<<<< HEAD
-=======
-=======
   spriteSheet:
     serializedVersion: 2
     sprites: []
->>>>>>> origin/greenoide_dev
->>>>>>> UI
     outline: []
     physicsShape: []
     bones: []
