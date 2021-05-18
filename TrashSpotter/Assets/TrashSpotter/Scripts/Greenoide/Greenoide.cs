@@ -48,35 +48,38 @@ public class Greenoide : MonoBehaviour
         {
             BodypartAsset headAsset = _BodypartAvailable.GetHeadAsset(_HeadAsset._HeadAssetId);
             if (headAsset != null)
+            {
+                _Head.transform.localPosition = new Vector3(0, 0, -0.5f);
                 _Head.SetSprite(headAsset._Sprite);
+            }
 
             // Sets the body parts position according to the given head
             if (_Tattoo != null)
-                _Tattoo.transform.localPosition = new Vector3(_HeadAsset._TattooPos.x, _HeadAsset._TattooPos.y, -0.5f);
+                _Tattoo.transform.localPosition = new Vector3(_HeadAsset._TattooPos.x, _HeadAsset._TattooPos.y, -1f);
 
             if (_Eyes != null)
-                _Eyes.transform.localPosition = new Vector3(_HeadAsset._EyesPos.x, _HeadAsset._EyesPos.y, -0.5f);
+                _Eyes.transform.localPosition = new Vector3(_HeadAsset._EyesPos.x, _HeadAsset._EyesPos.y, -1f);
 
             if (_Mouth != null)
-                _Mouth.transform.localPosition = new Vector3(_HeadAsset._MouthPos.x, _HeadAsset._MouthPos.y, -0.5f);
+                _Mouth.transform.localPosition = new Vector3(_HeadAsset._MouthPos.x, _HeadAsset._MouthPos.y, -1f);
 
             if (_Hair != null)
-                _Hair.transform.localPosition = new Vector3(_HeadAsset._HairPos.x, _HeadAsset._HairPos.y, -0.5f);
+                _Hair.transform.localPosition = new Vector3(_HeadAsset._HairPos.x, _HeadAsset._HairPos.y, -1f);
 
             if (_TopHead != null)
-                _TopHead.transform.localPosition = new Vector3(_HeadAsset._TopHeadPos.x, _HeadAsset._TopHeadPos.y, -1f);
+                _TopHead.transform.localPosition = new Vector3(_HeadAsset._TopHeadPos.x, _HeadAsset._TopHeadPos.y, -1.5f);
             
             if (_Ears != null)
-                _Ears.transform.localPosition = new Vector3(_HeadAsset._EarsPos.x, _HeadAsset._EarsPos.y, -1.5f);;
+                _Ears.transform.localPosition = new Vector3(_HeadAsset._EarsPos.x, _HeadAsset._EarsPos.y, -2f);;
 
             if (_EarsBack != null)
                 _EarsBack.transform.localPosition = new Vector3(_HeadAsset._EarsBackPos.x, _HeadAsset._EarsBackPos.y, 0f);
 
             if (_Clothes != null)
-                _Clothes.transform.localPosition = new Vector3(_HeadAsset._ClothesPos.x, _HeadAsset._ClothesPos.y, -0.5f);
+                _Clothes.transform.localPosition = new Vector3(_HeadAsset._ClothesPos.x, _HeadAsset._ClothesPos.y, -1f);
 
             if (_Ornament != null)
-                _Ornament.transform.localPosition = new Vector3(_HeadAsset._OrnamentPos.x, _HeadAsset._OrnamentPos.y, -1f);
+                _Ornament.transform.localPosition = new Vector3(_HeadAsset._OrnamentPos.x, _HeadAsset._OrnamentPos.y, -1.5f);
         }
     }
 
