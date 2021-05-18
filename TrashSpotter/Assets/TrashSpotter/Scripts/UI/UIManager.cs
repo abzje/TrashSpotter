@@ -98,8 +98,8 @@ namespace Com.TrashSpotter
 
         /// <summary>
         /// Close the the given screen
-        /// </summary>
         /// <param name="screen">The instance of the screen you want to close</param>
+        /// </summary>
         public void ClosePopUp(Screen screen)
         {
             currentScreen = currentScreen.previousScreen;
