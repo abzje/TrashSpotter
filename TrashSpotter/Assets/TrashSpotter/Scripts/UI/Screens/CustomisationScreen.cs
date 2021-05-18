@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace Com.TrashSpotter
 		[Header("General settings")]
 		[SerializeField] private Toggle switchCustoToggle = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
+		[SerializeField] private FilterToggleGroup filterToggleGroup = null;
 
 		[Header("Name settings")]
 		[SerializeField] public Button anteNameButton = null;
@@ -17,8 +19,16 @@ namespace Com.TrashSpotter
 
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
-		[SerializeField] private ToggleGroup filterToggleGroup = null;
 		[SerializeField] private Greenoide greenoide = null;
+		[SerializeField] private Toggle headButton = null;
+		[SerializeField] private Toggle eyeButton = null;
+		[SerializeField] private Toggle mouthButton = null;
+		[SerializeField] private Toggle tattoButton = null;
+		[SerializeField] private Toggle hairButton = null;
+		[SerializeField] private Toggle topHeadButton = null;
+		[SerializeField] private Toggle clothButton = null;
+		[SerializeField] private Toggle earButton = null;
+		[SerializeField] private Toggle ornamentButton = null;
 
 		[Header("Totem settings")]
 		[SerializeField] private GameObject totemCusto = null;
@@ -26,10 +36,23 @@ namespace Com.TrashSpotter
 		[SerializeField] private Image totemImage = null;
 
 		private GameObject[] scrollsnapElements;
+		private List<BodypartAsset> bodypartsBySelectedType;
 
 		private bool inputFieldCouldBeSelected;
+		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
+		private EBodypartType currentType = EBodypartType.HEAD;
 
-		private void Start()
+        private void OnEnable()
+        {
+			FilterToggleGroup.OnFilterClicked += UpdateFilter;
+		}
+
+        private void OnDisable()
+        {
+			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
+		}
+
+        private void Start()
 		{
 			inputFieldCouldBeSelected = true;
 			anteNameButton.onClick.AddListener(OnClickAnteName);
@@ -37,58 +60,139 @@ namespace Com.TrashSpotter
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
+			//.onValueChanged.AddListener((value) => );
+
+			headButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.HEAD));
+			eyeButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.EYES));
+			mouthButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.MOUTH));
+			tattoButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.TATTOO));
+			hairButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.HAIR));
+			topHeadButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.TOP_HEAD));
+			clothButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.CLOTHES));
+			earButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.EARS));
+			ornamentButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.ORNAMENT));
+
 			//Set scrollsnap & content
 
-			scrollsnapElements = scrollsnap.InitScrollSnap(greenoide._BodypartAvailable.GetCount());
+			InitScrollView();
+		}
 
-			BodypartAsset lBodyPartAsset;
+		/// <summary>
+		/// Init scroll snap, fill bodypart button by type & filter
+		/// </summary>
+		/// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
+		private void InitScrollView()
+        {
+			bodypartsBySelectedType = new List<BodypartAsset>();
 
-            for (int i = 0; i < scrollsnapElements.Length; i++)
+			BodypartAsset lBodypartAssetByTypeAndFilter;
+
+			for (int i = 0; i < greenoide._BodypartAvailable.GetCount(); i++)
             {
+				lBodypartAssetByTypeAndFilter = greenoide._BodypartAvailable.GetBodypartAsset(i);
+
+				//filter by type
+				if (lBodypartAssetByTypeAndFilter._Type == currentType)
+                {
+					//filter by family
+					if (lBodypartAssetByTypeAndFilter._Family == currentFilter)
+						bodypartsBySelectedType.Add(lBodypartAssetByTypeAndFilter);
+				}
+			}
+
+			scrollsnapElements = scrollsnap.InitScrollSnap(bodypartsBySelectedType.Count);
+
+			BodypartAsset lCurrentBodypart;
+
+			for (int i = 0; i < scrollsnapElements.Length; i++)
+			{
 				int lClosureIndex = i;
-				lBodyPartAsset = greenoide._BodypartAvailable.GetBodypartAsset(lClosureIndex);
+				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
 
-				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lBodyPartAsset._Sprite;
+				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
 
-				BodypartAsset currentBodypart = lBodyPartAsset;
-
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(currentBodypart));
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lCurrentBodypart));
 			}
 		}
 
+		/// <summary>
+		/// Change the bodypart list in the scroll viw by clicking on the family filter
+		/// </summary>
+		/// <param name="bodypart">The bodypart you want to apply</param>
+		private void UpdateFilter(EBodypartFamily bodypartFamiliy)
+		{
+			currentFilter = bodypartFamiliy;
+			InitScrollView();
+		}
+
+		/// <summary>
+		/// Change the bodypart list in the scroll viw by clicking on a bodypart type selected toggle
+		/// </summary>
+		/// <param name="bodypart">The bodypart you want to apply</param>
+		private void UpdateType(EBodypartType bodypartType)
+        {
+			currentType = bodypartType;
+			InitScrollView();
+		}
+
+		/// <summary>
+		/// Change the bodypart of the greenoid by cliking on it
+		/// Update the body part selected toggle image
+		/// </summary>
+		/// <param name="bodypart">The bodypart you want to apply</param>
 		private void OnClickBodyPartButton(BodypartAsset bodypart)
         {
 			switch (bodypart._Type)
             {
                 case EBodypartType.HEAD: 	 
-					greenoide.ChangeHead(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeHead(bodypart._Sprite, bodypart._Id);
+					headButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.TATTOO: 	 
-					greenoide.ChangeTattoo(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeTattoo(bodypart._Sprite, bodypart._Id);
+					tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
 				case EBodypartType.EYES:	 
-					greenoide.ChangeEyes(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeEyes(bodypart._Sprite, bodypart._Id);
+					eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.MOUTH:	 
-					greenoide.ChangeMouth(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeMouth(bodypart._Sprite, bodypart._Id);
+					mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.HAIR:	 
-					greenoide.ChangeHair(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeHair(bodypart._Sprite, bodypart._Id);
+					hairButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.TOP_HEAD: 
-					greenoide.ChangeTopHead(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeTopHead(bodypart._Sprite, bodypart._Id);
+					topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.EARS:
-					greenoide.ChangeEars(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeEars(bodypart._Sprite, bodypart._Id);
+					earButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.EARS_BACK:
-					greenoide.ChangeEarsBack(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeEarsBack(bodypart._Sprite, bodypart._Id);
+					//no bodypart type toggle selected for this
+					break;
 
                 case EBodypartType.CLOTHES:
-					greenoide.ChangeClothes(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeClothes(bodypart._Sprite, bodypart._Id);
+					clothButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
 
                 case EBodypartType.ORNAMENT:
-					greenoide.ChangeOrnament(bodypart._Sprite, bodypart._Id); break;
+					greenoide.ChangeOrnament(bodypart._Sprite, bodypart._Id);
+					ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					break;
                 
 				default:
                     break;
@@ -139,6 +243,16 @@ namespace Com.TrashSpotter
 			editNameInputField.onEndEdit.RemoveListener(OnEndEditName);
 			switchCustoToggle.onValueChanged.RemoveListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.RemoveListener(OnClickAnimalTotem);
+
+			headButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.HEAD));
+			eyeButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.EYES));
+			mouthButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.MOUTH));
+			tattoButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.TATTOO));
+			hairButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.HAIR));
+			topHeadButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.TOP_HEAD));
+			clothButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.CLOTHES));
+			earButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.EARS));
+			ornamentButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.ORNAMENT));
 
 		}
 	}

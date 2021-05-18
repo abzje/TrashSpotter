@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.TrashSpotter
@@ -20,6 +21,19 @@ namespace Com.TrashSpotter
 		private float distance;
 		private int sectioNumber;
 
+		private void emptyContent()
+        {
+			for (int i = 0; i < content.transform.childCount; i++)
+            {
+				Destroy(content.transform.GetChild(i).gameObject);
+			}
+
+			for (int i = 0; i < paginationToggleGroup.childCount; i++)
+			{
+				Destroy(paginationToggleGroup.GetChild(i).gameObject);
+			}
+		}
+
 		/// <summary>
 		/// Instantiate all toggle and content
 		/// Initialize position of sections
@@ -28,6 +42,10 @@ namespace Com.TrashSpotter
 		/// <param name="number">The number of element inside section you can snap on</param>
 		public GameObject[] InitScrollSnap(int number)
 		{
+			emptyContent();
+
+			if (number == 0) return new GameObject[0];
+
 			sectioNumber = (int)Mathf.Ceil(number / (float)numberElementPerSection);
 
 			//Init number of toggle and section
@@ -44,11 +62,8 @@ namespace Com.TrashSpotter
             {
 				int lIClosureIndex = i;
 
-				if (paginationToggleGroup != null)
-                {
-					paginationToggles[lIClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
-					paginationToggles[lIClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lIClosureIndex]));
-				}
+				paginationToggles[lIClosureIndex] = Instantiate(pageTogglePrefab, paginationToggleGroup);
+				paginationToggles[lIClosureIndex].onValueChanged.AddListener((value) => WhichTogClicked(paginationToggles[lIClosureIndex]));
 
 				lCurrentSection = Instantiate(sectionPrefab, content.transform);
 
@@ -68,11 +83,8 @@ namespace Com.TrashSpotter
 			}
 
 			//Init first toggle as default selected toggle
-			if (paginationToggleGroup != null)
-			{
-				WhichTogClicked(paginationToggles[0]);
-				paginationToggles[0].Select();
-			}
+			WhichTogClicked(paginationToggles[0]);
+			paginationToggles[0].Select();
 
 			return elements;
 		}
@@ -84,6 +96,7 @@ namespace Com.TrashSpotter
 		/// <param name="tog">The toggle that has been clicked</param>
 		public void WhichTogClicked(Toggle tog)
 		{
+
 			for (int i = 0; i < sectioNumber; i++)
 			{
 				if (paginationToggleGroup.GetChild(i).GetComponent<Toggle>().GetInstanceID() == tog.GetInstanceID())
@@ -132,8 +145,6 @@ namespace Com.TrashSpotter
 
         private void OnDisable()
         {
-			if (paginationToggles == null) return;
-
             foreach (Toggle toggle in paginationToggles)
             {
 				toggle.onValueChanged.RemoveListener((value) => WhichTogClicked(toggle));
