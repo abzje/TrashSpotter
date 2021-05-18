@@ -22,6 +22,14 @@ public class ScoreBanner : MonoBehaviour
     //Money
     private int _currentMoney = 0;
 
+    private void OnEnable()
+    {
+        //Update Graphics
+        seedScore = seedScore;
+        levelScore = levelScore;
+        moneyScore = moneyScore;
+    }
+
     /// <summary>
     /// Get or set the seed score and update score banner graphics
     /// </summary>
