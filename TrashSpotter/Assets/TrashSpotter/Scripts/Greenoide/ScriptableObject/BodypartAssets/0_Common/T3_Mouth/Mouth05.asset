@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Mouth05
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: cdd72cd5988e902429c1fffca2cc3054, type: 3}
+  _Sprite: {fileID: 21300000, guid: 0a464bcb18e9d9c4391fbd9440c1ce46, type: 3}
   _Id: 305
   _Type: 3

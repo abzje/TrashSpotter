@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Animations/AnimalTotemScreen.meta
+guid: 4bed3176d7fa8f54a925d2e33a63b306
+=======
 guid: 4eff24052511b4c499b58d44b05abbc0
+>>>>>>> UI:TrashSpotter/Assets/TrashSpotter/Animations/PopUp.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

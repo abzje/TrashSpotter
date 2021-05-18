@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Head07
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: e716e3d7ff1091842aab7d68207c85c0, type: 3}
+  _Sprite: {fileID: 21300000, guid: 089607bdb6fd04d48b10305ea2227ad3, type: 3}
   _Id: 7
   _Type: 0

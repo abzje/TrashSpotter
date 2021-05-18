@@ -95,4 +95,90 @@ public class BodypartList : ScriptableObject
                 return b;
         return null;
     }
+
+    public BodypartAsset GetBodypartAsset(int index)
+    {
+        if (index >= GetCount() || index < 0)
+            return null;
+        
+        int count = _HeadList.Count; // Used to find in which list to find the asset
+        int indexInList = index; // We subtract index with the size of the list we go through so the index is the right one when we get to the right list
+        
+        // We go through each list until we find the right one
+        // HEAD
+        if (index < count)
+            return _HeadList[indexInList];
+        
+        // TATTOO
+        count += _TattooList.Count;
+        indexInList -= _HeadList.Count;
+        
+        if (index < count)
+            return _TattooList[indexInList];
+
+        // EYES
+        count += _EyesList.Count;
+        indexInList -= _TattooList.Count;
+        
+        if (index < count)
+            return _EyesList[indexInList];
+
+        // MOUTH
+        count += _MouthList.Count;
+        indexInList -= _EyesList.Count;
+        
+        if (index < count)
+            return _MouthList[indexInList];
+
+        // HAIR
+        count += _HairList.Count;
+        indexInList -= _MouthList.Count;
+        
+        if (index < count)
+            return _HairList[indexInList];
+
+        // TOP HEAD
+        count += _TopHeadList.Count;
+        indexInList -= _HairList.Count;
+        
+        if (index < count)
+            return _TopHeadList[indexInList];
+
+        // EARS
+        count += _EarsList.Count;
+        indexInList -= _TopHeadList.Count;
+        
+        if (index < count)
+            return _EarsList[indexInList];
+
+        // EARS BACK
+        count += _EarsBackList.Count;
+        indexInList -= _EarsList.Count;
+        
+        if (index < count)
+            return _EarsBackList[indexInList];
+
+        // CLOTHES
+        count += _ClothesList.Count;
+        indexInList -= _EarsBackList.Count;
+        
+        if (index < count)
+            return _ClothesList[indexInList];
+
+        // ORNAMENT
+        count += _OrnamentList.Count;
+        indexInList -= _ClothesList.Count;
+        
+        if (index < count)
+            return _OrnamentList[indexInList];
+
+        return null; // impossible
+    }
+
+    public int GetCount()
+    {
+        return  _HeadList.Count + _TattooList.Count + _EyesList.Count + 
+                _MouthList.Count + _HairList.Count + _TopHeadList.Count + 
+                _EarsList.Count + _EarsBackList.Count + _ClothesList.Count + _OrnamentList.Count;
+    }
 }

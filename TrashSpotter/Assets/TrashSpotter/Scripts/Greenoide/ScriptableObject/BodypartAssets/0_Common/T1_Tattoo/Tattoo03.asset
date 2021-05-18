@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Tattoo03
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: 5a15bbf2d05374d4d872c5d3d886f0e7, type: 3}
+  _Sprite: {fileID: 21300000, guid: e8a7d8bbfd52f0440890f7d26730db13, type: 3}
   _Id: 103
   _Type: 1

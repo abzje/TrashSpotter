@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Head01
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Scripts/Greenoide/ScriptableObject/BodypartAssets/Common/T1_Eyes/02Eyes.asset
-  _Sprite: {fileID: 2589442475105739671, guid: 2c2bc7a596af1bf47958f95c569c0aeb, type: 3}
-  _Id: 102
-=======
-  _Sprite: {fileID: 21300000, guid: 17b46680a50a5174eb499fd8033da064, type: 3}
+  _Sprite: {fileID: 21300000, guid: c31feb10a04dab548a8197936f64484c, type: 3}
   _Id: 1
->>>>>>> origin/greenoide_dev:TrashSpotter/Assets/TrashSpotter/Scripts/Greenoide/ScriptableObject/BodypartAssets/0_Common/T0_HEAD/Head01.asset
   _Type: 0

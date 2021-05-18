@@ -724,7 +724,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!114 &6987575577965779977
 MonoBehaviour:
@@ -801,7 +801,7 @@ MonoBehaviour:
   _TopHeadAssetId: 3501
   _EarAssetId: 3601
   _EarBackAssetId: 3701
-  _ClothAssetId: 3801
+  _ClothesAssetId: 3801
   _OrnamentAssetId: 3901
   _Head: {fileID: 6987575578352578319}
   _Tattoo: {fileID: 6987575577965779977}
@@ -811,9 +811,13 @@ MonoBehaviour:
   _TopHead: {fileID: 6987575576792768992}
   _Ears: {fileID: 6987575576923654600}
   _EarsBack: {fileID: 6987575577013646561}
-  _Cloth: {fileID: 6987575578285023350}
+  _Clothes: {fileID: 6987575578285023350}
   _Ornament: {fileID: 6987575577168498992}
   _HeadMask: {fileID: 6987575577275005836}
+  _HeadList:
+  - {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
+  - {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
+  - {fileID: 11400000, guid: 7571375ff87a768469389714733f7785, type: 2}
 --- !u!1 &6987575578285023347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6987575578352578316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6987575578009193319}
