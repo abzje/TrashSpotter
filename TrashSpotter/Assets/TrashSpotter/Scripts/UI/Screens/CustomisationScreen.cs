@@ -60,8 +60,6 @@ namespace Com.TrashSpotter
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
-			//.onValueChanged.AddListener((value) => );
-
 			headButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.HEAD));
 			eyeButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.EYES));
 			mouthButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.MOUTH));
@@ -83,6 +81,16 @@ namespace Com.TrashSpotter
 		/// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
 		private void InitScrollView()
         {
+			//reset listener
+			if (scrollsnapElements != null)
+            {
+				for (int i = 0; i < scrollsnapElements.Length; i++)
+				{
+					int lClosureIndex = i;
+					scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
+				}
+			}
+
 			bodypartsBySelectedType = new List<BodypartAsset>();
 
 			BodypartAsset lBodypartAssetByTypeAndFilter;

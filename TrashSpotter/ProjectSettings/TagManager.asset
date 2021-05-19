@@ -41,18 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: GreenoLandFront_Greenoid
-    uniqueID: 1182173891
-    locked: 0
-  - name: GreenoLandFront_Totem
-    uniqueID: 277590511
-    locked: 0
-  - name: Foreground
-    uniqueID: 1522542869
+  - name: BackGround
+    uniqueID: 2750392517
     locked: 0
   - name: MiddleGround
     uniqueID: 3111529201
     locked: 0
-  - name: BackGround
-    uniqueID: 2750392517
+  - name: Foreground
+    uniqueID: 1522542869
+    locked: 0
+  - name: VeryForeground
+    uniqueID: 4154838405
+    locked: 0
+  - name: TrashSpotterMainScreen
+    uniqueID: 851954937
     locked: 0
