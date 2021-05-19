@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Arborescence/UIS/Shops/ShopAlastars.meta
 guid: b66fd844900c27f4aa01771a35d903b6
+=======
+guid: 8630596bdd43064408caab571a70bb57
+>>>>>>> dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Navigators/TribesHouses.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

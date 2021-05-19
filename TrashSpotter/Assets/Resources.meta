@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TrashSpotter/Assets/Resources.meta
 guid: 12cb4c697d44de345aab3b204f98ae81
+=======
+guid: fc797f7e760045f45a004da9df071cd5
+>>>>>>> dev:TrashSpotter/Assets/TrashSpotter/Arborescence/LANDS/Navigators/Backgrounds.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
