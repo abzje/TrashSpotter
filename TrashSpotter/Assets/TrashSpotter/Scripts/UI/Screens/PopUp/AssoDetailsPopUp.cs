@@ -5,20 +5,18 @@ namespace Com.TrashSpotter
 {
     public class AssoDetailsPopUp : PopUp
     {
-        [SerializeField] private Image assoImage = null;
-        [SerializeField] private Text textDetails = null;
+        [SerializeField] Image assoImage = null;
+        [SerializeField] Text assoNameText = null;
+        [SerializeField] Text presentationText = null;
+        [SerializeField] Text actionsText = null;
 
-        public void SetPopUp()
+
+        public void SetPopUp(Association assoc)
         {
-
-        }
-
-        private void Start()
-        {
-            /*
-            assoImage = 
-            textDetails = 
-            */
+            assoImage = assoc._Logo;
+            assoNameText.text = assoc._Name;
+            presentationText.text = assoc._Presentation;
+            actionsText.text = assoc._Actions;
         }
     }
 }

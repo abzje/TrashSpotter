@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.TrashSpotter
@@ -6,66 +7,70 @@ namespace Com.TrashSpotter
     public class AssosPopUp : PopUp
     {
         [Header ("General Settings")]
-        [SerializeField] private Transform assosButtonContainer = null;
-        [SerializeField] private GameObject assoButtonPrefab = null;
+        [SerializeField] Transform assosButtonContainer = null;
+        [SerializeField] GameObject assoButtonPrefab = null;
 
         [Header ("Category Image")]
-        [SerializeField] private Image assoCategoryImage = null;
-        [SerializeField] private Sprite humanCategoryImage = null;
-        [SerializeField] private Sprite agricultureCategoryImage = null;
-        [SerializeField] private Sprite ecologyCategoryImage = null;
-        [SerializeField] private Sprite industryCategoryImage = null;
-        [SerializeField] private Sprite energyCategoryImage = null;
+        [SerializeField] Image assoCategoryImage = null;
+        [SerializeField] Sprite humanCategoryImage = null;
+        [SerializeField] Sprite agricultureCategoryImage = null;
+        [SerializeField] Sprite ecologyCategoryImage = null;
+        [SerializeField] Sprite industryCategoryImage = null;
+        [SerializeField] Sprite energyCategoryImage = null;
+        [HideInInspector] public EAssociationCategory currentAssoCategorySelected;
 
-        public enum enAssoCategory { Human, Agriculture, Ecology, Industry, Energy };
-        [HideInInspector] public enAssoCategory currentAssoCategorySelected;
+        [Header ("Associations List")]
+        [SerializeField] List<Association> associations;
 
-        public void SetPopUp(enAssoCategory assoCategory)
+
+        public void SetPopUp(EAssociationCategory assoCategory)
         {
-
             switch (assoCategory)
             {
-                case enAssoCategory.Human:
+                case EAssociationCategory.HUMAN:
                     assoCategoryImage.sprite = humanCategoryImage;
                     break;
-                case enAssoCategory.Agriculture:
+                case EAssociationCategory.AGRICULTURE:
                     assoCategoryImage.sprite = agricultureCategoryImage;
                     break;
-                case enAssoCategory.Ecology:
+                case EAssociationCategory.ECOLOGIE:
                     assoCategoryImage.sprite = ecologyCategoryImage;
                     break;
-                case enAssoCategory.Industry:
+                case EAssociationCategory.INDUSTRY:
                     assoCategoryImage.sprite = industryCategoryImage;
                     break;
-                case enAssoCategory.Energy:
+                case EAssociationCategory.ENERGY:
                     assoCategoryImage.sprite = energyCategoryImage;
                     break;
                 default:
                     Debug.LogWarning("Wrong category");
                     break;
             }
+
+            currentAssoCategorySelected = assoCategory;
+            SetPopUpContent();
         }
 
-        private void Start()
+        private void SetPopUpContent()
         {
-            //nombre à remplacer par le nombre d'asso dans cette catégorie
-
+            
             GameObject assoButton;
 
-            for (int i = 0; i < 10; i++)
+            foreach(Association asso in associations)
             {
-                assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
-                //Set sprite here
-                //assoButton.GetComponent<Image>().sprite = 
+                if (asso._Category != currentAssoCategorySelected)
+                    continue;
 
-                assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(assoButton.transform); });
+                assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
+
+                assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(asso); });
             }
         }
 
-        private void OnCLickAssoButton(Transform assoButton)
+        private void OnCLickAssoButton(Association assoc)
         {
             UIManager.Instance.CloseScreen(this);
-            UIManager.Instance.OpenAssoDetailsPopUp(UIManager.Instance.assoDetailsPopUp);
+            UIManager.Instance.OpenAssoDetailsPopUp(UIManager.Instance.assoDetailsPopUp, assoc);
         }
 
         private void OnDisable()
@@ -86,5 +91,6 @@ namespace Com.TrashSpotter
                 assosButtonContainer.GetChild(closureIndex).GetComponent<Button>().onClick.RemoveAllListeners();
             }
         }
+
     }
 }

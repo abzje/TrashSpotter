@@ -38,27 +38,27 @@ namespace Com.TrashSpotter
 
         private void OnClickAssoHumanButton()
         {
-            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Human);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, EAssociationCategory.HUMAN);
         }
 
         private void OnClickAssoAgricultureButton()
         {
-            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Agriculture);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, EAssociationCategory.AGRICULTURE);
         }
 
         private void OnClickAssoEcologyButton()
         {
-            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Ecology);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, EAssociationCategory.ECOLOGIE);
         }
 
         private void OnClickAssoIndustryButton()
         {
-            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Industry);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, EAssociationCategory.INDUSTRY);
         }
 
         private void OnClickAssoEnergyButton()
         {
-            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, AssosPopUp.enAssoCategory.Energy);
+            UIManager.Instance.OpenAssosPopUp(UIManager.Instance.assosPopUp, EAssociationCategory.ENERGY);
         }
 
         #endregion
