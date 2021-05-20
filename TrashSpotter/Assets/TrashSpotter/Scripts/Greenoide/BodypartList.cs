@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BodypartList", menuName = "Greenoide/BodypartList", order = 2)]
+[CreateAssetMenu(fileName = "BodypartList", menuName = "Greenoide/BodypartList", order = 4)]
 public class BodypartList : ScriptableObject
 {
     public List<BodypartAsset> _HeadList;

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Greenoide : MonoBehaviour
 {
-    [SerializeField] public BodypartList _BodypartAvailable = null;
 
+    [Header ("Head asset")]
     [SerializeField] Head _HeadAsset = null;
+
+    [Header ("Body part assets id")]
     [SerializeField] int _TattooAssetId = 0;
     [SerializeField] int _EyesAssetId = 0;
     [SerializeField] int _MouthAssetId = 0;
@@ -17,6 +19,7 @@ public class Greenoide : MonoBehaviour
     [SerializeField] int _ClothesAssetId = 0;
     [SerializeField] int _OrnamentAssetId = 0;
 
+    [Header ("Body part gameobjects")]
     [SerializeField] Bodypart _Head = null;
     [SerializeField] Bodypart _Tattoo = null;
     [SerializeField] Bodypart _Eyes = null;
@@ -29,6 +32,8 @@ public class Greenoide : MonoBehaviour
     [SerializeField] Bodypart _Ornament = null;
     [SerializeField] SpriteMask _HeadMask = null;
 
+    [Header ("Lists")]
+    [SerializeField] public BodypartList _BodypartAvailable = null;
     [SerializeField] List<Head> _HeadList = null;
 
     private void Start() 

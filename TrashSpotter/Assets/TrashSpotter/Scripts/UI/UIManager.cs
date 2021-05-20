@@ -55,20 +55,20 @@ namespace Com.TrashSpotter
             OpenScreen(screen);
         }
 
-        public void OpenAssosPopUp(Screen screen, AssosPopUp.enAssoCategory assoCategory)
+        public void OpenAssosPopUp(Screen screen, EAssociationCategory assoType)
         {
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
-            screen.GetComponent<AssosPopUp>().SetPopUp(assoCategory);
+            screen.GetComponent<AssosPopUp>().SetPopUp(assoType);
         }
 
-        public void OpenAssoDetailsPopUp(Screen screen)
+        public void OpenAssoDetailsPopUp(Screen screen, Association assoc)
         {
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
-            screen.GetComponent<AssoDetailsPopUp>().SetPopUp();
+            screen.GetComponent<AssoDetailsPopUp>().SetPopUp(assoc);
         }
 
         /// <summary>

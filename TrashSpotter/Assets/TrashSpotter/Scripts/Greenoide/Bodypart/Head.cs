@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GreenoideHead", menuName = "Greenoide/GreenoideHead", order = 3)]
+[CreateAssetMenu(fileName = "GreenoideHead", menuName = "Greenoide/GreenoideHead", order = 1)]
 public class Head : ScriptableObject
 {
     [SerializeField] public int _HeadAssetId = 0;
