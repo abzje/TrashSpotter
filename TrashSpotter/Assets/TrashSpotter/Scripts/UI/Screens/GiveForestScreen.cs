@@ -12,10 +12,9 @@ namespace Com.TrashSpotter
         [SerializeField] private Button assoIndustryButton = null;
         [SerializeField] private Button assoEnergyButton = null;
 
-        [Header ("Tree")]
+        [Header ("Miscellaneous")]
+        [SerializeField] private ScoreBanner scoreBanner = null;
         [SerializeField] private Button treeButton = null;
-
-        [Header ("Money")]
         [SerializeField] private Text moneyValueText = null;
 
         private void Start()

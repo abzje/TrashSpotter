@@ -11,6 +11,9 @@ namespace Com.TrashSpotter
         [SerializeField] private Button customisationButton = null;
         [SerializeField] private Button giveForestButton = null;
 
+        [Header ("Miscellaneous")]
+        [SerializeField] private ScoreBanner scoreBanner = null;
+
         private void Start()
         {
             statesButton.onClick.AddListener(OnClickStates);

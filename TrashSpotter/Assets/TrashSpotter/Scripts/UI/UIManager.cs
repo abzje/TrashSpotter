@@ -48,9 +48,7 @@ namespace Com.TrashSpotter
         public void SwitchScreen(Screen screen)
         {
             if (currentScreen == screen) return;
-            if (currentScreen != null) currentScreen.Close();
-
-            Debug.Log("closed one " + currentScreen);
+            if (currentScreen != null) CloseScreen(currentScreen);
 
             OpenScreen(screen);
         }
@@ -79,8 +77,6 @@ namespace Com.TrashSpotter
         public void OpenScreen(Screen screen)
         {
             if (currentScreen == screen) return;
-
-            Debug.Log(screen);
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
@@ -98,8 +94,8 @@ namespace Com.TrashSpotter
 
         /// <summary>
         /// Close the the given screen
-        /// </summary>
         /// <param name="screen">The instance of the screen you want to close</param>
+        /// </summary>
         public void ClosePopUp(Screen screen)
         {
             currentScreen = currentScreen.previousScreen;
