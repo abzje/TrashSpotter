@@ -15,7 +15,6 @@ public class Greenoide : MonoBehaviour
     [SerializeField] int _HairAssetId = 0;
     [SerializeField] int _TopHeadAssetId = 0;
     [SerializeField] int _EarAssetId = 0;
-    [SerializeField] int _EarBackAssetId = 0;
     [SerializeField] int _ClothesAssetId = 0;
     [SerializeField] int _OrnamentAssetId = 0;
 
@@ -132,16 +131,12 @@ public class Greenoide : MonoBehaviour
 
         if (_Ears != null)
         {
-            BodypartAsset asset = _BodypartAvailable.GetEarsAsset(_EarAssetId);
+            Ears asset = _BodypartAvailable.GetEarsAsset(_EarAssetId);
             if (asset != null)
+            {
                 _Ears.SetSprite(asset._Sprite);
-        }
-
-        if (_EarsBack != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetEarsBackAsset(_EarBackAssetId);
-            if (asset != null)
-                _EarsBack.SetSprite(asset._Sprite);
+                _EarsBack.SetSprite(asset._EarsBackSprite);
+            }
         }
         
         if (_Clothes != null)
@@ -204,15 +199,11 @@ public class Greenoide : MonoBehaviour
         _TopHead.SetSprite(sprite);
         _TopHeadAssetId = id;
     }
-    public void ChangeEars(Sprite sprite, int id)
+    public void ChangeEars(Sprite sprite, Sprite earsBackSprite, int id)
     {
         _Ears.SetSprite(sprite);
+        _EarsBack.SetSprite(earsBackSprite);
         _EarAssetId = id;
-    }
-    public void ChangeEarsBack(Sprite sprite, int id)
-    {
-        _EarsBack.SetSprite(sprite);
-        _EarBackAssetId = id;
     }
     public void ChangeClothes(Sprite sprite, int id)
     {

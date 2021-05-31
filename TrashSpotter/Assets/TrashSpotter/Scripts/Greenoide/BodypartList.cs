@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BodypartList", menuName = "Greenoide/BodypartList", order = 4)]
+[CreateAssetMenu(fileName = "BodypartList", menuName = "Trashspotter/Do not use/BodypartList", order = 5)]
 public class BodypartList : ScriptableObject
 {
     public List<BodypartAsset> _HeadList;
@@ -11,8 +11,7 @@ public class BodypartList : ScriptableObject
     public List<BodypartAsset> _MouthList;
     public List<BodypartAsset> _HairList;
     public List<BodypartAsset> _TopHeadList;
-    public List<BodypartAsset> _EarsList;
-    public List<BodypartAsset> _EarsBackList;
+    public List<Ears> _EarsList;
     public List<BodypartAsset> _ClothesList;
     public List<BodypartAsset> _OrnamentList;
 
@@ -64,17 +63,9 @@ public class BodypartList : ScriptableObject
         return null;
     }
 
-    public BodypartAsset GetEarsAsset(int id)
+    public Ears GetEarsAsset(int id)
     {
-        foreach (BodypartAsset b in _EarsList)
-            if (b._Id == id)    
-                return b;
-        return null;
-    }
-
-    public BodypartAsset GetEarsBackAsset(int id)
-    {
-        foreach (BodypartAsset b in _EarsBackList)
+        foreach (Ears b in _EarsList)
             if (b._Id == id)    
                 return b;
         return null;
@@ -151,16 +142,9 @@ public class BodypartList : ScriptableObject
         if (index < count)
             return _EarsList[indexInList];
 
-        // EARS BACK
-        count += _EarsBackList.Count;
-        indexInList -= _EarsList.Count;
-        
-        if (index < count)
-            return _EarsBackList[indexInList];
-
         // CLOTHES
         count += _ClothesList.Count;
-        indexInList -= _EarsBackList.Count;
+        indexInList -= _EarsList.Count;
         
         if (index < count)
             return _ClothesList[indexInList];
@@ -179,6 +163,6 @@ public class BodypartList : ScriptableObject
     {
         return  _HeadList.Count + _TattooList.Count + _EyesList.Count + 
                 _MouthList.Count + _HairList.Count + _TopHeadList.Count + 
-                _EarsList.Count + _EarsBackList.Count + _ClothesList.Count + _OrnamentList.Count;
+                _EarsList.Count + _ClothesList.Count + _OrnamentList.Count;
     }
 }

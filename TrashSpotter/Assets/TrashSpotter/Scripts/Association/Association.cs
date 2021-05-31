@@ -12,7 +12,7 @@ public enum EAssociationCategory
     ENERGY
 }
 
-[CreateAssetMenu(fileName = "Association", menuName = "Greenoide/Association", order = 3)]
+[CreateAssetMenu(fileName = "Association", menuName = "Trashspotter/Association/Association", order = 4)]
 public class Association : ScriptableObject
 {
     public Image _Logo;

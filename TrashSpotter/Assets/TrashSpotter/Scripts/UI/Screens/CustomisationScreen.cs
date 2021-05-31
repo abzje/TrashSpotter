@@ -183,13 +183,9 @@ namespace Com.TrashSpotter
 					break;
 
                 case EBodypartType.EARS:
-					greenoide.ChangeEars(bodypart._Sprite, bodypart._Id);
+					Ears earsAsset = (Ears)bodypart;
+					greenoide.ChangeEars(earsAsset._Sprite, earsAsset._EarsBackSprite, bodypart._Id);
 					earButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
-					break;
-
-                case EBodypartType.EARS_BACK:
-					greenoide.ChangeEarsBack(bodypart._Sprite, bodypart._Id);
-					//no bodypart type toggle selected for this
 					break;
 
                 case EBodypartType.CLOTHES:
