@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -6291548583690034312
     second: 01TreeLevels_0
+  - first:
+      213: 6383293437946474730
+    second: CircleGiftDatas_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 01TreeLevels_0
+      name: CircleGiftDatas_0
       rect:
         serializedVersion: 2
-        x: 117
-        y: 217
-        width: 790
-        height: 590
+        x: 81
+        y: 81
+        width: 350
+        height: 351
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8732b0ea5edefa8a0800000000000000
-      internalID: -6291548583690034312
+      spriteID: ae0b1e9cf83069850800000000000000
+      internalID: 6383293437946474730
       vertices: []
       indices: 
       edges: []

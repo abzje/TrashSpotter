@@ -16,6 +16,7 @@ namespace Com.TrashSpotter
         /// </summary>
         public virtual void Open()
         {
+
         }
 
         /// <summary>

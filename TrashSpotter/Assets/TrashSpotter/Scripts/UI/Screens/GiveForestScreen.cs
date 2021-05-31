@@ -28,6 +28,16 @@ namespace Com.TrashSpotter
             assoEnergyButton.onClick.AddListener(OnClickAssoEnergyButton);
         }
 
+        public override void Open()
+        {
+            animator.SetTrigger("OpenGiveForest");
+        }
+
+        public override void Close()
+        {
+            animator.SetTrigger("OpenGreenoLandFromGiveForest");
+        }
+
         private void OnClickTree()
         {
             UIManager.Instance.OpenScreen(UIManager.Instance.smashSeedPopUp);
