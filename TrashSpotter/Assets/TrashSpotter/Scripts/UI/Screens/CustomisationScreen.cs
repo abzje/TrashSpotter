@@ -75,6 +75,16 @@ namespace Com.TrashSpotter
 			InitScrollView();
 		}
 
+		public override void Open()
+		{
+			animator.SetTrigger("OpenCustomisation");
+		}
+
+		public override void Close()
+		{
+			animator.SetTrigger("OpenGreenoLandFromCusto");
+		}
+
 		/// <summary>
 		/// Init scroll snap, fill bodypart button by type & filter
 		/// </summary>
