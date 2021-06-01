@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 8c72ca00b5280dc4a9684119ea8118d2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8216984032031249575
+    second: TXTFRGreen_0
+  - first:
+      213: -6889820208804156894
+    second: TXTFRGreen_1
+  - first:
+      213: -8793294858375762209
+    second: TXTFRGreen_2
+  - first:
+      213: -2668589218982497525
+    second: TXTFRGreen_3
+  - first:
+      213: 6717842118263923009
+    second: TXTFRGreen_4
+  - first:
+      213: 7154041267690503612
+    second: TXTFRGreen_5
+  - first:
+      213: 5076725156016131900
+    second: TXTFRGreen_6
+  - first:
+      213: 1703414277023010264
+    second: TXTFRGreen_7
+  - first:
+      213: -1485295120790315201
+    second: TXTFRGreen_8
+  - first:
+      213: -2940071788282969915
+    second: TXTFRGreen_9
+  - first:
+      213: -2842584031584303651
+    second: TXTFRGreen_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +73,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 216
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,7 +142,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TXTFRGreen_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 110
+        width: 228
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a497421177980270800000000000000
+      internalID: 8216984032031249575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

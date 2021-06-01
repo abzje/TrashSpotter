@@ -9,8 +9,12 @@ namespace Com.TrashSpotter
     {
 		[Header("General settings")]
 		[SerializeField] private Toggle switchCustoToggle = null;
+		[SerializeField] private Sprite imageSwitchShopAlatar = null;
+		[SerializeField] private Sprite imageSwitchShopGreenoide = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 		[SerializeField] private FilterToggleGroup filterToggleGroup = null;
+		[SerializeField] private Sprite imageButtonAvailable = null;
+		[SerializeField] private Sprite imageNotBought = null;
 
 		[Header("Name settings")]
 		[SerializeField] public Button anteNameButton = null;
@@ -129,7 +133,11 @@ namespace Com.TrashSpotter
 				int lClosureIndex = i;
 				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
 
-				scrollsnapElements[lClosureIndex].transform.GetChild(1).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().interactable = true;
+				scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = imageButtonAvailable;
+				scrollsnapElements[lClosureIndex].GetComponent<Shadow>().effectDistance *= -1;
+				scrollsnapElements[lClosureIndex].transform.GetChild(0).gameObject.SetActive(true);
+				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
 
 				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lCurrentBodypart));
 			}
@@ -234,6 +242,7 @@ namespace Com.TrashSpotter
 
 		private void OnSwitchCustoToggle(bool value)
 		{
+			switchCustoToggle.transform.GetChild(0).GetComponent<Image>().sprite = value ? imageSwitchShopGreenoide : imageSwitchShopAlatar;
 			greenoidCusto.SetActive(value);
 			totemCusto.SetActive(!value);
 		}

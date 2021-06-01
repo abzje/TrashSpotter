@@ -82,12 +82,6 @@ namespace Com.TrashSpotter
 							elements[j + (lIClosureIndex * numberElementPerSection)] = lElement;
 						}
 					}
-                    else
-                    {
-						lElement.transform.GetChild(0).gameObject.SetActive(false);
-						lElement.transform.GetChild(1).gameObject.SetActive(false);
-
-					}
 				}
 			}
 

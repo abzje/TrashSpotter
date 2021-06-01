@@ -55,18 +55,22 @@ namespace Com.TrashSpotter
 
         public void OpenAssosPopUp(Screen screen, EAssociationCategory assoType)
         {
+            if (currentScreen == screen) return;
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
             screen.GetComponent<AssosPopUp>().SetPopUp(assoType);
+            currentScreen = screen;
         }
 
         public void OpenAssoDetailsPopUp(Screen screen, Association assoc)
         {
+            if (currentScreen == screen) return;
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
             screen.Open();
             screen.GetComponent<AssoDetailsPopUp>().SetPopUp(assoc);
+            currentScreen = screen;
         }
 
         /// <summary>
