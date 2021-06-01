@@ -20,6 +20,8 @@ namespace Com.TrashSpotter
 		private float distance;
 		private int sectioNumber;
 
+		private int maxNumOfElementInSection = 12;
+
 		private void emptyContent()
         {
 			for (int i = 0; i < content.transform.childCount; i++)
@@ -68,15 +70,23 @@ namespace Com.TrashSpotter
 
 				pos[lIClosureIndex] = distance * lIClosureIndex;
 
-				
 				//Element in section creation
-                for (int j = 0; j < numberElementPerSection; j++)
+				for (int j = 0; j < maxNumOfElementInSection; j++)
                 {
 					lElement = Instantiate(elementInSectionPrefab, lCurrentSection.transform);
 
-					if (j + (lIClosureIndex * numberElementPerSection) < number)
-					{
-						elements[j + (lIClosureIndex * numberElementPerSection)] = lElement;
+					if (j < numberElementPerSection)
+                    {
+						if (j + (lIClosureIndex * numberElementPerSection) < number)
+						{
+							elements[j + (lIClosureIndex * numberElementPerSection)] = lElement;
+						}
+					}
+                    else
+                    {
+						lElement.transform.GetChild(0).gameObject.SetActive(false);
+						lElement.transform.GetChild(1).gameObject.SetActive(false);
+
 					}
 				}
 			}

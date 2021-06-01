@@ -129,7 +129,7 @@ namespace Com.TrashSpotter
 				int lClosureIndex = i;
 				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
 
-				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
+				scrollsnapElements[lClosureIndex].transform.GetChild(1).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
 
 				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lCurrentBodypart));
 			}
