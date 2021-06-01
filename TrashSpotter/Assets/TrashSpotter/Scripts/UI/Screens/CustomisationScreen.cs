@@ -9,8 +9,12 @@ namespace Com.TrashSpotter
     {
 		[Header("General settings")]
 		[SerializeField] private Toggle switchCustoToggle = null;
+		[SerializeField] private Sprite imageSwitchShopAlatar = null;
+		[SerializeField] private Sprite imageSwitchShopGreenoide = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 		[SerializeField] private FilterToggleGroup filterToggleGroup = null;
+		[SerializeField] private Sprite imageButtonAvailable = null;
+		[SerializeField] private Sprite imageNotBought = null;
 
 		[Header("Name settings")]
 		[SerializeField] public Button anteNameButton = null;
@@ -42,16 +46,6 @@ namespace Com.TrashSpotter
 		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
 		private EBodypartType currentType = EBodypartType.HEAD;
 
-        private void OnEnable()
-        {
-			FilterToggleGroup.OnFilterClicked += UpdateFilter;
-		}
-
-        private void OnDisable()
-        {
-			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
-		}
-
         private void Start()
 		{
 			inputFieldCouldBeSelected = true;
@@ -73,16 +67,28 @@ namespace Com.TrashSpotter
 			//Set scrollsnap & content
 
 			InitScrollView();
+
+			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Head.GetComponent<SpriteRenderer>().sprite;
+			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Eyes.GetComponent<SpriteRenderer>().sprite;
+			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Mouth.GetComponent<SpriteRenderer>().sprite;
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Tattoo.GetComponent<SpriteRenderer>().sprite;
+			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Hair.GetComponent<SpriteRenderer>().sprite;
+			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._TopHead.GetComponent<SpriteRenderer>().sprite;
+			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Clothes.GetComponent<SpriteRenderer>().sprite;
+			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ears.GetComponent<SpriteRenderer>().sprite;
+			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ornament.GetComponent<SpriteRenderer>().sprite;
 		}
 
 		public override void Open()
 		{
 			animator.SetTrigger("OpenCustomisation");
+			FilterToggleGroup.OnFilterClicked += UpdateFilter;
 		}
 
 		public override void Close()
 		{
 			animator.SetTrigger("OpenGreenoLandFromCusto");
+			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
 		}
 
 		/// <summary>
@@ -127,6 +133,10 @@ namespace Com.TrashSpotter
 				int lClosureIndex = i;
 				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
 
+				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().interactable = true;
+				scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = imageButtonAvailable;
+				scrollsnapElements[lClosureIndex].GetComponent<Shadow>().effectDistance *= -1;
+				scrollsnapElements[lClosureIndex].transform.GetChild(0).gameObject.SetActive(true);
 				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
 
 				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lCurrentBodypart));
@@ -228,6 +238,7 @@ namespace Com.TrashSpotter
 
 		private void OnSwitchCustoToggle(bool value)
 		{
+			switchCustoToggle.transform.GetChild(0).GetComponent<Image>().sprite = value ? imageSwitchShopGreenoide : imageSwitchShopAlatar;
 			greenoidCusto.SetActive(value);
 			totemCusto.SetActive(!value);
 		}

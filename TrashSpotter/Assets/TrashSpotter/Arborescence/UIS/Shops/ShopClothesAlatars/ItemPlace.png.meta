@@ -1,40 +1,10 @@
 fileFormatVersion: 2
-guid: 8c72ca00b5280dc4a9684119ea8118d2
+guid: 5240a39c990b54a4e9762e47ee2612bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8216984032031249575
-    second: TXTFRGreen_0
-  - first:
-      213: -6889820208804156894
-    second: TXTFRGreen_1
-  - first:
-      213: -8793294858375762209
-    second: TXTFRGreen_2
-  - first:
-      213: -2668589218982497525
-    second: TXTFRGreen_3
-  - first:
-      213: 6717842118263923009
-    second: TXTFRGreen_4
-  - first:
-      213: 7154041267690503612
-    second: TXTFRGreen_5
-  - first:
-      213: 5076725156016131900
-    second: TXTFRGreen_6
-  - first:
-      213: 1703414277023010264
-    second: TXTFRGreen_7
-  - first:
-      213: -1485295120790315201
-    second: TXTFRGreen_8
-  - first:
-      213: -2940071788282969915
-    second: TXTFRGreen_9
-  - first:
-      213: -2842584031584303651
-    second: TXTFRGreen_10
+      213: 3045028831581537786
+    second: ItemPlace_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -144,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TXTFRGreen_0
+      name: ItemPlace_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 110
-        width: 228
-        height: 38
+        x: 47
+        y: 48
+        width: 161
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a497421177980270800000000000000
-      internalID: 8216984032031249575
+      spriteID: af58d3dc69d124a20800000000000000
+      internalID: 3045028831581537786
       vertices: []
       indices: 
       edges: []

@@ -23,7 +23,7 @@ namespace Com.TrashSpotter
 
         private void OnClickFiler(EBodypartFamily filter)
         {
-            OnFilterClicked(filter);
+            OnFilterClicked?.Invoke(filter);
         }
 
         private void OnDestroy()

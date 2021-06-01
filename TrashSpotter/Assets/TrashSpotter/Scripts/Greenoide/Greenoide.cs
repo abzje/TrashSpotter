@@ -8,17 +8,17 @@ public class Greenoide : MonoBehaviour
     
 
     [Header ("Body part gameobjects")]
-    [SerializeField] Bodypart _Head = null;
-    [SerializeField] Bodypart _Tattoo = null;
-    [SerializeField] Bodypart _Eyes = null;
-    [SerializeField] Bodypart _Mouth = null;
-    [SerializeField] Bodypart _Hair = null;
-    [SerializeField] Bodypart _TopHead = null;
-    [SerializeField] Bodypart _Ears = null;
+    [SerializeField] public Bodypart _Head = null;
+    [SerializeField] public Bodypart _Tattoo = null;
+    [SerializeField] public Bodypart _Eyes = null;
+    [SerializeField] public Bodypart _Mouth = null;
+    [SerializeField] public Bodypart _Hair = null;
+    [SerializeField] public Bodypart _TopHead = null;
+    [SerializeField] public Bodypart _Ears = null;
     [SerializeField] Bodypart _EarsBack = null;
-    [SerializeField] Bodypart _Clothes = null;
-    [SerializeField] Bodypart _Ornament = null;
-    [SerializeField] SpriteMask _HeadMask = null;
+    [SerializeField] public Bodypart _Clothes = null;
+    [SerializeField] public Bodypart _Ornament = null;
+    [SerializeField] public SpriteMask _HeadMask = null;
 
     public void SetBodypartPosition(Head head)
     {

@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -1119320237873529310
     second: SelectAllTotem_0
+  - first:
+      213: 5199583427359161129
+    second: SelectAllTotem_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,19 +120,19 @@ TextureImporter:
       name: SelectAllTotem_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 218
-        width: 253
-        height: 75
+        x: 105
+        y: 192
+        width: 303
+        height: 127
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22e74af8c206770f0800000000000000
-      internalID: -1119320237873529310
+      spriteID: 92b30cf1491a82840800000000000000
+      internalID: 5199583427359161129
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -8928465577112243316
     second: SelectAllTotemUp_0
+  - first:
+      213: -8419547242519521485
+    second: SelectAllTotemUp_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83fbe6dcd7b71480800000000000000
-      internalID: -8928465577112243316
+      spriteID: 33711004462c72b80800000000000000
+      internalID: -8419547242519521485
       vertices: []
       indices: 
       edges: []

@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 12981b24e953858499cacffa8f67a8a6
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8272096578184541272
+    second: TXTFRAlatars_0
+  - first:
+      213: 7920891384743140301
+    second: TXTFRAlatars_1
+  - first:
+      213: -713623997012206937
+    second: TXTFRAlatars_2
+  - first:
+      213: -5928321891153466356
+    second: TXTFRAlatars_3
+  - first:
+      213: 413534936772734580
+    second: TXTFRAlatars_4
+  - first:
+      213: -2915608094737487366
+    second: TXTFRAlatars_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +58,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 216
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,7 +127,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TXTFRAlatars_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 109
+        width: 143
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab06955dfb933d80800000000000000
+      internalID: -8272096578184541272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
