@@ -42,16 +42,6 @@ namespace Com.TrashSpotter
 		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
 		private EBodypartType currentType = EBodypartType.HEAD;
 
-        private void OnEnable()
-        {
-			FilterToggleGroup.OnFilterClicked += UpdateFilter;
-		}
-
-        private void OnDisable()
-        {
-			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
-		}
-
         private void Start()
 		{
 			inputFieldCouldBeSelected = true;
@@ -73,6 +63,28 @@ namespace Com.TrashSpotter
 			//Set scrollsnap & content
 
 			InitScrollView();
+
+			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Head.GetComponent<SpriteRenderer>().sprite;
+			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Eyes.GetComponent<SpriteRenderer>().sprite;
+			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Mouth.GetComponent<SpriteRenderer>().sprite;
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Tattoo.GetComponent<SpriteRenderer>().sprite;
+			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Hair.GetComponent<SpriteRenderer>().sprite;
+			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._TopHead.GetComponent<SpriteRenderer>().sprite;
+			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Clothes.GetComponent<SpriteRenderer>().sprite;
+			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ears.GetComponent<SpriteRenderer>().sprite;
+			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ornament.GetComponent<SpriteRenderer>().sprite;
+		}
+
+		public override void Open()
+		{
+			animator.SetTrigger("OpenCustomisation");
+			FilterToggleGroup.OnFilterClicked += UpdateFilter;
+		}
+
+		public override void Close()
+		{
+			animator.SetTrigger("OpenGreenoLandFromCusto");
+			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
 		}
 
 		/// <summary>

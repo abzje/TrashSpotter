@@ -9,12 +9,6 @@ namespace Com.TrashSpotter
         [SerializeField] private Button profileButton = null;
         [SerializeField] private Text screenTitle = null;
 
-        private void Start()
-        {
-            backButton.onClick.AddListener(OnClickBack);
-            profileButton.onClick.AddListener(OnClickProfile);
-        }
-
         private void OnClickBack()
         {
             if (UIManager.Instance.currentScreen is PopUp)
@@ -30,5 +24,19 @@ namespace Com.TrashSpotter
         {
 
         }
+
+        protected override void OnDestroy()
+        {
+            backButton.onClick.RemoveListener(OnClickBack);
+            profileButton.onClick.RemoveListener(OnClickProfile);
+        }
+
+
+        protected virtual void Start()
+        {
+            backButton.onClick.AddListener(OnClickBack);
+            profileButton.onClick.AddListener(OnClickProfile);
+        }
+
     }
 }
