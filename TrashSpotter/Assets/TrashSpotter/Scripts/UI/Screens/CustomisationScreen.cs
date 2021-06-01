@@ -19,7 +19,7 @@ namespace Com.TrashSpotter
 
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
-		[SerializeField] private Greenoide greenoide = null;
+		[SerializeField] private GreenoideManager greenoide = null;
 		[SerializeField] private Toggle headButton = null;
 		[SerializeField] private Toggle eyeButton = null;
 		[SerializeField] private Toggle mouthButton = null;
