@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,14 +30,21 @@ namespace Com.TrashSpotter
 
 		[Header("Button")]
 		[SerializeField] private Button adventurfacebookButton = null;
+		[SerializeField] private Button backgroundButton = null;
 
         private void Start()
         {
 			adventurfacebookButton.onClick.AddListener(OnClickFacebookButton);
+			backgroundButton.onClick.AddListener(OnClickQuit);
 
 		}
 
-		private void OnClickFacebookButton()
+        private void OnClickQuit()
+        {
+			UIManager.Instance.ClosePopUp(this);
+        }
+
+        private void OnClickFacebookButton()
         {
 			Debug.Log("Shared to facebook");
         }
@@ -46,6 +54,7 @@ namespace Com.TrashSpotter
             base.OnDestroy();
 
 			adventurfacebookButton.onClick.RemoveListener(OnClickFacebookButton);
+			backgroundButton.onClick.RemoveListener(OnClickQuit);
 
 		}
     }
