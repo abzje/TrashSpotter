@@ -10,7 +10,6 @@ namespace Com.TrashSpotter
     {
 		[Header("Cutsomisation")]
 		[SerializeField] private Text greenoidName = null;
-		[SerializeField] private Image greenoidImage = null;
 		[SerializeField] private Text totemName = null;
 		[SerializeField] private Image totemImage = null;
 
@@ -36,7 +35,6 @@ namespace Com.TrashSpotter
         {
 			adventurfacebookButton.onClick.AddListener(OnClickFacebookButton);
 			backgroundButton.onClick.AddListener(OnClickQuit);
-
 		}
 
         private void OnClickQuit()

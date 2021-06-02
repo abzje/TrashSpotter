@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 896101674d057fe4e9c64805b4de9bea
+guid: 039f0eefbb45c2f44894d087337e8bcf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8871185728771019170
-    second: SquareStickersDatas_0
+      213: -1120582551891228438
+    second: SquareTotemTitleDatas 1_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SquareStickersDatas_0
+      name: SquareTotemTitleDatas 1_0
       rect:
         serializedVersion: 2
-        x: 511
-        y: 890
-        width: 1026
-        height: 269
+        x: 237
+        y: 449
+        width: 550
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a159e33b68cc1b70800000000000000
-      internalID: 8871185728771019170
+      spriteID: ae8c50d2b14e270f0800000000000000
+      internalID: -1120582551891228438
       vertices: []
       indices: 
       edges: []
