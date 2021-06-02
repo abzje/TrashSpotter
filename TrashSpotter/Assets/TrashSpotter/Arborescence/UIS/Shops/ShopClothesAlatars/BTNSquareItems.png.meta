@@ -117,10 +117,10 @@ TextureImporter:
       name: BTNSquareItems_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 45
-        width: 167
-        height: 167
+        x: 47
+        y: 48
+        width: 161
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

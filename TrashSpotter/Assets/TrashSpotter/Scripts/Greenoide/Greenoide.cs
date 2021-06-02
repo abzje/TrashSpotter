@@ -36,6 +36,10 @@ public class Greenoide : MonoBehaviour
     [SerializeField] public BodypartList _BodypartAvailable = null;
     [SerializeField] List<Head> _HeadList = null;
 
+    private List<int> _currentBodypartsIds = new List<int>();
+
+    public List<int> CurrentBodyPartsIds => _currentBodypartsIds;
+
     private void Start() 
     {
         if (_BodypartAvailable == null)

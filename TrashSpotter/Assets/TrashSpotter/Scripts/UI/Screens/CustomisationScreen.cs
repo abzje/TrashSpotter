@@ -13,8 +13,7 @@ namespace Com.TrashSpotter
 		[SerializeField] private Sprite imageSwitchShopGreenoide = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 		[SerializeField] private FilterToggleGroup filterToggleGroup = null;
-		[SerializeField] private Sprite imageButtonAvailable = null;
-		[SerializeField] private Sprite imageNotBought = null;
+		[SerializeField] private Sprite imageShopItemAvailable = null;
 
 		[Header("Name settings")]
 		[SerializeField] public Button anteNameButton = null;
@@ -91,11 +90,12 @@ namespace Com.TrashSpotter
 			FilterToggleGroup.OnFilterClicked -= UpdateFilter;
 		}
 
-		/// <summary>
-		/// Init scroll snap, fill bodypart button by type & filter
-		/// </summary>
-		/// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
-		private void InitScrollView()
+        #region Initialization
+        /// <summary>
+        /// Init scroll snap, fill bodypart button by type & filter
+        /// </summary>
+        /// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
+        private void InitScrollView()
         {
 			//reset listener
 			if (scrollsnapElements != null)
@@ -126,23 +126,52 @@ namespace Com.TrashSpotter
 
 			scrollsnapElements = scrollsnap.InitScrollSnap(bodypartsBySelectedType.Count);
 
-			BodypartAsset lCurrentBodypart;
-
 			for (int i = 0; i < scrollsnapElements.Length; i++)
 			{
 				int lClosureIndex = i;
-				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
-
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().interactable = true;
-				scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = imageButtonAvailable;
-				scrollsnapElements[lClosureIndex].GetComponent<Shadow>().effectDistance *= -1;
-				scrollsnapElements[lClosureIndex].transform.GetChild(0).gameObject.SetActive(true);
-				scrollsnapElements[lClosureIndex].transform.GetChild(0).GetComponent<Image>().sprite = lCurrentBodypart._Sprite;
-
-				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickBodyPartButton(lCurrentBodypart));
+				InitShopItemButton(bodypartsBySelectedType[lClosureIndex], scrollsnapElements[lClosureIndex]);
 			}
 		}
 
+		/// <summary>
+		/// Initialize shop item button data -> state, graphic effects, listener
+		/// </summary>
+		/// <param name="currentBodypart">The bodypart set as an image in it</param>
+		/// <param name="currentScrollSnapElement">The shop item button that will be initialize</param>
+		private void InitShopItemButton(BodypartAsset currentBodypart, GameObject currentScrollSnapElement)
+        {
+
+			//***Set button state***
+			
+			//***if bought and available -> Set item image, display it and change background
+			currentScrollSnapElement.transform.GetChild(0).gameObject.SetActive(true);
+			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
+			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
+
+			//***if favortite -> Display tiny star image
+			foreach (int bodypartID in greenoide.CurrentBodyPartsIds)
+			{
+				if (currentBodypart._Id == bodypartID)
+					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
+			}
+
+			//***if not already bought -> Set price, display banner
+			//scrollsnapElements[lClosureIndex].GetComponentInChildren<Text>().text = 
+			currentScrollSnapElement.transform.GetChild(2).gameObject.SetActive(true);
+
+
+			//Set graphic effects
+			currentScrollSnapElement.GetComponent<Shadow>().effectDistance *= -1;
+
+			//Add onclick listener
+			Toggle itemButton = currentScrollSnapElement.GetComponent<Toggle>();
+
+			itemButton.interactable = true;
+			itemButton.onValueChanged.AddListener((value) => OnClickBodyPartButton(value, itemButton, currentBodypart));
+		}
+		#endregion
+
+		#region Update Scrollview
 		/// <summary>
 		/// Change the bodypart list in the scroll viw by clicking on the family filter
 		/// </summary>
@@ -162,14 +191,25 @@ namespace Com.TrashSpotter
 			currentType = bodypartType;
 			InitScrollView();
 		}
+        #endregion
 
-		/// <summary>
-		/// Change the bodypart of the greenoid by cliking on it
-		/// Update the body part selected toggle image
-		/// </summary>
-		/// <param name="bodypart">The bodypart you want to apply</param>
-		private void OnClickBodyPartButton(BodypartAsset bodypart)
+        #region Event Listeners
+        /// <summary>
+        /// Change the bodypart of the greenoid by cliking on it
+        /// Update the body part selected toggle image
+        /// </summary>
+        /// <param name="bodypart">The bodypart you want to apply</param>
+        private void OnClickBodyPartButton(bool value, Toggle toggle, BodypartAsset bodypart)
         {
+            //Eanble shadow for each toggle
+            for (int i = 0; i < scrollsnapElements.Length; i++)
+            {
+				scrollsnapElements[i].GetComponent<Shadow>().enabled = true;
+			}
+
+			//Disable shadow for the selected one
+			toggle.GetComponent<Shadow>().enabled = false;
+
 			switch (bodypart._Type)
             {
                 case EBodypartType.HEAD: 	 
@@ -227,12 +267,19 @@ namespace Com.TrashSpotter
             }
         }
 
-        private void OnClickAnteName()
+		/// <summary>
+		/// Open AnteNamePopUp that allow user to change his ante name
+		/// </summary>
+		private void OnClickAnteName()
         {
 			UIManager.Instance.OpenScreen(UIManager.Instance.anteNamePopUp);
 			fadedBackground.SetActive(true);
 		}
 
+		/// <summary>
+		/// Close the editableNameNamePopUp
+		/// </summary>
+		/// <param name="value">The text typed by the user</param>
 		private void OnEndEditName(string value)
 		{
 			inputFieldCouldBeSelected = true;
@@ -240,6 +287,10 @@ namespace Com.TrashSpotter
 			Debug.Log("Do animations of leaving input editing here");
 		}
 
+		/// <summary>
+		/// Switch shop greenoide or alatar
+		/// </summary>
+		/// <param name="value">Boolean equal to "is switching to greenoide ?"</param>
 		private void OnSwitchCustoToggle(bool value)
 		{
 			switchCustoToggle.transform.GetChild(0).GetComponent<Image>().sprite = value ? imageSwitchShopGreenoide : imageSwitchShopAlatar;
@@ -247,12 +298,16 @@ namespace Com.TrashSpotter
 			totemCusto.SetActive(!value);
 		}
 
+		/// <summary>
+		/// Open animalTotemPopUp
+		/// </summary>
 		private void OnClickAnimalTotem()
         {
 			UIManager.Instance.OpenScreen(UIManager.Instance.animalTotemPopUp);
         }
+        #endregion
 
-		private void Update()
+        private void Update()
 		{
 			if (EventSystem.current.currentSelectedGameObject == editNameInputField.gameObject)
 			{

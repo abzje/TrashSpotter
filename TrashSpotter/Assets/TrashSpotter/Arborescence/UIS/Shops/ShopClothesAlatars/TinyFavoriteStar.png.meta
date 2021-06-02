@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 451f1ff0fa8865b4d9614fcdd2eb638b
+guid: 560f9ee7ce876ca4dbe7c5ad4ec0270c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2948058914618284590
-    second: BTNDownSquareItems_0
+      213: -7503927431007574178
+    second: TinyFavoriteStar_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BTNDownSquareItems_0
+      name: TinyFavoriteStar_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 48
-        width: 161
-        height: 160
+        x: 22
+        y: 25
+        width: 84
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a1fbe96fb99e820800000000000000
-      internalID: 2948058914618284590
+      spriteID: e57eb7e42c1bcd790800000000000000
+      internalID: -7503927431007574178
       vertices: []
       indices: 
       edges: []
