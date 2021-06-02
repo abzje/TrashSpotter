@@ -11,6 +11,7 @@ namespace Com.TrashSpotter
         [SerializeField] private Image seed = null;
         [SerializeField] private Image seedFiller = null;
         [SerializeField] private Image flashImage = null;
+        [SerializeField] private ParticleSystem particleSystem = null;
 
         [Header("Settings")]
         [SerializeField] private int smashCountToLevelUp = 0;
@@ -69,6 +70,8 @@ namespace Com.TrashSpotter
                 {
                     UpdateLevel();
                     smashCount = 0;
+
+                    particleSystem.Play();
                 }
             } );
         }
