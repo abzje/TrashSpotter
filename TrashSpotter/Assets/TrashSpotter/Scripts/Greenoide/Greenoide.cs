@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Greenoide : MonoBehaviour
 {
-
-    
-
     [Header ("Body part gameobjects")]
     [SerializeField] public Bodypart _Head = null;
     [SerializeField] public Bodypart _Tattoo = null;

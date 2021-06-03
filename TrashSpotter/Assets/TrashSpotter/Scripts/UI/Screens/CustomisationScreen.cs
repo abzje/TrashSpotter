@@ -149,7 +149,7 @@ namespace Com.TrashSpotter
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
 
 			//***if favortite -> Display tiny star image
-			foreach (int bodypartID in greenoide.CurrentBodyPartsIds)
+			foreach (int bodypartID in greenoide.GetCurrentBodyPartsIds())
 			{
 				if (currentBodypart._Id == bodypartID)
 					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);

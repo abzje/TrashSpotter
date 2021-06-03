@@ -21,7 +21,7 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] List<Greenoide> _Greenoides;
     [SerializeField] List<Head> _HeadList = null;
     [SerializeField] public BodypartList _BodypartAvailable = null;
-
+    List<int> _CurrentBodyPartsIds;
 
     #region MonoBehavior Methods
     void Start() 
@@ -31,6 +31,7 @@ public class GreenoideManager : MonoBehaviour
 
         SetBodypartPosition();
         SetupSprites();
+        SetCurrentBodyPartsIds();
     }
     #endregion
 
@@ -47,6 +48,25 @@ public class GreenoideManager : MonoBehaviour
                 return h;
         }
         return null;
+    }
+
+    private void SetCurrentBodyPartsIds()
+    {
+        _CurrentBodyPartsIds = new List<int>();
+        _CurrentBodyPartsIds.Add(_Head._HeadAssetId);
+        _CurrentBodyPartsIds.Add(_TattooAssetId);
+        _CurrentBodyPartsIds.Add(_EyesAssetId);
+        _CurrentBodyPartsIds.Add(_MouthAssetId);
+        _CurrentBodyPartsIds.Add(_HairAssetId);
+        _CurrentBodyPartsIds.Add(_TopHeadAssetId);
+        _CurrentBodyPartsIds.Add(_EarsAssetId);
+        _CurrentBodyPartsIds.Add(_ClothesAssetId);
+        _CurrentBodyPartsIds.Add(_OrnamentAssetId);
+    }
+
+    public List<int> GetCurrentBodyPartsIds()
+    {
+        return _CurrentBodyPartsIds;
     }
 
     #region Get Body Parts Sprite
@@ -211,49 +231,73 @@ public class GreenoideManager : MonoBehaviour
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeTattoo(sprite);
+        
+        _CurrentBodyPartsIds.Remove(_TattooAssetId);
         _TattooAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeEyes(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeEyes(sprite);
+
+        _CurrentBodyPartsIds.Remove(_EyesAssetId);
         _EyesAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeMouth(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeMouth(sprite);
+
+        _CurrentBodyPartsIds.Remove(_MouthAssetId);
         _MouthAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeHair(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeHair(sprite);
+
+        _CurrentBodyPartsIds.Remove(_HairAssetId);
         _HairAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeTopHead(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeTopHead(sprite);
+
+        _CurrentBodyPartsIds.Remove(_TopHeadAssetId);
         _TopHeadAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeEars(Sprite sprite, Sprite earsBackSprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeEars(sprite, earsBackSprite);
+
+        _CurrentBodyPartsIds.Remove(_EarsAssetId);
         _EarsAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeClothes(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeClothes(sprite);
+
+        _CurrentBodyPartsIds.Remove(_ClothesAssetId);
         _ClothesAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeOrnament(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeOrnament(sprite);
+
+        _CurrentBodyPartsIds.Remove(_OrnamentAssetId);
         _OrnamentAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
 
     #endregion 
