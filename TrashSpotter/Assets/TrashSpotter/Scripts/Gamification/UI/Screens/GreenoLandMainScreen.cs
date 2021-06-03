@@ -13,12 +13,19 @@ namespace Com.TrashSpotter
 
         [Header ("Miscellaneous")]
         [SerializeField] private ScoreBanner scoreBanner = null;
+        [SerializeField] private Transform UIElementContainer = null;
 
         private void Start()
         {
             statesButton.onClick.AddListener(OnClickStates);
             customisationButton.onClick.AddListener(OnClickCustomisation);
             giveForestButton.onClick.AddListener(OnClickGiveForest);
+        }
+
+        public override void Open()
+        {
+            scoreBanner.transform.SetParent(UIElementContainer);
+            scoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
 
         private void OnClickStates()

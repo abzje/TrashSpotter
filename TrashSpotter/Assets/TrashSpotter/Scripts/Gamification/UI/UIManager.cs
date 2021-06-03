@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Com.TrashSpotter
 {
@@ -38,6 +39,7 @@ namespace Com.TrashSpotter
         private void Start()
         {
             OpenScreen(greenoLandMainScreen);
+            DOTween.Init(false);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,21 +8,33 @@ namespace Com.TrashSpotter
     public class AssosPopUp : PopUp
     {
         [Header ("General Settings")]
-        [SerializeField] Transform assosButtonContainer = null;
-        [SerializeField] GameObject assoButtonPrefab = null;
+        [SerializeField] private Transform assosButtonContainer = null;
+        [SerializeField] private GameObject assoButtonPrefab = null;
+        [SerializeField] private Button backgroundButton = null;
 
         [Header ("Category Image")]
-        [SerializeField] Image assoCategoryImage = null;
-        [SerializeField] Sprite humanCategoryImage = null;
-        [SerializeField] Sprite agricultureCategoryImage = null;
-        [SerializeField] Sprite ecologyCategoryImage = null;
-        [SerializeField] Sprite industryCategoryImage = null;
-        [SerializeField] Sprite energyCategoryImage = null;
-        [HideInInspector] public EAssociationCategory currentAssoCategorySelected;
+        [SerializeField] private Image assoCategoryImage = null;
+        [SerializeField] private Sprite humanCategoryImage = null;
+        [SerializeField] private Sprite agricultureCategoryImage = null;
+        [SerializeField] private Sprite ecologyCategoryImage = null;
+        [SerializeField] private Sprite industryCategoryImage = null;
+        [SerializeField] private Sprite energyCategoryImage = null;
 
         [Header ("Associations List")]
         [SerializeField] List<Association> associations;
 
+        [HideInInspector] public EAssociationCategory currentAssoCategorySelected;
+
+
+        private void Start()
+        {
+            backgroundButton.onClick.AddListener(OnClickQuit);
+        }
+
+        private void OnClickQuit()
+        {
+            UIManager.Instance.ClosePopUp(this);
+        }
 
         public void SetPopUp(EAssociationCategory assoCategory)
         {
@@ -73,8 +86,10 @@ namespace Com.TrashSpotter
             UIManager.Instance.OpenAssoDetailsPopUp(UIManager.Instance.assoDetailsPopUp, assoc);
         }
 
-        private void OnDisable()
+        public override void Close()
         {
+            base.Close();
+
             for (int i = 0; i < assosButtonContainer.childCount; i++)
             {
                 assosButtonContainer.GetChild(i).GetComponent<Button>().onClick.RemoveAllListeners();
@@ -90,6 +105,8 @@ namespace Com.TrashSpotter
                 int closureIndex = i;
                 assosButtonContainer.GetChild(closureIndex).GetComponent<Button>().onClick.RemoveAllListeners();
             }
+
+            backgroundButton.onClick.RemoveListener(OnClickQuit);
         }
 
     }
