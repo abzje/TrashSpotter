@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a98617f00bd9e8d4e81c828dc3ac6fb1
+guid: 696923df0139e404dbb2378f9c560709
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1806865600111150137
-    second: MaskScrollZoneAssos_0
+      213: -8590538691932176862
+    second: MaskScrollZoneAssos (1)_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MaskScrollZoneAssos_0
+      name: MaskScrollZoneAssos (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 217
-        width: 1016
-        height: 294
+        y: 221
+        width: 1024
+        height: 293
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9348f7ba0b6431910800000000000000
-      internalID: 1806865600111150137
+      spriteID: 22e3226039648c880800000000000000
+      internalID: -8590538691932176862
       vertices: []
       indices: 
       edges: []
