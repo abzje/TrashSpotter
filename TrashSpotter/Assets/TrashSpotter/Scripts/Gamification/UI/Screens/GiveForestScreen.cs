@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.TrashSpotter
@@ -12,10 +13,19 @@ namespace Com.TrashSpotter
         [SerializeField] private Button assoIndustryButton = null;
         [SerializeField] private Button assoEnergyButton = null;
 
-        [Header ("Miscellaneous")]
+        [Header("Miscellaneous")]
+        [SerializeField] private Transform UIElementContainer = null;
         [SerializeField] private ScoreBanner scoreBanner = null;
         [SerializeField] private Button treeButton = null;
         [SerializeField] private Text moneyValueText = null;
+        [SerializeField] private Image treeImage = null;
+
+        [Header("Blossom Settings")]
+        [SerializeField] private AnimationCurve blossomCurve = null;
+        [SerializeField] private float blossomMinDuration = 1;
+        [SerializeField] private float blossomMaxDuration = 2;
+        [SerializeField] private float blossomMinDelay = 0;
+        [SerializeField] private float blossomMaxDelay = 2;
 
         private void Start()
         {
@@ -26,10 +36,26 @@ namespace Com.TrashSpotter
             assoEcologyButton.onClick.AddListener(OnClickAssoEcologyButton);
             assoIndustryButton.onClick.AddListener(OnClickAssoIndustryButton);
             assoEnergyButton.onClick.AddListener(OnClickAssoEnergyButton);
+
+            Gamification.Instance.OnSmashSeedComplete += BlossomTree;
+        }
+
+        private void BlossomTree()
+        {
+            for (int i = 0; i < treeImage.transform.childCount; i++)
+            {
+                treeImage.transform.GetChild(i).transform.DOScale(
+                    Vector3.one, 
+                    Random.Range(blossomMinDuration, blossomMaxDuration))
+                .SetEase(blossomCurve)
+                .SetDelay(Random.Range(blossomMinDelay, blossomMaxDelay));
+            }
         }
 
         public override void Open()
         {
+            scoreBanner.transform.SetParent(UIElementContainer);
+            scoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             animator.SetTrigger("OpenGiveForest");
         }
 
@@ -84,6 +110,7 @@ namespace Com.TrashSpotter
             assoIndustryButton.onClick.RemoveListener(OnClickAssoIndustryButton);
             assoEnergyButton.onClick.RemoveListener(OnClickAssoEnergyButton);
 
+            Gamification.Instance.OnSmashSeedComplete -= BlossomTree;
         }
     }
 }
