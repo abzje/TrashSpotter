@@ -798,17 +798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28204ac7cf2d6d439bc3875cf33309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BodypartAvailable: {fileID: 11400000, guid: d19c5a6f0ad37ed4692a2e66777c2a18, type: 2}
-  _HeadAsset: {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
-  _TattooAssetId: 103
-  _EyesAssetId: 202
-  _MouthAssetId: 302
-  _HairAssetId: 3402
-  _TopHeadAssetId: 3501
-  _EarAssetId: 3601
-  _EarBackAssetId: 3701
-  _ClothesAssetId: 3801
-  _OrnamentAssetId: 3901
   _Head: {fileID: 6987575578352578319}
   _Tattoo: {fileID: 6987575577965779977}
   _Eyes: {fileID: 6987575577601567267}
@@ -820,10 +809,6 @@ MonoBehaviour:
   _Clothes: {fileID: 6987575578285023350}
   _Ornament: {fileID: 6987575577168498992}
   _HeadMask: {fileID: 6987575577275005836}
-  _HeadList:
-  - {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
-  - {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
-  - {fileID: 11400000, guid: 7571375ff87a768469389714733f7785, type: 2}
 --- !u!114 &700879387
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public enum EBodypartType
     HAIR,
     TOP_HEAD,
     EARS,
-    EARS_BACK,
     CLOTHES,
     ORNAMENT
 }
@@ -24,7 +23,7 @@ public enum EBodypartFamily
     SENTRIES
 }
 
-[CreateAssetMenu(fileName = "BodypartAsset", menuName = "Greenoide/BodypartAsset", order = 1)]
+[CreateAssetMenu(fileName = "BodypartAsset", menuName = "Trashspotter/Greenoide/BodypartAsset", order = 1)]
 public class BodypartAsset : ScriptableObject
 {
     public Sprite _Sprite = null;

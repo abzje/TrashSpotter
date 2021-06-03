@@ -22,7 +22,7 @@ namespace Com.TrashSpotter
 
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
-		[SerializeField] private Greenoide greenoide = null;
+		[SerializeField] private GreenoideManager greenoide = null;
 		[SerializeField] private Toggle headButton = null;
 		[SerializeField] private Toggle eyeButton = null;
 		[SerializeField] private Toggle mouthButton = null;
@@ -67,15 +67,15 @@ namespace Com.TrashSpotter
 
 			InitScrollView();
 
-			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Head.GetComponent<SpriteRenderer>().sprite;
-			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Eyes.GetComponent<SpriteRenderer>().sprite;
-			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Mouth.GetComponent<SpriteRenderer>().sprite;
-			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Tattoo.GetComponent<SpriteRenderer>().sprite;
-			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Hair.GetComponent<SpriteRenderer>().sprite;
-			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._TopHead.GetComponent<SpriteRenderer>().sprite;
-			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Clothes.GetComponent<SpriteRenderer>().sprite;
-			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ears.GetComponent<SpriteRenderer>().sprite;
-			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ornament.GetComponent<SpriteRenderer>().sprite;
+			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHeadSprite();
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTattooSprite() ;
+			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEyesSprite();
+			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetMouthSprite();
+			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHairSprite();
+			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTopHeadSprite();
+			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEarsSprite();
+			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetClothesSprite();
+			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetOrnamentSprite();
 		}
 
 		public override void Open()
@@ -243,13 +243,9 @@ namespace Com.TrashSpotter
 					break;
 
                 case EBodypartType.EARS:
-					greenoide.ChangeEars(bodypart._Sprite, bodypart._Id);
+					Ears earsAsset = (Ears)bodypart;
+					greenoide.ChangeEars(earsAsset._Sprite, earsAsset._EarsBackSprite, bodypart._Id);
 					earButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
-					break;
-
-                case EBodypartType.EARS_BACK:
-					greenoide.ChangeEarsBack(bodypart._Sprite, bodypart._Id);
-					//no bodypart type toggle selected for this
 					break;
 
                 case EBodypartType.CLOTHES:

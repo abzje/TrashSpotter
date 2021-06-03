@@ -57,9 +57,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfb39323d6a75874b8cf05cf19852d0b, type: 2}
   - {fileID: 11400000, guid: 5e6b39e207737f244815b36f1d804b57, type: 2}
   _EarsList:
-  - {fileID: 11400000, guid: b88d85205675aa144b19bf9f97ef527a, type: 2}
-  _EarsBackList:
-  - {fileID: 11400000, guid: 24f59567fe931ee43b47d7c56993440d, type: 2}
+  - {fileID: 11400000, guid: af82cdfa20aefae44ab3be43c216a8da, type: 2}
   _ClothesList:
   - {fileID: 11400000, guid: 1d605d4da1264934b83542f618c04320, type: 2}
   _OrnamentList:

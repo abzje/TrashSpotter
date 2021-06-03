@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
-  m_Name: Ear01
+  m_Script: {fileID: 11500000, guid: 92ac7c76260c4834a81967eeb5705326, type: 3}
+  m_Name: Ears01
   m_EditorClassIdentifier: 
   _Sprite: {fileID: 21300000, guid: a14fcd85a6db8ce4baeba7c6a549f9cf, type: 3}
   _Id: 3601
   _Type: 6
+  _Family: 3
+  _EarsBackSprite: {fileID: 21300000, guid: 2cccdef7dc3be09439fc488b43746d2b, type: 3}

@@ -5,19 +5,7 @@ using UnityEngine;
 public class Greenoide : MonoBehaviour
 {
 
-    [Header ("Head asset")]
-    [SerializeField] Head _HeadAsset = null;
-
-    [Header ("Body part assets id")]
-    [SerializeField] int _TattooAssetId = 0;
-    [SerializeField] int _EyesAssetId = 0;
-    [SerializeField] int _MouthAssetId = 0;
-    [SerializeField] int _HairAssetId = 0;
-    [SerializeField] int _TopHeadAssetId = 0;
-    [SerializeField] int _EarAssetId = 0;
-    [SerializeField] int _EarBackAssetId = 0;
-    [SerializeField] int _ClothesAssetId = 0;
-    [SerializeField] int _OrnamentAssetId = 0;
+    
 
     [Header ("Body part gameobjects")]
     [SerializeField] public Bodypart _Head = null;
@@ -27,7 +15,7 @@ public class Greenoide : MonoBehaviour
     [SerializeField] public Bodypart _Hair = null;
     [SerializeField] public Bodypart _TopHead = null;
     [SerializeField] public Bodypart _Ears = null;
-    [SerializeField] Bodypart _EarsBack = null;
+    [SerializeField] public Bodypart _EarsBack = null;
     [SerializeField] public Bodypart _Clothes = null;
     [SerializeField] public Bodypart _Ornament = null;
     [SerializeField] public SpriteMask _HeadMask = null;
@@ -36,196 +24,112 @@ public class Greenoide : MonoBehaviour
     [SerializeField] public BodypartList _BodypartAvailable = null;
     [SerializeField] List<Head> _HeadList = null;
 
-    private List<int> _currentBodypartsIds = new List<int>();
-
-    public List<int> CurrentBodyPartsIds => _currentBodypartsIds;
-
     private void Start() 
     {
         if (_BodypartAvailable == null)
             return;
-        
-        SetBodypartPosition();
-        SetupSprites();
     }
-
-    private void SetBodypartPosition()
+    public void SetBodypartPosition(Head head)
     {
         
         // Sets the head asset and the position for the other parts
-        if (_Head != null && _HeadAsset != null)
+        if (_Head != null && head != null)
         {
-            BodypartAsset headAsset = _BodypartAvailable.GetHeadAsset(_HeadAsset._HeadAssetId);
-            if (headAsset != null)
-            {
-                _Head.transform.localPosition = new Vector3(0, 0, -0.5f);
-                _Head.SetSprite(headAsset._Sprite);
-            }
+            _Head.transform.localPosition = new Vector3(0, 0, -0.5f);
 
             // Sets the body parts position according to the given head
             if (_Tattoo != null)
-                _Tattoo.transform.localPosition = new Vector3(_HeadAsset._TattooPos.x, _HeadAsset._TattooPos.y, -1f);
+                _Tattoo.transform.localPosition = new Vector3(head._TattooPos.x, head._TattooPos.y, -1f);
 
             if (_Eyes != null)
-                _Eyes.transform.localPosition = new Vector3(_HeadAsset._EyesPos.x, _HeadAsset._EyesPos.y, -1f);
+                _Eyes.transform.localPosition = new Vector3(head._EyesPos.x, head._EyesPos.y, -1f);
 
             if (_Mouth != null)
-                _Mouth.transform.localPosition = new Vector3(_HeadAsset._MouthPos.x, _HeadAsset._MouthPos.y, -1f);
+                _Mouth.transform.localPosition = new Vector3(head._MouthPos.x, head._MouthPos.y, -1f);
 
             if (_Hair != null)
-                _Hair.transform.localPosition = new Vector3(_HeadAsset._HairPos.x, _HeadAsset._HairPos.y, -1f);
+                _Hair.transform.localPosition = new Vector3(head._HairPos.x, head._HairPos.y, -1f);
 
             if (_TopHead != null)
-                _TopHead.transform.localPosition = new Vector3(_HeadAsset._TopHeadPos.x, _HeadAsset._TopHeadPos.y, -1.5f);
+                _TopHead.transform.localPosition = new Vector3(head._TopHeadPos.x, head._TopHeadPos.y, -1.5f);
             
             if (_Ears != null)
-                _Ears.transform.localPosition = new Vector3(_HeadAsset._EarsPos.x, _HeadAsset._EarsPos.y, -2f);;
+                _Ears.transform.localPosition = new Vector3(head._EarsPos.x, head._EarsPos.y, -2f);;
 
             if (_EarsBack != null)
-                _EarsBack.transform.localPosition = new Vector3(_HeadAsset._EarsBackPos.x, _HeadAsset._EarsBackPos.y, 0f);
+                _EarsBack.transform.localPosition = new Vector3(head._EarsBackPos.x, head._EarsBackPos.y, 0f);
 
             if (_Clothes != null)
-                _Clothes.transform.localPosition = new Vector3(_HeadAsset._ClothesPos.x, _HeadAsset._ClothesPos.y, -1f);
+                _Clothes.transform.localPosition = new Vector3(head._ClothesPos.x, head._ClothesPos.y, -1f);
 
             if (_Ornament != null)
-                _Ornament.transform.localPosition = new Vector3(_HeadAsset._OrnamentPos.x, _HeadAsset._OrnamentPos.y, -1.5f);
+                _Ornament.transform.localPosition = new Vector3(head._OrnamentPos.x, head._OrnamentPos.y, -1.5f);
         }
     }
 
-    private void SetupSprites()
+    public void ChangeHead(Sprite sprite, Sprite mask)
     {
-        // sets the sprite for all body parts
-        if (_Tattoo != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetTattooAsset(_TattooAssetId);
-            if (asset != null)
-            {
-                _Tattoo.SetSprite(asset._Sprite);
-                if (_HeadMask != null)
-                    _HeadMask.sprite = _HeadAsset._Mask;
-            }
-        }
+        if (_Head == null)
+            return;
 
-        if (_Eyes != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetEyesAsset(_EyesAssetId);
-            if (asset != null)
-                _Eyes.SetSprite(asset._Sprite);
-        }
-        
-        if (_Mouth != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetMouthAsset(_MouthAssetId);
-            if (asset != null)
-                _Mouth.SetSprite(asset._Sprite);
-        }
-        
-        if (_Hair != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetHairAsset(_HairAssetId);
-            if (asset != null)
-                _Hair.SetSprite(asset._Sprite);
-        }
-
-        if (_TopHead != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetTopHeadAsset(_TopHeadAssetId);
-            if (asset != null)
-                _TopHead.SetSprite(asset._Sprite);
-        }        
-
-        if (_Ears != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetEarsAsset(_EarAssetId);
-            if (asset != null)
-                _Ears.SetSprite(asset._Sprite);
-        }
-
-        if (_EarsBack != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetEarsBackAsset(_EarBackAssetId);
-            if (asset != null)
-                _EarsBack.SetSprite(asset._Sprite);
-        }
-        
-        if (_Clothes != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetClothesAsset(_ClothesAssetId);
-            if (asset != null)
-                _Clothes.SetSprite(asset._Sprite);
-        }
-
-        if (_Ornament != null)
-        {
-            BodypartAsset asset = _BodypartAvailable.GetOrnamentAsset(_OrnamentAssetId);
-            if (asset != null)
-                _Ornament.SetSprite(asset._Sprite);
-        }
-    }
-
-    private Head findHead(int id)
-    {
-        foreach (Head h in _HeadList)
-        {
-            if (h._HeadAssetId == id)
-                return h;
-        }
-        return null;
-    }
-
-    public void ChangeHead(Sprite sprite, int id)
-    {
         _Head.SetSprite(sprite);
-        Head h = findHead(id);
-        if (h != null)
-        {
-            _HeadAsset = h;
-            SetBodypartPosition();
-        }
+        _HeadMask.sprite = mask;
     }
-    public void ChangeTattoo(Sprite sprite, int id)
+    public void ChangeTattoo(Sprite sprite)
     {
+        if (_Tattoo == null)
+            return;
+            
         _Tattoo.SetSprite(sprite);
-        _TattooAssetId = id;
     }
-    public void ChangeEyes(Sprite sprite, int id)
+    public void ChangeEyes(Sprite sprite)
     {
+        if (_Eyes == null)
+            return;
+            
         _Eyes.SetSprite(sprite);
-        _EyesAssetId = id;
     }
-    public void ChangeMouth(Sprite sprite, int id)
+    public void ChangeMouth(Sprite sprite)
     {
+        if (_Mouth == null)
+            return;
+            
         _Mouth.SetSprite(sprite);
-        _MouthAssetId = id;
     }
-    public void ChangeHair(Sprite sprite, int id)
+    public void ChangeHair(Sprite sprite)
     {
+        if (_Hair == null)
+            return;
+            
         _Hair.SetSprite(sprite);
-        _HairAssetId = id;
     }
-    public void ChangeTopHead(Sprite sprite, int id)
+    public void ChangeTopHead(Sprite sprite)
     {
+        if (_TopHead == null)
+            return;
+            
         _TopHead.SetSprite(sprite);
-        _TopHeadAssetId = id;
     }
-    public void ChangeEars(Sprite sprite, int id)
+    public void ChangeEars(Sprite sprite, Sprite earsBackSprite)
     {
+        if (_Ears == null || _EarsBack == null)
+            return;
+            
         _Ears.SetSprite(sprite);
-        _EarAssetId = id;
+        _EarsBack.SetSprite(earsBackSprite);
     }
-    public void ChangeEarsBack(Sprite sprite, int id)
+    public void ChangeClothes(Sprite sprite)
     {
-        _EarsBack.SetSprite(sprite);
-        _EarBackAssetId = id;
-    }
-    public void ChangeClothes(Sprite sprite, int id)
-    {
+        if (_Clothes == null)
+            return;
+            
         _Clothes.SetSprite(sprite);
-        _ClothesAssetId = id;
     }
-    public void ChangeOrnament(Sprite sprite, int id)
+    public void ChangeOrnament(Sprite sprite)
     {
+        if (_Ornament == null)
+            return;
+            
         _Ornament.SetSprite(sprite);
-        _OrnamentAssetId = id;
     }
 }

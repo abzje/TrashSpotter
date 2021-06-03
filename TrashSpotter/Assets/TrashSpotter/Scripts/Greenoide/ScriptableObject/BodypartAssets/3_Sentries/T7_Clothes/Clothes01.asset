@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
-  m_Name: Ornament01
+  m_Name: Clothes01
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: ccfec4d22c57757469173b74055a084c, type: 3}
-  _Id: 3901
-  _Type: 9
+  _Sprite: {fileID: 21300000, guid: 5b6837c251b27f84483763c0865fde60, type: 3}
+  _Id: 3701
+  _Type: 7
+  _Family: 3
