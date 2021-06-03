@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92ac7c76260c4834a81967eeb5705326, type: 3}
-  m_Name: Ears01
+  m_Name: Ear01
   m_EditorClassIdentifier: 
   _Sprite: {fileID: 21300000, guid: a14fcd85a6db8ce4baeba7c6a549f9cf, type: 3}
   _Id: 3601
