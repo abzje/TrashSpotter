@@ -13,7 +13,7 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] int _MouthAssetId = 0;
     [SerializeField] int _HairAssetId = 0;
     [SerializeField] int _TopHeadAssetId = 0;
-    [SerializeField] int _EarAssetId = 0;
+    [SerializeField] int _EarsAssetId = 0;
     [SerializeField] int _ClothesAssetId = 0;
     [SerializeField] int _OrnamentAssetId = 0;
 
@@ -23,8 +23,8 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] public BodypartList _BodypartAvailable = null;
 
 
-
-    private void Start() 
+    #region MonoBehavior Methods
+    void Start() 
     {
         if (_Head == null && _BodypartAvailable == null)
             return;
@@ -32,7 +32,95 @@ public class GreenoideManager : MonoBehaviour
         SetBodypartPosition();
         SetupSprites();
     }
+    #endregion
 
+    #region Getting data
+    /// <summary>
+	/// Look for the head in the list of Heads
+	/// </summary>
+    /// <param name="id"> The head id</param>
+    Head findHead(int id)
+    {
+        foreach (Head h in _HeadList)
+        {
+            if (h._HeadAssetId == id)
+                return h;
+        }
+        return null;
+    }
+
+    #region Get Body Parts Sprite
+    public Sprite GetHeadSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetHeadAsset(_Head._HeadAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetTattooSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetTattooAsset(_TattooAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetEyesSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetEyesAsset(_EyesAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetMouthSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetMouthAsset(_MouthAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetHairSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetHairAsset(_HairAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetTopHeadSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetTopHeadAsset(_TopHeadAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetEarsSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetEarsAsset(_EarsAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetClothesSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetClothesAsset(_ClothesAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    public Sprite GetOrnamentSprite()
+    {
+        BodypartAsset asset = _BodypartAvailable.GetOrnamentAsset(_OrnamentAssetId);
+        if (asset)
+            return asset._Sprite;
+        return null;
+    }
+    #endregion
+    #endregion
+
+    #region Greenoide Interfacing Methods
+
+    /// <summary>
+	/// Set the body parts positions according to the head data
+	/// </summary>
     void SetBodypartPosition()
     {
         BodypartAsset headAsset = _BodypartAvailable.GetHeadAsset(_Head._HeadAssetId);
@@ -46,7 +134,7 @@ public class GreenoideManager : MonoBehaviour
         }
     }
 
-    private void SetupSprites()
+    void SetupSprites()
     {
         // sets the sprite for all body parts
         BodypartAsset asset = _BodypartAvailable.GetTattooAsset(_TattooAssetId);
@@ -84,7 +172,7 @@ public class GreenoideManager : MonoBehaviour
                 g.ChangeTopHead(asset._Sprite);
         }  
 
-        Ears earAsset = _BodypartAvailable.GetEarsAsset(_EarAssetId);
+        Ears earAsset = _BodypartAvailable.GetEarsAsset(_EarsAssetId);
         if (asset != null)
         {
             foreach (Greenoide g in _Greenoides)
@@ -106,17 +194,7 @@ public class GreenoideManager : MonoBehaviour
         } 
     }
 
-    private Head findHead(int id)
-    {
-        foreach (Head h in _HeadList)
-        {
-            if (h._HeadAssetId == id)
-                return h;
-        }
-        return null;
-    }
-
-    #region ChangeBodyparts
+    #region Change Bodyparts
     public void ChangeHead(Sprite sprite, int id)
     {
         foreach(Greenoide g in _Greenoides)
@@ -163,7 +241,7 @@ public class GreenoideManager : MonoBehaviour
     {
         foreach(Greenoide g in _Greenoides)
             g.ChangeEars(sprite, earsBackSprite);
-        _EarAssetId = id;
+        _EarsAssetId = id;
     }
     public void ChangeClothes(Sprite sprite, int id)
     {
@@ -178,5 +256,7 @@ public class GreenoideManager : MonoBehaviour
         _OrnamentAssetId = id;
     }
 
+    #endregion 
+    
     #endregion 
 }

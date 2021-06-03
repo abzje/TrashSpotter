@@ -68,15 +68,15 @@ namespace Com.TrashSpotter
 
 			InitScrollView();
 
-			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Head.GetComponent<SpriteRenderer>().sprite;
-			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Eyes.GetComponent<SpriteRenderer>().sprite;
-			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Mouth.GetComponent<SpriteRenderer>().sprite;
-			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Tattoo.GetComponent<SpriteRenderer>().sprite;
-			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Hair.GetComponent<SpriteRenderer>().sprite;
-			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._TopHead.GetComponent<SpriteRenderer>().sprite;
-			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Clothes.GetComponent<SpriteRenderer>().sprite;
-			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ears.GetComponent<SpriteRenderer>().sprite;
-			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide._Ornament.GetComponent<SpriteRenderer>().sprite;
+			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHeadSprite();
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTattooSprite() ;
+			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEyesSprite();
+			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetMouthSprite();
+			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHairSprite();
+			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTopHeadSprite();
+			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEarsSprite();
+			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetClothesSprite();
+			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetOrnamentSprite();
 		}
 
 		public override void Open()
@@ -126,12 +126,10 @@ namespace Com.TrashSpotter
 
 			scrollsnapElements = scrollsnap.InitScrollSnap(bodypartsBySelectedType.Count);
 
-			BodypartAsset lCurrentBodypart;
-
 			for (int i = 0; i < scrollsnapElements.Length; i++)
 			{
 				int lClosureIndex = i;
-				lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
+				BodypartAsset lCurrentBodypart = bodypartsBySelectedType[lClosureIndex];
 
 				scrollsnapElements[lClosureIndex].GetComponent<Toggle>().interactable = true;
 				scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = imageButtonAvailable;
