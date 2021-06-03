@@ -22,7 +22,7 @@ namespace Com.TrashSpotter
 
 		[Header("Greenoid settings")]
 		[SerializeField] private GameObject greenoidCusto = null;
-		[SerializeField] private GreenoideManager greenoide = null;
+		[SerializeField] private Greenoide greenoide = null;
 		[SerializeField] private Toggle headButton = null;
 		[SerializeField] private Toggle eyeButton = null;
 		[SerializeField] private Toggle mouthButton = null;
@@ -148,12 +148,15 @@ namespace Com.TrashSpotter
 			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
 
+			/*
 			//***if favortite -> Display tiny star image
 			foreach (int bodypartID in greenoide.CurrentBodyPartsIds)
 			{
 				if (currentBodypart._Id == bodypartID)
 					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
-			}
+			}*/
+
+			Debug.LogError("Fixe favorite image here later");
 
 			//***if not already bought -> Set price, display banner
 			//scrollsnapElements[lClosureIndex].GetComponentInChildren<Text>().text = 
