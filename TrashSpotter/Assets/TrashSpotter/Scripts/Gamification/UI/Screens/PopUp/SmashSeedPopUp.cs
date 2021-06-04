@@ -7,9 +7,16 @@ namespace Com.TrashSpotter
 {
     public class SmashSeedPopUp : PopUp
     {
+        [Header("Settings")]
+        [SerializeField] private float delayBeforeEmptySeed = 2;
+        [SerializeField] private float seedEmptyingSpeed = 0.01f;
+
+        [Header("Button")]
         [SerializeField] private Button cancelButton = null;
         [SerializeField] private Button backgroundButton = null;
         [SerializeField] private Button smashSeedButton = null;
+
+        [Header("References")]
         [SerializeField] private Image seed = null;
         [SerializeField] private Image seedFiller = null;
         [SerializeField] private Image flashImage = null;
@@ -18,11 +25,15 @@ namespace Com.TrashSpotter
         private int smashCount = 0;
         private Tween fadeTween;
 
+        private float elapsedTimeSeedEmptyDelay = 0;
+
         private void Start()
         {
             cancelButton.onClick.AddListener(OnClickCancel);
             backgroundButton.onClick.AddListener(OnClickCancel);
             smashSeedButton.onClick.AddListener(OnClickSmashSeed);
+
+            flashImage.transform.localScale = Vector3.one / 10;
         }
 
         public override void Open()
@@ -31,7 +42,6 @@ namespace Com.TrashSpotter
 
             smashCount = 0;
             seedFiller.fillAmount = 0;
-            flashImage.transform.localScale = Vector3.one / 10;
         }
 
         private void OnClickCancel()
@@ -41,6 +51,8 @@ namespace Com.TrashSpotter
 
         private void OnClickSmashSeed()
         {
+            elapsedTimeSeedEmptyDelay = 0;
+
             smashCount++;
 
             float ratio = (float)smashCount / Gamification.Instance.SmashCountToLevelUp;
@@ -93,6 +105,18 @@ namespace Com.TrashSpotter
         private void UpdateLevel()
         {
             seedFiller.fillAmount = 0;
+        }
+
+        private void Update()
+        {
+
+            elapsedTimeSeedEmptyDelay += Time.deltaTime;
+
+            if (elapsedTimeSeedEmptyDelay >= delayBeforeEmptySeed)
+            {
+                seedFiller.fillAmount = Mathf.Clamp(seedFiller.fillAmount - seedEmptyingSpeed, 0, 1);
+                smashCount = (int)Mathf.Floor(seedFiller.fillAmount * Gamification.Instance.SmashCountToLevelUp);
+            }
         }
 
         protected override void OnDestroy()

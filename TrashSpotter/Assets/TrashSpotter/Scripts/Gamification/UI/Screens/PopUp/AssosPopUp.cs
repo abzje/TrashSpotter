@@ -20,8 +20,8 @@ namespace Com.TrashSpotter
         [SerializeField] private Sprite industryCategoryImage = null;
         [SerializeField] private Sprite energyCategoryImage = null;
 
-        [Header ("Associations List")]
-        [SerializeField] List<Association> associations;
+        [Header("Associations List")]
+        [SerializeField] List<Association> associations = null;
 
         [HideInInspector] public EAssociationCategory currentAssoCategorySelected;
 

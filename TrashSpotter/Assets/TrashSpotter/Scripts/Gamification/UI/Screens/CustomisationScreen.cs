@@ -21,8 +21,8 @@ namespace Com.TrashSpotter
 		[SerializeField] public GameObject fadedBackground = null;
 
 		[Header("Greenoid settings")]
+		[SerializeField] private GreenoideManager greenoidManager = null;
 		[SerializeField] private GameObject greenoidCusto = null;
-		[SerializeField] private GreenoideManager greenoide = null;
 		[SerializeField] private Toggle headButton = null;
 		[SerializeField] private Toggle eyeButton = null;
 		[SerializeField] private Toggle mouthButton = null;
@@ -67,15 +67,15 @@ namespace Com.TrashSpotter
 
 			InitScrollView();
 
-			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHeadSprite();
-			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTattooSprite() ;
-			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEyesSprite();
-			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetMouthSprite();
-			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetHairSprite();
-			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetTopHeadSprite();
-			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetEarsSprite();
-			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetClothesSprite();
-			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoide.GetOrnamentSprite();
+			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetHeadSprite();
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetTattooSprite() ;
+			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetEyesSprite();
+			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetMouthSprite();
+			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetHairSprite();
+			topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetTopHeadSprite();
+			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetEarsSprite();
+			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetClothesSprite();
+			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetOrnamentSprite();
 		}
 
 		public override void Open()
@@ -111,9 +111,9 @@ namespace Com.TrashSpotter
 
 			BodypartAsset lBodypartAssetByTypeAndFilter;
 
-			for (int i = 0; i < greenoide._BodypartAvailable.GetCount(); i++)
+			for (int i = 0; i < greenoidManager._BodypartAvailable.GetCount(); i++)
             {
-				lBodypartAssetByTypeAndFilter = greenoide._BodypartAvailable.GetBodypartAsset(i);
+				lBodypartAssetByTypeAndFilter = greenoidManager._BodypartAvailable.GetBodypartAsset(i);
 
 				//filter by type
 				if (lBodypartAssetByTypeAndFilter._Type == currentType)
@@ -150,7 +150,7 @@ namespace Com.TrashSpotter
 
 			
 			//***if favortite -> Display tiny star image
-			foreach (int bodypartID in greenoide.GetCurrentBodyPartsIds())
+			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
 			{
 				if (currentBodypart._Id == bodypartID)
 					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
@@ -213,49 +213,49 @@ namespace Com.TrashSpotter
 
 			switch (bodypart._Type)
             {
-                case EBodypartType.HEAD: 	 
-					greenoide.ChangeHead(bodypart._Sprite, bodypart._Id);
+                case EBodypartType.HEAD:
+					greenoidManager.ChangeHead(bodypart._Sprite, bodypart._Id);
 					headButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
-                case EBodypartType.TATTOO: 	 
-					greenoide.ChangeTattoo(bodypart._Sprite, bodypart._Id);
+                case EBodypartType.TATTOO:
+					greenoidManager.ChangeTattoo(bodypart._Sprite, bodypart._Id);
 					tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
-				case EBodypartType.EYES:	 
-					greenoide.ChangeEyes(bodypart._Sprite, bodypart._Id);
+				case EBodypartType.EYES:
+					greenoidManager.ChangeEyes(bodypart._Sprite, bodypart._Id);
 					eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
-                case EBodypartType.MOUTH:	 
-					greenoide.ChangeMouth(bodypart._Sprite, bodypart._Id);
+                case EBodypartType.MOUTH:
+					greenoidManager.ChangeMouth(bodypart._Sprite, bodypart._Id);
 					mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
-                case EBodypartType.HAIR:	 
-					greenoide.ChangeHair(bodypart._Sprite, bodypart._Id);
+                case EBodypartType.HAIR:
+					greenoidManager.ChangeHair(bodypart._Sprite, bodypart._Id);
 					hairButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
-                case EBodypartType.TOP_HEAD: 
-					greenoide.ChangeTopHead(bodypart._Sprite, bodypart._Id);
+                case EBodypartType.TOP_HEAD:
+					greenoidManager.ChangeTopHead(bodypart._Sprite, bodypart._Id);
 					topHeadButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
                 case EBodypartType.EARS:
 					Ears earsAsset = (Ears)bodypart;
-					greenoide.ChangeEars(earsAsset._Sprite, earsAsset._EarsBackSprite, bodypart._Id);
+					greenoidManager.ChangeEars(earsAsset._Sprite, earsAsset._EarsBackSprite, bodypart._Id);
 					earButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
                 case EBodypartType.CLOTHES:
-					greenoide.ChangeClothes(bodypart._Sprite, bodypart._Id);
+					greenoidManager.ChangeClothes(bodypart._Sprite, bodypart._Id);
 					clothButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 
                 case EBodypartType.ORNAMENT:
-					greenoide.ChangeOrnament(bodypart._Sprite, bodypart._Id);
+					greenoidManager.ChangeOrnament(bodypart._Sprite, bodypart._Id);
 					ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
                 

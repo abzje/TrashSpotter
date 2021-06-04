@@ -82,8 +82,6 @@ namespace Com.TrashSpotter
         /// <param name="screen">The instance of the screen you want to open</param>
         public void OpenScreen(Screen screen)
         {
-            Debug.Log(screen);
-
             if (currentScreen == screen) return;
             if (!screen.isActiveAndEnabled) screen.gameObject.SetActive(true);
 
