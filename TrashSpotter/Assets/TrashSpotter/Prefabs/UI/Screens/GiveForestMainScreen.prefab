@@ -1766,7 +1766,6 @@ MonoBehaviour:
   assoIndustryButton: {fileID: 3739572214317848170}
   assoEnergyButton: {fileID: 3739572215187355492}
   UIElementContainer: {fileID: 3739572214691959721}
-  scoreBanner: {fileID: 0}
   treeButton: {fileID: 3739572214963138309}
   moneyValueText: {fileID: 3739572214404818674}
   treeImage: {fileID: 3739572214559556031}
