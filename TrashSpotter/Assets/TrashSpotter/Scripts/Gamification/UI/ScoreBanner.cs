@@ -34,7 +34,10 @@ namespace Com.TrashSpotter
             }
 
             instance = this;
+        }
 
+        private void Start()
+        {
             //Update Graphics temporarly
             seedScore = 101;
             levelScore = 101;

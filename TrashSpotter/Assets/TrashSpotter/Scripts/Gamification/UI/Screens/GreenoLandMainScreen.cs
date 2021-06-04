@@ -12,7 +12,6 @@ namespace Com.TrashSpotter
         [SerializeField] private Button giveForestButton = null;
 
         [Header ("Miscellaneous")]
-        [SerializeField] private ScoreBanner scoreBanner = null;
         [SerializeField] private Transform UIElementContainer = null;
 
         private void Start()
@@ -24,8 +23,8 @@ namespace Com.TrashSpotter
 
         public override void Open()
         {
-            scoreBanner.transform.SetParent(UIElementContainer);
-            scoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            Gamification.Instance.ScoreBanner.transform.SetParent(UIElementContainer);
+            Gamification.Instance.ScoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
 
         private void OnClickStates()

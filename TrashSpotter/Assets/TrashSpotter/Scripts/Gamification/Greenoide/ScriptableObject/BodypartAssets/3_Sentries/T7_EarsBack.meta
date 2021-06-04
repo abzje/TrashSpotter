@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TrashSpotter/Assets/TrashSpotter/Scripts/Gamification/Greenoide/ScriptableObject/BodypartAssets/3_Sentries/T7_EarsBack.meta
 guid: 3951f31192ae23946bf04ba40577923e
+=======
+guid: f86bb3159e10c5f41bafddd4f1966f9e
+>>>>>>> dev:TrashSpotter/Assets/TrashSpotter/Shader.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

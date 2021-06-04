@@ -15,7 +15,6 @@ namespace Com.TrashSpotter
 
         [Header("Miscellaneous")]
         [SerializeField] private Transform UIElementContainer = null;
-        [SerializeField] private ScoreBanner scoreBanner = null;
         [SerializeField] private Button treeButton = null;
         [SerializeField] private Text moneyValueText = null;
         [SerializeField] private Image treeImage = null;
@@ -54,8 +53,8 @@ namespace Com.TrashSpotter
 
         public override void Open()
         {
-            scoreBanner.transform.SetParent(UIElementContainer);
-            scoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            Gamification.Instance.ScoreBanner.transform.SetParent(UIElementContainer);
+            Gamification.Instance.ScoreBanner.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             animator.SetTrigger("OpenGiveForest");
         }
 
@@ -109,8 +108,6 @@ namespace Com.TrashSpotter
             assoEcologyButton.onClick.RemoveListener(OnClickAssoEcologyButton);
             assoIndustryButton.onClick.RemoveListener(OnClickAssoIndustryButton);
             assoEnergyButton.onClick.RemoveListener(OnClickAssoEnergyButton);
-
-            Gamification.Instance.OnSmashSeedComplete -= BlossomTree;
         }
     }
 }
