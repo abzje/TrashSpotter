@@ -109,8 +109,6 @@ namespace Com.TrashSpotter
             assoEcologyButton.onClick.RemoveListener(OnClickAssoEcologyButton);
             assoIndustryButton.onClick.RemoveListener(OnClickAssoIndustryButton);
             assoEnergyButton.onClick.RemoveListener(OnClickAssoEnergyButton);
-
-            Gamification.Instance.OnSmashSeedComplete -= BlossomTree;
         }
     }
 }
