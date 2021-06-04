@@ -29,6 +29,5 @@ public class BodypartAsset : ScriptableObject
     public Sprite _Sprite = null;
     public int _Id = 0;
     public EBodypartType _Type = EBodypartType.EYES;
-
     public EBodypartFamily _Family = EBodypartFamily.COMMON;
 }

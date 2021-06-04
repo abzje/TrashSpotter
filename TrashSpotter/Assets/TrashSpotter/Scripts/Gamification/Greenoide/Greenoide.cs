@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Greenoide : MonoBehaviour
 {
-
-    
-
     [Header ("Body part gameobjects")]
     [SerializeField] public Bodypart _Head = null;
     [SerializeField] public Bodypart _Tattoo = null;
@@ -19,16 +16,6 @@ public class Greenoide : MonoBehaviour
     [SerializeField] public Bodypart _Clothes = null;
     [SerializeField] public Bodypart _Ornament = null;
     [SerializeField] public SpriteMask _HeadMask = null;
-
-    [Header ("Lists")]
-    [SerializeField] public BodypartList _BodypartAvailable = null;
-    [SerializeField] List<Head> _HeadList = null;
-
-    private void Start() 
-    {
-        if (_BodypartAvailable == null)
-            return;
-    }
     public void SetBodypartPosition(Head head)
     {
         
