@@ -15,7 +15,7 @@ namespace Com.TrashSpotter
 
         public void SetPopUp(Association assoc)
         {
-            assoImage = assoc._Logo;
+            assoImage.sprite = assoc._Logo;
             assoNameText.text = assoc._Name;
             presentationText.text = assoc._Presentation;
             actionsText.text = assoc._Actions;

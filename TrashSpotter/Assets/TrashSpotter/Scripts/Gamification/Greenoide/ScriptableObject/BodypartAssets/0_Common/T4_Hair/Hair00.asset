@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72daaee88649c942abef9ee3bf27240, type: 3}
-  m_Name: Association4
+  m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
+  m_Name: Hair00
   m_EditorClassIdentifier: 
-  _Logo: {fileID: 0}
-  _Name: Asso 4
-  _Category: 0
-  _Presentation: Human asso
-  _Actions: ipsum quia dolor sit amet
-  _DoneEventsId: 
+  _Sprite: {fileID: 21300000, guid: b164a8f86a3c31c4bacd295635cc739b, type: 3}
+  _Id: 400
+  _Type: 4
+  _Family: 0

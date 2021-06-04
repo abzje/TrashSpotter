@@ -18,7 +18,7 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] int _OrnamentAssetId = 0;
 
     [Header ("Lists")]
-    [SerializeField] List<Greenoide> _Greenoides;
+    [SerializeField] public List<Greenoide> _Greenoides;
     [SerializeField] List<Head> _HeadList = null;
     [SerializeField] public BodypartList _BodypartAvailable = null;
     List<int> _CurrentBodyPartsIds;
@@ -226,6 +226,10 @@ public class GreenoideManager : MonoBehaviour
             _Head = h;
             SetBodypartPosition();
         }
+
+        _CurrentBodyPartsIds.Remove(_Head._HeadAssetId);
+        _Head._HeadAssetId = id;
+        _CurrentBodyPartsIds.Add(id);
     }
     public void ChangeTattoo(Sprite sprite, int id)
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -78,7 +79,7 @@ namespace Com.TrashSpotter
 			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetOrnamentSprite();
 		}
 
-		public override void Open()
+        public override void Open()
 		{
 			animator.SetTrigger("OpenCustomisation");
 			FilterToggleGroup.OnFilterClicked += UpdateFilter;
@@ -148,18 +149,23 @@ namespace Com.TrashSpotter
 			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
 
-			
+
 			//***if favortite -> Display tiny star image
-			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
-			{
-				if (currentBodypart._Id == bodypartID)
-					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
-			}
+			SetFavoriteBodypart(currentBodypart, currentScrollSnapElement);
 
 			//***if not already bought -> Set price, display banner
-			//scrollsnapElements[lClosureIndex].GetComponentInChildren<Text>().text = 
-			currentScrollSnapElement.transform.GetChild(2).gameObject.SetActive(true);
+			string lId = currentBodypart._Id.ToString();
+			Transform lMoneyBanner = currentScrollSnapElement.transform.GetChild(2);
 
+			if (lId.Substring(lId.Length - 1) == "0")
+            {
+				lMoneyBanner.gameObject.SetActive(false);
+			}
+			else
+            {
+				lMoneyBanner.gameObject.SetActive(true);
+				//lMoneyBanner.GetComponentInChildren<Text>().text = 
+			}
 
 			//Set graphic effects
 			currentScrollSnapElement.GetComponent<Shadow>().effectDistance *= -1;
@@ -170,6 +176,18 @@ namespace Com.TrashSpotter
 			itemButton.interactable = true;
 			itemButton.onValueChanged.AddListener((value) => OnClickBodyPartButton(value, itemButton, currentBodypart));
 		}
+
+		private void SetFavoriteBodypart(BodypartAsset currentBodypart, GameObject currentScrollSnapElement)
+        {
+
+			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
+			{
+
+				if (currentBodypart._Id == bodypartID)
+					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
+			}
+		}
+
 		#endregion
 
 		#region Update Scrollview
@@ -202,10 +220,11 @@ namespace Com.TrashSpotter
         /// <param name="bodypart">The bodypart you want to apply</param>
         private void OnClickBodyPartButton(bool value, Toggle toggle, BodypartAsset bodypart)
         {
-            //Eanble shadow for each toggle
+            //Reset others elements
             for (int i = 0; i < scrollsnapElements.Length; i++)
             {
 				scrollsnapElements[i].GetComponent<Shadow>().enabled = true;
+				scrollsnapElements[i].transform.GetChild(1).gameObject.SetActive(false);
 			}
 
 			//Disable shadow for the selected one
@@ -262,7 +281,9 @@ namespace Com.TrashSpotter
 				default:
                     break;
             }
-        }
+
+			SetFavoriteBodypart(bodypart, toggle.gameObject);
+		}
 
 		/// <summary>
 		/// Open AnteNamePopUp that allow user to change his ante name

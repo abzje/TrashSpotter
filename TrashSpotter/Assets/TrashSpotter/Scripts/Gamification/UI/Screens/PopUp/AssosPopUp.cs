@@ -76,6 +76,7 @@ namespace Com.TrashSpotter
 
                 assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
 
+                assoButton.GetComponent<Image>().sprite = asso._Logo;
                 assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(asso); });
             }
         }

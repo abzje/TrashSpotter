@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,7 @@ public enum EAssociationCategory
 [CreateAssetMenu(fileName = "Association", menuName = "Trashspotter/Association/Association", order = 4)]
 public class Association : ScriptableObject
 {
-    public Image _Logo;
+    public Sprite _Logo;
     public string _Name;
     public EAssociationCategory _Category;
     public string _Presentation;
