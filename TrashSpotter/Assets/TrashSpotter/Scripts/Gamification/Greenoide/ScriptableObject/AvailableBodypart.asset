@@ -22,13 +22,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21cfb183eb0ee7f478188a4674c1b9b9, type: 2}
   - {fileID: 11400000, guid: d19abf04709c90543906cc1d4a93bd12, type: 2}
   _TattooList:
+  - {fileID: 11400000, guid: 618064120d183294f8e4d18fb0ada72d, type: 2}
   - {fileID: 11400000, guid: 3d6ec3c781ed59340b5354dbd21e8b0f, type: 2}
-  - {fileID: 11400000, guid: 884eb2aeeda03d84b8579ae14186d322, type: 2}
   - {fileID: 11400000, guid: 6d334409fbc35664c938dfbc577886d3, type: 2}
   - {fileID: 11400000, guid: 4577571afc45bc14ca62d81f1cf3da81, type: 2}
   - {fileID: 11400000, guid: 66def99d9c7f827478ccd7461b9234ac, type: 2}
   - {fileID: 11400000, guid: 8ece7f588cd0b3747825bcf0404c82b1, type: 2}
   - {fileID: 11400000, guid: 13413143d2ebcec4a91cd5362f34c6a2, type: 2}
+  - {fileID: 11400000, guid: 884eb2aeeda03d84b8579ae14186d322, type: 2}
   _EyesList:
   - {fileID: 11400000, guid: d55766ff5cd006c49b510dc531068765, type: 2}
   - {fileID: 11400000, guid: 30e324d3d6296094bb80a9f5f9efbb84, type: 2}
@@ -46,19 +47,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 049dcce1145ecdf4d8101ed6c9dcc00a, type: 2}
   - {fileID: 11400000, guid: 2820fd7b67f35ed41bfed6be32d6217f, type: 2}
   _HairList:
+  - {fileID: 11400000, guid: 3387d40c209bb4f48b3febf289296b3c, type: 2}
   - {fileID: 11400000, guid: 29a5d385e6adc0c45b2aa1584d225882, type: 2}
-  - {fileID: 11400000, guid: 74d50b9c2baacf343959864028c1b9ba, type: 2}
   - {fileID: 11400000, guid: 4a2bb68719ee43e41b3cfbec2b6fa38d, type: 2}
   - {fileID: 11400000, guid: 61efb91f80336284a8beedfa34b85c49, type: 2}
   - {fileID: 11400000, guid: 376eccd21b91f4e4b9657c3a8fdf1b10, type: 2}
   - {fileID: 11400000, guid: 8300cc93639801446a26d2f959bf3fa3, type: 2}
-  - {fileID: 11400000, guid: 6dd5795f6395511499eebea41fb7ea97, type: 2}
+  - {fileID: 11400000, guid: 74d50b9c2baacf343959864028c1b9ba, type: 2}
   _TopHeadList:
-  - {fileID: 11400000, guid: bfb39323d6a75874b8cf05cf19852d0b, type: 2}
+  - {fileID: 11400000, guid: d25ba1f6484b2f24daf2bda5dada1e55, type: 2}
   - {fileID: 11400000, guid: 5e6b39e207737f244815b36f1d804b57, type: 2}
   _EarsList:
+  - {fileID: 11400000, guid: 962d7487c54b1f0499d4178036d10256, type: 2}
   - {fileID: 11400000, guid: 70d0ce7983788244aa059a1977f8ef5a, type: 2}
   _ClothesList:
+  - {fileID: 11400000, guid: 4c3e9b354469cab469c0972cbb4481eb, type: 2}
   - {fileID: 11400000, guid: a02f53255c338b94c94eb08dbce9297f, type: 2}
   _OrnamentList:
+  - {fileID: 11400000, guid: 6d9bfd5f2c24c7248b1dce1061b47362, type: 2}
   - {fileID: 11400000, guid: c5bc851bb82b6e3469c2bd286a667cf3, type: 2}

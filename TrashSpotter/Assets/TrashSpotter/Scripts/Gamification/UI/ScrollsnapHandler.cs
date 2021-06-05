@@ -45,9 +45,8 @@ namespace Com.TrashSpotter
 		{
 			emptyContent();
 
-			if (number == 0) return new GameObject[0];
-
-			sectioNumber = (int)Mathf.Ceil(number / (float)numberElementPerSection);
+			int sectionNumber = (int)Mathf.Ceil(number / (float)numberElementPerSection);
+			sectioNumber = Mathf.Clamp(sectionNumber, 1, sectionNumber);
 
 			//Init number of toggle and section
 			paginationToggles = new Toggle[sectioNumber];
@@ -85,10 +84,12 @@ namespace Com.TrashSpotter
 				}
 			}
 
+			if (number == 0) return new GameObject[0];
+
 			//Init first toggle as default selected toggle
 			WhichTogClicked(paginationToggles[0]);
 			paginationToggles[0].Select();
-
+			
 			return elements;
 		}
 

@@ -52,9 +52,12 @@ MonoBehaviour:
   _EarsAssetId: 3601
   _ClothesAssetId: 3701
   _OrnamentAssetId: 3801
-  _Greenoides: []
+  _Greenoides:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _HeadList:
   - {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
   - {fileID: 11400000, guid: 7571375ff87a768469389714733f7785, type: 2}
   - {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
-  _BodypartAvailable: {fileID: 0}
+  _BodypartAvailable: {fileID: 11400000, guid: d19c5a6f0ad37ed4692a2e66777c2a18, type: 2}
