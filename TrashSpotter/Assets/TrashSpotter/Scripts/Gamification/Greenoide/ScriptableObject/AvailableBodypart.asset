@@ -59,10 +59,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e6b39e207737f244815b36f1d804b57, type: 2}
   _EarsList:
   - {fileID: 11400000, guid: 962d7487c54b1f0499d4178036d10256, type: 2}
-  - {fileID: 11400000, guid: 70d0ce7983788244aa059a1977f8ef5a, type: 2}
+  - {fileID: 11400000, guid: 21e108917f6e93c4b8469e2eb0c90483, type: 2}
   _ClothesList:
   - {fileID: 11400000, guid: 4c3e9b354469cab469c0972cbb4481eb, type: 2}
-  - {fileID: 11400000, guid: a02f53255c338b94c94eb08dbce9297f, type: 2}
+  - {fileID: 11400000, guid: 77c27c6740887274880fee13a6cbdf53, type: 2}
   _OrnamentList:
   - {fileID: 11400000, guid: 6d9bfd5f2c24c7248b1dce1061b47362, type: 2}
-  - {fileID: 11400000, guid: c5bc851bb82b6e3469c2bd286a667cf3, type: 2}
+  - {fileID: 11400000, guid: 38880c8a561a26b43ab3ce28a27ceb77, type: 2}
