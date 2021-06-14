@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
-  m_Name: Ornament00
+  m_Script: {fileID: 11500000, guid: 8f270f91a2b74364baaaf846d0a04ba0, type: 3}
+  m_Name: Fourmi
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: b164a8f86a3c31c4bacd295635cc739b, type: 3}
-  _Id: 800
-  _Type: 8
-  _Family: 0
+  _Family: 1
+  _Name: Fourmi
+  _Image: {fileID: 0}
+  _KeyWord1: Key word 1
+  _KeyWord2: Key word 2
+  _KeyWord3: Key word 3
+  _Info: infos a propos des fourmis

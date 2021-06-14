@@ -43,7 +43,7 @@ namespace Com.TrashSpotter
 		private List<BodypartAsset> bodypartsBySelectedType;
 
 		private bool inputFieldCouldBeSelected;
-		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
+		private EFamily currentFilter = EFamily.COMMON;
 		private EBodypartType currentType = EBodypartType.HEAD;
 
         private void Start()
@@ -195,7 +195,7 @@ namespace Com.TrashSpotter
 		/// Change the bodypart list in the scroll viw by clicking on the family filter
 		/// </summary>
 		/// <param name="bodypart">The bodypart you want to apply</param>
-		private void UpdateFilter(EBodypartFamily bodypartFamiliy)
+		private void UpdateFilter(EFamily bodypartFamiliy)
 		{
 			currentFilter = bodypartFamiliy;
 			InitScrollView();

@@ -21,6 +21,8 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] public List<Greenoide> _Greenoides;
     [SerializeField] List<Head> _HeadList = null;
     [SerializeField] public BodypartList _BodypartAvailable = null;
+    [SerializeField] public List<TotemAnimal> _Available
+    [SerializeField] public List<string> _Names = null;
     List<int> _CurrentBodyPartsIds;
 
     #region MonoBehavior Methods
@@ -107,9 +109,11 @@ public class GreenoideManager : MonoBehaviour
     }
     public Sprite GetTopHeadSprite()
     {
+        Debug.Log("Looking for tophead asset : " + _TopHeadAssetId);
         BodypartAsset asset = _BodypartAvailable.GetTopHeadAsset(_TopHeadAssetId);
         if (asset)
             return asset._Sprite;
+        Debug.Log("Didn't find one");
         return null;
     }
     public Sprite GetEarsSprite()
