@@ -10,6 +10,8 @@ namespace Com.TrashSpotter
     {
 		[Header("General settings")]
 		[SerializeField] private Toggle switchCustoToggle = null;
+		[SerializeField] private Image switchCustoToggleTotemImage = null;
+		[SerializeField] private Image switchCustoToggleGreenoidImage = null;
 		[SerializeField] private Sprite imageSwitchShopAlatar = null;
 		[SerializeField] private Sprite imageSwitchShopGreenoide = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
@@ -46,8 +48,12 @@ namespace Com.TrashSpotter
 		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
 		private EBodypartType currentType = EBodypartType.HEAD;
 
+		private Text switchShopButtonText;
+
         private void Start()
 		{
+			switchShopButtonText = switchCustoToggle.GetComponentInChildren<Text>();
+
 			inputFieldCouldBeSelected = true;
 			anteNameButton.onClick.AddListener(OnClickAnteName);
 			editNameInputField.onEndEdit.AddListener(OnEndEditName);
@@ -311,9 +317,14 @@ namespace Com.TrashSpotter
 		/// <param name="value">Boolean equal to "is switching to greenoide ?"</param>
 		private void OnSwitchCustoToggle(bool value)
 		{
-			switchCustoToggle.transform.GetChild(0).GetComponent<Image>().sprite = value ? imageSwitchShopGreenoide : imageSwitchShopAlatar;
 			greenoidCusto.SetActive(value);
 			totemCusto.SetActive(!value);
+
+			switchCustoToggleGreenoidImage.gameObject.SetActive(!value);
+			switchCustoToggleTotemImage.gameObject.SetActive(value);
+
+			switchShopButtonText.text = value ? "Autels" : "Greenoïde";
+			
 		}
 
 		/// <summary>
