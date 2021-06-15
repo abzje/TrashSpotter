@@ -260,7 +260,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -20029,6 +20029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8288569087728735740}
   previousScreen: {fileID: 0}
+  delayBeforeEmptySeed: 2
+  seedEmptyingSpeed: 0.01
   cancelButton: {fileID: 5147181884781028404}
   backgroundButton: {fileID: 1250834895}
   smashSeedButton: {fileID: 699816300853107903}

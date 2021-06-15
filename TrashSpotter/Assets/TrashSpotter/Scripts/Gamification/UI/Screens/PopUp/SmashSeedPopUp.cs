@@ -51,8 +51,10 @@ namespace Com.TrashSpotter
 
         private void OnClickSmashSeed()
         {
-            elapsedTimeSeedEmptyDelay = 0;
 
+            if (ScoreBanner.Instance.seedScore < Gamification.Instance.ScoreToGetSeed) return;
+
+            elapsedTimeSeedEmptyDelay = 0;
             smashCount++;
 
             float ratio = (float)smashCount / Gamification.Instance.SmashCountToLevelUp;
