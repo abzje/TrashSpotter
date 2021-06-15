@@ -17,11 +17,13 @@ public class GreenoideManager : MonoBehaviour
     [SerializeField] int _ClothesAssetId = 0;
     [SerializeField] int _OrnamentAssetId = 0;
 
+    [Header ("Totem")]
+    [SerializeField] public TotemAnimal _Totem;
+
     [Header ("Lists")]
     [SerializeField] public List<Greenoide> _Greenoides;
     [SerializeField] List<Head> _HeadList = null;
     [SerializeField] public BodypartList _BodypartAvailable = null;
-    [SerializeField] public List<TotemAnimal> _Available
     [SerializeField] public List<string> _Names = null;
     List<int> _CurrentBodyPartsIds;
 
@@ -109,11 +111,9 @@ public class GreenoideManager : MonoBehaviour
     }
     public Sprite GetTopHeadSprite()
     {
-        Debug.Log("Looking for tophead asset : " + _TopHeadAssetId);
         BodypartAsset asset = _BodypartAvailable.GetTopHeadAsset(_TopHeadAssetId);
         if (asset)
             return asset._Sprite;
-        Debug.Log("Didn't find one");
         return null;
     }
     public Sprite GetEarsSprite()
@@ -218,6 +218,11 @@ public class GreenoideManager : MonoBehaviour
         } 
     }
 
+    public void ChangeTotem(TotemAnimal newTotem)
+    {
+        _Totem = newTotem;
+    }
+
     #region Change Bodyparts
     public void ChangeHead(Sprite sprite, int id)
     {
@@ -309,6 +314,6 @@ public class GreenoideManager : MonoBehaviour
     }
 
     #endregion 
-    
+
     #endregion 
 }

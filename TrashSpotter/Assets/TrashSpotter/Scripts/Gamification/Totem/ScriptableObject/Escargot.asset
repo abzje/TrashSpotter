@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f270f91a2b74364baaaf846d0a04ba0, type: 3}
-  m_Name: Corail
+  m_Name: Escargot
   m_EditorClassIdentifier: 
   _Family: 2
-  _Name: Corail
-  _Image: {fileID: 0}
+  _Name: Escargot
+  _Image: {fileID: 21300000, guid: b058ed13560a2f548a1b0ea8299fa17d, type: 3}
   _KeyWord1: un
   _KeyWord2: deux
   _KeyWord3: trois
-  _Info: quelques infos sur le corail
+  _Info: quelques infos sur les escargots

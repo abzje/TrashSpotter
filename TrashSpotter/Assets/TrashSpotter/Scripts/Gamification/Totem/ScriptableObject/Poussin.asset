@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Family: 1
   _Name: Poussin
-  _Image: {fileID: 0}
+  _Image: {fileID: 21300000, guid: 1ae8d63818e18c149aa3ba70179e4912, type: 3}
   _KeyWord1: Sagesse
   _KeyWord2: Discretion
   _KeyWord3: Surveillance
-  _Info: Des trucs sympas sur le poussin. Et encore plus de trucs sympa
+  _Info: "Des trucs sympas sur le poussin. \nEt encore plus de trucs sympas"

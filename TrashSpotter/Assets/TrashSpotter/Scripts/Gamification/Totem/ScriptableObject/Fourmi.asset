@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Family: 1
   _Name: Fourmi
-  _Image: {fileID: 0}
+  _Image: {fileID: 21300000, guid: 03c0084d59e2e4340b2ffa0310077511, type: 3}
   _KeyWord1: Key word 1
   _KeyWord2: Key word 2
   _KeyWord3: Key word 3
