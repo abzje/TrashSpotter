@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,12 +63,20 @@ namespace Com.TrashSpotter
             SetPopUpContent();
         }
 
+        private void EmptyScrollview()
+        {
+            for (int i = 0; i < assosButtonContainer.childCount; i++)
+            {
+                assosButtonContainer.GetChild(i).GetComponent<Button>().onClick.RemoveAllListeners();
+                Destroy(assosButtonContainer.GetChild(i).gameObject);
+            }
+        }
+
         private void SetPopUpContent()
         {
-            
             GameObject assoButton;
 
-            foreach(Association asso in associations)
+            foreach (Association asso in associations)
             {
                 if (asso._Category != currentAssoCategorySelected)
                     continue;
@@ -90,11 +97,7 @@ namespace Com.TrashSpotter
         public override void Close()
         {
             base.Close();
-
-            for (int i = 0; i < assosButtonContainer.childCount; i++)
-            {
-                assosButtonContainer.GetChild(i).GetComponent<Button>().onClick.RemoveAllListeners();
-            }
+            EmptyScrollview();
         }
 
         override protected void OnDestroy()
