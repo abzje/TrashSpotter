@@ -1605,7 +1605,7 @@ MonoBehaviour:
   previousScreen: {fileID: 0}
   greenoidName: {fileID: 116616121091832826}
   totemName: {fileID: 5025140522500756985}
-  totemImage: {fileID: 0}
+  totemImage: {fileID: 1963134392227261504}
   badgeContainer: {fileID: 5458050404917116809}
   exploitLeftImage: {fileID: 3094907300820987800}
   exploitRightImage: {fileID: 3532021963003223262}
@@ -1618,6 +1618,13 @@ MonoBehaviour:
   adventureValue: {fileID: 4183662211899016094}
   adventurfacebookButton: {fileID: 7187845163075245006}
   backgroundButton: {fileID: 5731078508100864933}
+  backgroundImage: {fileID: 1498642014394088136}
+  backgroundNavigator: {fileID: 4910198061326407017, guid: 28649c5dbd2e47f4a8457dd724d55cb6,
+    type: 3}
+  backgroundGuardian: {fileID: -6131320169410796983, guid: 39d95cbf0d63c3345997819d5bb86bb8,
+    type: 3}
+  backgroundSentries: {fileID: 5381024424920484560, guid: d8432f8fec009784b8812f9223e48c11,
+    type: 3}
 --- !u!95 &3286159272535392981
 Animator:
   serializedVersion: 3

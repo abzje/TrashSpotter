@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -8753359862025589047
     second: 01TreeForground_0
+  - first:
+      213: -6131320169410796983
+    second: BackgroundSharingGuardians_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 01TreeForground_0
+      name: BackgroundSharingGuardians_0
       rect:
         serializedVersion: 2
-        x: 427
-        y: 904
-        width: 1194
-        height: 240
+        x: 460
+        y: 446
+        width: 1128
+        height: 1157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce6dc03591d58680800000000000000
-      internalID: -8753359862025589047
+      spriteID: 942e4128acc29eaa0800000000000000
+      internalID: -6131320169410796983
       vertices: []
       indices: 
       edges: []

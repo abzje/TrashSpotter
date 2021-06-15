@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.TrashSpotter
@@ -28,10 +30,31 @@ namespace Com.TrashSpotter
 		[SerializeField] private Button adventurfacebookButton = null;
 		[SerializeField] private Button backgroundButton = null;
 
-        private void Start()
+		[Header("Others")]
+		[SerializeField] private Image backgroundImage = null;
+		[SerializeField] private Sprite backgroundNavigator = null;
+		[SerializeField] private Sprite backgroundGuardian = null;
+		[SerializeField] private Sprite backgroundSentries = null;
+
+		private List<Sprite> backgrounds = new List<Sprite>();
+
+		private void Start()
         {
 			adventurfacebookButton.onClick.AddListener(OnClickFacebookButton);
 			backgroundButton.onClick.AddListener(OnClickQuit);
+
+			backgrounds.Add(backgroundNavigator);
+			backgrounds.Add(backgroundGuardian);
+			backgrounds.Add(backgroundSentries);
+		}
+
+        public override void Open()
+        {
+            base.Open();
+
+			//Replace this line by the something like : is the user from sentries family ? so use this image
+			backgroundImage.sprite = backgrounds[(int)Mathf.Round(Random.Range(0, backgrounds.Count - 0.01f))];
+
 		}
 
         private void OnClickQuit()
@@ -42,7 +65,9 @@ namespace Com.TrashSpotter
         private void OnClickFacebookButton()
         {
 			Debug.Log("Shared to facebook");
-        }
+
+			adventurfacebookButton.transform.DOPunchScale(new Vector3(1.2f, 1.2f, 1.2f), 0.25f);
+		}
 
         protected override void OnDestroy()
         {

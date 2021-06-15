@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 8859617506042366693
     second: BTNCancelEcho_0
+  - first:
+      213: 5381024424920484560
+    second: BackgroundSharingSentries_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BTNCancelEcho_0
+      name: BackgroundSharingSentries_0
       rect:
         serializedVersion: 2
-        x: 221
-        y: 451
-        width: 582
-        height: 122
+        x: 460
+        y: 446
+        width: 1128
+        height: 1157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eacc757e2fa3fa70800000000000000
-      internalID: 8859617506042366693
+      spriteID: 0da061f543d3daa40800000000000000
+      internalID: 5381024424920484560
       vertices: []
       indices: 
       edges: []
