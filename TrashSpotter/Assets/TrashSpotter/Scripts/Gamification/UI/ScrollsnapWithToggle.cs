@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Com.TrashSpotter
 {
-    public class ScrollsnapHandler : MonoBehaviour
+    public class ScrollsnapWithToggle : ScrollsnapHandler
     {
 		[SerializeField] private Transform paginationToggleGroup = null;
 		[SerializeField] private Scrollbar scrollBar = null;

@@ -101,7 +101,6 @@ namespace Com.TrashSpotter
         /// <summary>
         /// Init scroll snap, fill bodypart button by type & filter
         /// </summary>
-        /// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
         private void InitScrollView()
         {
 			//reset listener

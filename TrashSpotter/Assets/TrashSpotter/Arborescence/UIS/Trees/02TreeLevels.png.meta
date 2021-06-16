@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -6180520395788534679
     second: 02TreeLevels_0
+  - first:
+      213: 5997035406641895762
+    second: 02TreeLevels_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 216
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,10 +120,10 @@ TextureImporter:
       name: 02TreeLevels_0
       rect:
         serializedVersion: 2
-        x: 117
+        x: 116
         y: 217
-        width: 790
-        height: 590
+        width: 792
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96cb7f122716a3aa0800000000000000
-      internalID: -6180520395788534679
+      spriteID: 259945ebdefb93350800000000000000
+      internalID: 5997035406641895762
       vertices: []
       indices: 
       edges: []

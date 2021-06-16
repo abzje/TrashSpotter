@@ -117,12 +117,12 @@ TextureImporter:
       name: 01BackgroundGiftForest_0
       rect:
         serializedVersion: 2
-        x: 1325
+        x: 1328
         y: 965
-        width: 1446
+        width: 1440
         height: 2166
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
