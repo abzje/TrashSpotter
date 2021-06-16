@@ -17,9 +17,16 @@ namespace Com.TrashSpotter
 
         [Header("General Settings")]
         [SerializeField] private Button backgroundButton = null;
+
+        [Header("Scrollsnap")]
+        [SerializeField] private ScrollsnapHandler scrollsnap = null;
+        private GameObject[] scrollsnapElements = null;
+        private EFamily currentFamilyFilter = EFamily.COMMON;
+        private List<TotemAnimal> totemsBySelection = null;
         
         [Header("Content")]
         [SerializeField] private GreenoideManager greenoide = null;
+        [SerializeField] private List<TotemAnimal> availableTotems = null;
 
         public override void Open()
         {
@@ -30,6 +37,9 @@ namespace Com.TrashSpotter
         private void Start()
         {
             backgroundButton.onClick.AddListener(OnClickQuit);
+
+            //Set scrollsnap & content
+			InitScrollView();
         }
 
         private void OnClickQuit()
@@ -42,9 +52,74 @@ namespace Com.TrashSpotter
             backgroundButton.onClick.RemoveListener(OnClickQuit);
         }
 
+        #region Initialization
+        /// <summary>
+        /// Inits scroll snap, fills totem button by family
+        /// </summary>
+        private void InitScrollView()
+        {
+            //reset listener
+            if (scrollsnapElements != null)
+            {
+				for (int i = 0; i < scrollsnapElements.Length; i++)
+				{
+					int lClosureIndex = i;
+					scrollsnapElements[lClosureIndex].GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
+				}
+			}
+
+            totemsBySelection = new List<TotemAnimal>();
+            
+            foreach(TotemAnimal totem in availableTotems)
+            {
+                if (currentFamilyFilter == EFamily.COMMON || totem._Family == currentFamilyFilter)
+                    totemsBySelection.Add(totem);
+            }
+
+            scrollsnapElements = scrollsnap.InitScrollSnap(totemsBySelection.Count);
+
+            for (int i = 0; i < scrollsnapElements.Length; i++)
+			{
+				int lClosureIndex = i;
+				InitTotemButton(totemsBySelection[lClosureIndex], scrollsnapElements[lClosureIndex]);
+			}
+        }
+
+        /// <summary>
+		/// Initializes totem button data -> data, listener
+		/// </summary>
+		/// <param name="currentTotem">The TotemAnimal set as an image in it</param>
+		/// <param name="currentScrollSnapElement">The totem button that will be initialize</param>
+        private void InitTotemButton(TotemAnimal currentTotem, GameObject currentScrollSnapElement)
+        {
+
+            // Set button data
+            currentScrollSnapElement.transform.GetChild(0).gameObject.SetActive(true);
+			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentTotem._Image;
+
+            // Add onclick listener
+			Toggle itemButton = currentScrollSnapElement.GetComponent<Toggle>();
+            itemButton.interactable = true;
+			itemButton.onValueChanged.AddListener((value) => OnClickTotemButton(value, itemButton, currentTotem));
+        }
+        #endregion
+
+        #region Event Listeners
+        
+        private void OnClickTotemButton(bool value, Toggle toggle, TotemAnimal totem)
+        {
+            // Change seen totem
+            SetTotemInfos(totem);
+
+            // Set totem as favorite TODO move it to a 'set as favorite' function
+            greenoide.ChangeTotem(totem);
+        }
+
+        #endregion
+
         public void SetTotemInfos(TotemAnimal totem)
         {
-            //animalImage = totem._Image;
+            animalImage.sprite = totem._Image;
             animalNameText.text = totem._Name;
             animalKeyword1Text.text = totem._KeyWord1;
             animalKeyword2Text.text = totem._KeyWord2;

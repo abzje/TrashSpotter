@@ -20,12 +20,19 @@ public class GreenoideManager : MonoBehaviour
     [Header ("Totem")]
     [SerializeField] public TotemAnimal _Totem;
 
+    [Header ("Money")]
+    private int _Money = 1000;
+
     [Header ("Lists")]
     [SerializeField] public List<Greenoide> _Greenoides;
     [SerializeField] List<Head> _HeadList = null;
     [SerializeField] public BodypartList _BodypartAvailable = null;
     [SerializeField] public List<string> _Names = null;
     List<int> _CurrentBodyPartsIds;
+
+    #region Properties
+        public int Money { get {return _Money;}}
+    #endregion
 
     #region MonoBehavior Methods
     void Start() 
@@ -221,6 +228,11 @@ public class GreenoideManager : MonoBehaviour
     public void ChangeTotem(TotemAnimal newTotem)
     {
         _Totem = newTotem;
+    }
+
+    public void AddMoney(int moneyAdded)
+    {
+        _Money += moneyAdded;
     }
 
     #region Change Bodyparts
