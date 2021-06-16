@@ -151,7 +151,7 @@ namespace Com.TrashSpotter
             for (int i = 0; i < assosButtonContainer.childCount; i++)
             {
                 int closureIndex = i;
-                assosButtonContainer.GetChild(closureIndex).GetComponent<Button>().onClick.RemoveAllListeners();
+                assosButtonContainer.GetChild(closureIndex).GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
             }
 
             backgroundButton.onClick.RemoveListener(OnClickQuit);

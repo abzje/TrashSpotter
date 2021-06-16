@@ -5164,7 +5164,7 @@ MonoBehaviour:
     type: 3}
   imageSwitchShopGreenoide: {fileID: 7015666617337218329, guid: 74d53f07d21807f48bc497f1bb949872,
     type: 3}
-  scrollsnap: {fileID: 2088878270213831119}
+  scrollsnap: {fileID: 3365776848590298450}
   filterToggleGroup: {fileID: 9099577987540215399}
   imageShopItemAvailable: {fileID: -3352020874577920197, guid: 5758b43376f6a94439cbb5e26674ea91,
     type: 3}
@@ -7360,21 +7360,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scrollsnap
       objectReference: {fileID: 0}
-    - target: {fileID: 4198346068829711396, guid: 0879b9cdab784cd46abafa600304e278,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4198346068829711396, guid: 0879b9cdab784cd46abafa600304e278,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4198346068829711397, guid: 0879b9cdab784cd46abafa600304e278,
-        type: 3}
-      propertyPath: m_Value
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0879b9cdab784cd46abafa600304e278, type: 3}
 --- !u!224 &2088878270213831118 stripped
@@ -7383,15 +7368,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2791855982532168886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2088878270213831119 stripped
+--- !u!114 &3365776848590298450 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4198346068041250169, guid: 0879b9cdab784cd46abafa600304e278,
+  m_CorrespondingSourceObject: {fileID: 579572436439421412, guid: 0879b9cdab784cd46abafa600304e278,
     type: 3}
   m_PrefabInstance: {fileID: 2791855982532168886}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b04a09049d3c41a55c9007453b0c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ff0af2c0327cea409dfc4b01c5953b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

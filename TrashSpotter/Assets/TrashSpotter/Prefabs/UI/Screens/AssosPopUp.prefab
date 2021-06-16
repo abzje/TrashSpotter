@@ -1336,16 +1336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800b04a09049d3c41a55c9007453b0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paginationToggleGroup: {fileID: 8234468015887687988}
   scrollBar: {fileID: 8234468016804572636}
   content: {fileID: 8234468015896085355}
-  pageTogglePrefab: {fileID: 4750579583068885484, guid: 6b59288f9307b754aa5a103ee50a3bbe,
+  sectionPrefab: {fileID: 6165858408792391853, guid: 6c12ad36aaa543745b97177a70e9523f,
     type: 3}
-  sectionPrefab: {fileID: 6165858408792391853, guid: 14c588e34d561e44692d707e39360c71,
+  elementInSectionPrefab: {fileID: 4586956078047479175, guid: 18e2bf837c136d4478c385d46818a7ed,
     type: 3}
-  elementInSectionPrefab: {fileID: 4312490778690745758, guid: 628e7656010cabe44b1ed7aab7039f4c,
-    type: 3}
-  numberElementPerSection: 12
+  numberElementPerSection: 1
 --- !u!114 &2821452101393088662
 MonoBehaviour:
   m_ObjectHideFlags: 0

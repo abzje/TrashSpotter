@@ -111,7 +111,6 @@ namespace Com.TrashSpotter
 
         private void Update()
         {
-
             elapsedTimeSeedEmptyDelay += Time.deltaTime;
 
             if (elapsedTimeSeedEmptyDelay >= delayBeforeEmptySeed)
