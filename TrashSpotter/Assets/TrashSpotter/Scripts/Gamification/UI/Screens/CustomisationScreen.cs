@@ -88,6 +88,9 @@ namespace Com.TrashSpotter
 		{
 			animator.SetTrigger("OpenCustomisation");
 			FilterToggleGroup.OnFilterClicked += UpdateFilter;
+
+			//Set the correct animal totem
+			animalTotemButton.GetComponentsInChildren<Image>()[1].sprite = greenoidManager._Totem._Image;
 		}
 
 		public override void Close()
