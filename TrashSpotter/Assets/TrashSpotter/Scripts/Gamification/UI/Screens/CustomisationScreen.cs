@@ -45,7 +45,7 @@ namespace Com.TrashSpotter
 		private List<BodypartAsset> bodypartsBySelectedType;
 
 		private bool inputFieldCouldBeSelected;
-		private EBodypartFamily currentFilter = EBodypartFamily.COMMON;
+		private EFamily currentFilter = EFamily.COMMON;
 		private EBodypartType currentType = EBodypartType.HEAD;
 
 		private Text switchShopButtonText;
@@ -71,7 +71,6 @@ namespace Com.TrashSpotter
 			ornamentButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.ORNAMENT));
 
 			//Set scrollsnap & content
-
 			InitScrollView();
 
 			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetHeadSprite();
@@ -99,9 +98,8 @@ namespace Com.TrashSpotter
 
         #region Initialization
         /// <summary>
-        /// Init scroll snap, fill bodypart button by type & filter
+        /// Inits scroll snap, fills bodypart button by type and filter
         /// </summary>
-        /// <param name="bodypartType">The type of the bodypart you want to add in the scrollsnap</param>
         private void InitScrollView()
         {
 			//reset listener
@@ -173,10 +171,10 @@ namespace Com.TrashSpotter
 				//lMoneyBanner.GetComponentInChildren<Text>().text = 
 			}
 
-			//Set graphic effects
+			// Set graphic effects
 			currentScrollSnapElement.GetComponent<Shadow>().effectDistance *= -1;
 
-			//Add onclick listener
+			// Add onclick listener
 			Toggle itemButton = currentScrollSnapElement.GetComponent<Toggle>();
 
 			itemButton.interactable = true;
@@ -201,7 +199,7 @@ namespace Com.TrashSpotter
 		/// Change the bodypart list in the scroll viw by clicking on the family filter
 		/// </summary>
 		/// <param name="bodypart">The bodypart you want to apply</param>
-		private void UpdateFilter(EBodypartFamily bodypartFamiliy)
+		private void UpdateFilter(EFamily bodypartFamiliy)
 		{
 			currentFilter = bodypartFamiliy;
 			InitScrollView();

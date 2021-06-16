@@ -48,7 +48,7 @@ MonoBehaviour:
   _EyesAssetId: 201
   _MouthAssetId: 307
   _HairAssetId: 3402
-  _TopHeadAssetId: 3502
+  _TopHeadAssetId: 3501
   _EarsAssetId: 3601
   _ClothesAssetId: 3701
   _OrnamentAssetId: 3801
@@ -61,3 +61,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7571375ff87a768469389714733f7785, type: 2}
   - {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
   _BodypartAvailable: {fileID: 11400000, guid: d19c5a6f0ad37ed4692a2e66777c2a18, type: 2}
+  _Names: 
