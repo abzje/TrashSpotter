@@ -14,7 +14,6 @@ namespace Com.TrashSpotter
         protected override void Start()
         {
 			base.Start();
-			maxNumOfElementInSection = 12;
 		}
 
         override protected void EmptyContent()
@@ -64,7 +63,7 @@ namespace Com.TrashSpotter
 				pos[lIClosureIndex] = distance * lIClosureIndex;
 
 				//Element in section creation
-				for (int j = 0; j < maxNumOfElementInSection; j++)
+				for (int j = 0; j < numberElementPerSection; j++)
 				{
 					lElement = Instantiate(elementInSectionPrefab, lCurrentSection.transform);
 

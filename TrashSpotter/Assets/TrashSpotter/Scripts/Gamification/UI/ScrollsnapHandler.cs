@@ -17,13 +17,12 @@ namespace Com.TrashSpotter
 		protected float distance;
 		protected int sectioNumber;
 
-		protected int maxNumOfElementInSection;
+		
 		private bool hasBeenInitialized;
 
         protected virtual void Start()
         {
 			hasBeenInitialized = false;
-			maxNumOfElementInSection = 1;
 		}
 
         protected virtual void EmptyContent()
@@ -74,7 +73,7 @@ namespace Com.TrashSpotter
 				pos[lIClosureIndex] = distance * lIClosureIndex;
 
 				//Element in section creation
-				for (int j = 0; j < maxNumOfElementInSection; j++)
+				for (int j = 0; j < numberElementPerSection; j++)
 				{
 					lElement = Instantiate(elementInSectionPrefab, lCurrentSection.transform);
 
