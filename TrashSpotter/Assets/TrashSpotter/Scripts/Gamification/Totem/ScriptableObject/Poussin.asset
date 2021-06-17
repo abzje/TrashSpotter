@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f270f91a2b74364baaaf846d0a04ba0, type: 3}
+  m_Name: Poussin
+  m_EditorClassIdentifier: 
+  _Family: 1
+  _Name: Poussin
+  _Image: {fileID: 21300000, guid: 1ae8d63818e18c149aa3ba70179e4912, type: 3}
+  _KeyWord1: Sagesse
+  _KeyWord2: Discretion
+  _KeyWord3: Surveillance
+  _Info: "Des trucs sympas sur le poussin. \nEt encore plus de trucs sympas"
