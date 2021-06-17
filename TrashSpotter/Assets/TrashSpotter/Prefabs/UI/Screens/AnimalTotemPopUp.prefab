@@ -701,7 +701,7 @@ MonoBehaviour:
   animalKeyword3Text: {fileID: 8905298549824898448}
   animalDescriptionText: {fileID: 2477125748538635454}
   backgroundButton: {fileID: 3800463221488512942}
-  scrollsnap: {fileID: 0}
+  scrollsnap: {fileID: 3056689265264012753}
   greenoide: {fileID: 0}
   availableTotems: []
 --- !u!95 &2477125747965824590
@@ -1380,22 +1380,22 @@ PrefabInstance:
     - target: {fileID: 4198346067892610284, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198346067892610284, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198346067892610284, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198346067994886803, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1440
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198346068041250168, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
@@ -1510,7 +1510,7 @@ PrefabInstance:
     - target: {fileID: 4198346068041250175, guid: 0879b9cdab784cd46abafa600304e278,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0879b9cdab784cd46abafa600304e278, type: 3}
@@ -1520,3 +1520,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2477125748769160245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3056689265264012753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 579572436439421412, guid: 0879b9cdab784cd46abafa600304e278,
+    type: 3}
+  m_PrefabInstance: {fileID: 2477125748769160245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff0af2c0327cea409dfc4b01c5953b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

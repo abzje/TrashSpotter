@@ -52,7 +52,7 @@ namespace Com.TrashSpotter
         private void OnClickSmashSeed()
         {
 
-            if (ScoreBanner.Instance.seedScore < Gamification.Instance.ScoreToGetSeed) return;
+            if (Gamification.Instance.Seeds < Gamification.Instance.ScoreToGetSeed) return;
 
             elapsedTimeSeedEmptyDelay = 0;
             smashCount++;
@@ -80,7 +80,7 @@ namespace Com.TrashSpotter
             {
                 if (ratio == 1)
                 {
-                    ScoreBanner.Instance.seedScore -= Gamification.Instance.ScoreToGetSeed;
+                    Gamification.Instance.Seeds -= Gamification.Instance.ScoreToGetSeed;
 
                     UpdateLevel();
                     smashCount = 0;

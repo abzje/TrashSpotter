@@ -20,7 +20,6 @@ namespace Com.TrashSpotter
 		[Header("Data information")]
 		[SerializeField] private Text spotsValue = null;
 		[SerializeField] private Text cleanValue = null;
-		[SerializeField] private Text operationValue = null;
 		[SerializeField] private Text totalAmountDonatedValue = null;
 		[SerializeField] private Text defendValue = null;
 		[SerializeField] private Text explorationValue = null;

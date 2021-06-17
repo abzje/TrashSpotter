@@ -8,7 +8,6 @@ namespace Com.TrashSpotter
     {
         [Header ("General Settings")]
         [SerializeField] private Transform assosButtonContainer = null;
-        [SerializeField] private GameObject assoButtonPrefab = null;
         [SerializeField] private Button backgroundButton = null;
         [SerializeField] private ScrollsnapHandler scrollsnap = null;
 

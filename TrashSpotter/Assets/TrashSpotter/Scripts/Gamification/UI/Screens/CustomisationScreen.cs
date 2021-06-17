@@ -12,10 +12,9 @@ namespace Com.TrashSpotter
 		[SerializeField] private Toggle switchCustoToggle = null;
 		[SerializeField] private Image switchCustoToggleTotemImage = null;
 		[SerializeField] private Image switchCustoToggleGreenoidImage = null;
-		[SerializeField] private Sprite imageSwitchShopAlatar = null;
-		[SerializeField] private Sprite imageSwitchShopGreenoide = null;
 		[SerializeField] private ScrollsnapHandler scrollsnap = null;
 		[SerializeField] private FilterToggleGroup filterToggleGroup = null;
+		[SerializeField] private Text money = null;
 		[SerializeField] private Sprite imageShopItemAvailable = null;
 
 		[Header("Name settings")]
@@ -149,13 +148,11 @@ namespace Com.TrashSpotter
 		private void InitShopItemButton(BodypartAsset currentBodypart, GameObject currentScrollSnapElement)
         {
 
-			//***Set button state***
-			
+			//***Set button data***
 			//***if bought and available -> Set item image, display it and change background
 			currentScrollSnapElement.transform.GetChild(0).gameObject.SetActive(true);
 			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
-
 
 			//***if favortite -> Display tiny star image
 			SetFavoriteBodypart(currentBodypart, currentScrollSnapElement);
@@ -171,7 +168,7 @@ namespace Com.TrashSpotter
 			else
             {
 				lMoneyBanner.gameObject.SetActive(true);
-				//lMoneyBanner.GetComponentInChildren<Text>().text = 
+				lMoneyBanner.GetComponentInChildren<Text>().text = "" + currentBodypart._Price;
 			}
 
 			// Set graphic effects
@@ -227,8 +224,8 @@ namespace Com.TrashSpotter
         /// <param name="bodypart">The bodypart you want to apply</param>
         private void OnClickBodyPartButton(bool value, Toggle toggle, BodypartAsset bodypart)
         {
-            //Reset others elements
-            for (int i = 0; i < scrollsnapElements.Length; i++)
+			//Reset others elements
+			for (int i = 0; i < scrollsnapElements.Length; i++)
             {
 				scrollsnapElements[i].GetComponent<Shadow>().enabled = true;
 				scrollsnapElements[i].transform.GetChild(1).gameObject.SetActive(false);
@@ -290,6 +287,7 @@ namespace Com.TrashSpotter
             }
 
 			SetFavoriteBodypart(bodypart, toggle.gameObject);
+			BuyItem(bodypart._Price, toggle.transform.GetChild(2).gameObject);
 		}
 
 		/// <summary>
@@ -308,6 +306,7 @@ namespace Com.TrashSpotter
 		private void OnEndEditName(string value)
 		{
 			inputFieldCouldBeSelected = true;
+
 			//if (UIManager.Instance.editableNameNamePopUp.isOpen) UIManager.Instance.ClosePopUp(UIManager.Instance.editableNameNamePopUp);
 			Debug.Log("Do animations of leaving input editing here");
 		}
@@ -321,11 +320,15 @@ namespace Com.TrashSpotter
 			greenoidCusto.SetActive(value);
 			totemCusto.SetActive(!value);
 
+			filterToggleGroup.gameObject.SetActive(value);
+
 			switchCustoToggleGreenoidImage.gameObject.SetActive(!value);
 			switchCustoToggleTotemImage.gameObject.SetActive(value);
 
 			switchShopButtonText.text = value ? "Autels" : "Greenoïde";
-			
+
+			Debug.LogWarning("[TO REPLACE LATTER] Draw scrollsnap here with totem content in it.");
+			scrollsnap.gameObject.SetActive(value);
 		}
 
 		/// <summary>
@@ -336,6 +339,13 @@ namespace Com.TrashSpotter
 			UIManager.Instance.OpenScreen(UIManager.Instance.animalTotemPopUp);
         }
         #endregion
+
+		private void BuyItem(int price, GameObject priceBanner)
+        {
+			Gamification.Instance.Money -= price;
+			priceBanner.SetActive(false);
+			money.text = "" + Gamification.Instance.Money;
+		}
 
         private void Update()
 		{

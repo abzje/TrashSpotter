@@ -15,16 +15,6 @@ namespace Com.TrashSpotter
         private static ScoreBanner instance;
         public static ScoreBanner Instance => instance;
 
-        //Seed
-        private int _currentSeedScore = 0;
-
-        //Level
-        private float _currentLevelScore = 0;
-        private int currentLevel = 0;
-
-        //Money
-        private int _currentMoney = 0;
-
         private void Awake()
         {
             if (instance)
@@ -36,20 +26,11 @@ namespace Com.TrashSpotter
             instance = this;
         }
 
-        private void Start()
-        {
-            //Update Graphics temporarly
-            seedScore = 101;
-            levelScore = 101;
-            moneyScore = 1000;
-        }
-
         /// <summary>
-        /// Get or set the seed score and update score banner graphics
+        /// Set the seed score and update score banner graphics
         /// </summary>
         public int seedScore
         {
-            get => _currentSeedScore;
             set
             {
                 float lDivideRest = ((float)value / Gamification.Instance.ScoreToGetSeed) % 1;
@@ -69,39 +50,35 @@ namespace Com.TrashSpotter
                     }
                     else seedContainer.transform.GetChild(i - 1).GetChild(0).gameObject.SetActive(false);
                 }
-
-                _currentSeedScore = value;
             }
         }
 
         /// <summary>
-        /// Get or set the level score and update score banner graphics
+        /// Set the level score and update score banner graphics
         /// </summary>
         public float levelScore
         {
-            get => _currentLevelScore;
             set
             {
-                _currentLevelScore = value;
+                levelFiller.fillAmount = (value % Gamification.Instance.ScoreToPassLevel) / Gamification.Instance.ScoreToPassLevel;
+            }
+        }
 
-                if (value > Gamification.Instance.ScoreToPassLevel)
-                {
-                    currentLevel++;
-                    levelText.text = currentLevel + "";
-                }
-
+        public int level
+        {
+            set
+            {
+                levelText.text = "" + Gamification.Instance.Level;
             }
         }
 
         /// <summary>
-        /// Get or set the money score and update score banner graphics
+        /// Set the money score and update score banner graphics
         /// </summary>
         public int moneyScore
         {
-            get => _currentMoney;
             set
             {
-                _currentMoney = value;
                 moneyText.text = value + "";
             }
         }
