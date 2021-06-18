@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b6328cc70ab7843ac2a5804e1b58de, type: 3}
   m_Name: AvailableBodypart
   m_EditorClassIdentifier: 
-  _HeadList:
+  headList:
   - {fileID: 11400000, guid: 62229214356e23741b2380ce4bd9b89a, type: 2}
   - {fileID: 11400000, guid: f583fd3773d23854889e0134062853af, type: 2}
   - {fileID: 11400000, guid: d0ff31851679f8c40a67d78b94ab6c29, type: 2}

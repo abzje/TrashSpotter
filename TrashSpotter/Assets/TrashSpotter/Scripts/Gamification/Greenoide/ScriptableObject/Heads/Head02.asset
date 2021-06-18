@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6169b48b2779679459d0c017484ea2ce, type: 3}
   m_Name: Head02
   m_EditorClassIdentifier: 
-  _HeadAssetId: 2
-  _Mask: {fileID: 21300000, guid: 1e933eefbce57cf4eb60e7f917970e18, type: 3}
-  _TattooPos: {x: 0, y: 0}
-  _EyesPos: {x: -0.15, y: 0.5}
-  _MouthPos: {x: -0.1, y: -0.4}
-  _HairPos: {x: 0, y: 2}
-  _TopHeadPos: {x: 0, y: 2.5}
-  _EarsPos: {x: 0.8, y: -0.3}
-  _EarsBackPos: {x: -1.8, y: -0.3}
-  _ClothesPos: {x: 0, y: -1.8}
-  _OrnamentPos: {x: -0.3, y: -1.8}
+  headAssetId: 8
+  mask: {fileID: 21300000, guid: 1e933eefbce57cf4eb60e7f917970e18, type: 3}
+  tattooPos: {x: 0, y: 0}
+  eyesPos: {x: -0.15, y: 0.5}
+  mouthPos: {x: -0.1, y: -0.4}
+  hairPos: {x: 0, y: 2}
+  topHeadPos: {x: 0, y: 2.5}
+  earsPos: {x: 0.8, y: -0.3}
+  earsBackPos: {x: -1.8, y: -0.3}
+  clothesPos: {x: 0, y: -1.8}
+  ornamentPos: {x: -0.3, y: -1.8}

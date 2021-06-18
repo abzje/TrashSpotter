@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteMask))]
 public class Tattoo : Bodypart
 {
-    SpriteMask _Mask;
+    SpriteMask mask;
 
     protected override void Awake() 
     {
         base.Awake();
-        _Mask = GetComponent<SpriteMask>();
+        mask = GetComponent<SpriteMask>();
     }
 
-    public void SetMask(Sprite mask)
+    public void SetMask(Sprite newMask)
     {
-        _Mask.sprite = mask;
+        mask.sprite = newMask;
     }
 }

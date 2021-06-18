@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BodypartList", menuName = "Trashspotter/Do not use/BodypartList", order = 5)]
 public class BodypartList : ScriptableObject
 {
-    public List<BodypartAsset> _HeadList;
+    public List<BodypartAsset> headList;
     public List<BodypartAsset> _TattooList;
     public List<BodypartAsset> _EyesList;
     public List<BodypartAsset> _MouthList;
@@ -17,7 +17,7 @@ public class BodypartList : ScriptableObject
 
     public BodypartAsset GetHeadAsset(int id)
     {
-        foreach (BodypartAsset b in _HeadList)
+        foreach (BodypartAsset b in headList)
             if (b._Id == id)    
                 return b;
         return null;
@@ -92,17 +92,17 @@ public class BodypartList : ScriptableObject
         if (index >= GetCount() || index < 0)
             return null;
         
-        int count = _HeadList.Count; // Used to find in which list to find the asset
+        int count = headList.Count; // Used to find in which list to find the asset
         int indexInList = index; // We subtract index with the size of the list we go through so the index is the right one when we get to the right list
         
         // We go through each list until we find the right one
         // HEAD
         if (index < count)
-            return _HeadList[indexInList];
+            return headList[indexInList];
         
         // TATTOO
         count += _TattooList.Count;
-        indexInList -= _HeadList.Count;
+        indexInList -= headList.Count;
         
         if (index < count)
             return _TattooList[indexInList];
@@ -161,7 +161,7 @@ public class BodypartList : ScriptableObject
 
     public int GetCount()
     {
-        return  _HeadList.Count + _TattooList.Count + _EyesList.Count + 
+        return  headList.Count + _TattooList.Count + _EyesList.Count + 
                 _MouthList.Count + _HairList.Count + _TopHeadList.Count + 
                 _EarsList.Count + _ClothesList.Count + _OrnamentList.Count;
     }
