@@ -35,7 +35,7 @@ namespace Com.TrashSpotter
         public override void Open()
         {
             base.Open();
-            SetTotemInfos(greenoide._Totem);
+            SetTotemInfos(greenoide.totem);
         }
 
         private void Start()

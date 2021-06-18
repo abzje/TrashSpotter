@@ -16,4 +16,6 @@ MonoBehaviour:
   _Id: 3601
   _Type: 6
   _Family: 3
+  _Price: 10
+  _Level: 4
   _EarsBackSprite: {fileID: 21300000, guid: 2cccdef7dc3be09439fc488b43746d2b, type: 3}

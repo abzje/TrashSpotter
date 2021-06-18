@@ -43,22 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808a6ca0a876f8449910c8cdbd36ac17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Head: {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
-  _TattooAssetId: 101
-  _EyesAssetId: 201
-  _MouthAssetId: 307
-  _HairAssetId: 3402
-  _TopHeadAssetId: 3501
-  _EarsAssetId: 3601
-  _ClothesAssetId: 3701
-  _OrnamentAssetId: 3801
-  _Greenoides:
+  headData: {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
+  tattooAssetId: 101
+  eyesAssetId: 201
+  mouthAssetId: 301
+  hairAssetId: 3401
+  topHeadAssetId: 3501
+  earsAssetId: 3601
+  clothesAssetId: 3701
+  ornamentAssetId: 3801
+  totem: {fileID: 11400000, guid: fc5e527125b9d564a9000975ecdd15c6, type: 2}
+  greenoides:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _HeadList:
+  headList:
   - {fileID: 11400000, guid: 97e60e627945da640ac444f0eb5d36eb, type: 2}
   - {fileID: 11400000, guid: 7571375ff87a768469389714733f7785, type: 2}
   - {fileID: 11400000, guid: 7a077920f89ab284e8e311413b8eb5eb, type: 2}
-  _BodypartAvailable: {fileID: 11400000, guid: d19c5a6f0ad37ed4692a2e66777c2a18, type: 2}
-  _Names: 
+  bodypartAvailable: {fileID: 11400000, guid: d19c5a6f0ad37ed4692a2e66777c2a18, type: 2}
+  names: []

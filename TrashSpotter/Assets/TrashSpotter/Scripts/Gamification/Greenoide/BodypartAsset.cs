@@ -22,6 +22,6 @@ public class BodypartAsset : ScriptableObject
     public int _Id = 0;
     public EBodypartType _Type = EBodypartType.EYES;
     public EFamily _Family = EFamily.COMMON;
-
     public int _Price = 10;
+    public int _Level = 1;
 }

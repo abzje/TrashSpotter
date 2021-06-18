@@ -5,118 +5,118 @@ using UnityEngine;
 public class Greenoide : MonoBehaviour
 {
     [Header ("Body part gameobjects")]
-    [SerializeField] public Bodypart _Head = null;
-    [SerializeField] public Bodypart _Tattoo = null;
-    [SerializeField] public Bodypart _Eyes = null;
-    [SerializeField] public Bodypart _Mouth = null;
-    [SerializeField] public Bodypart _Hair = null;
-    [SerializeField] public Bodypart _TopHead = null;
-    [SerializeField] public Bodypart _Ears = null;
-    [SerializeField] public Bodypart _EarsBack = null;
-    [SerializeField] public Bodypart _Clothes = null;
-    [SerializeField] public Bodypart _Ornament = null;
-    [SerializeField] public SpriteMask _HeadMask = null;
-    public void SetBodypartPosition(Head head)
+    [SerializeField] public Bodypart head = null;
+    [SerializeField] public Bodypart tattoo = null;
+    [SerializeField] public Bodypart eyes = null;
+    [SerializeField] public Bodypart mouth = null;
+    [SerializeField] public Bodypart hair = null;
+    [SerializeField] public Bodypart topHead = null;
+    [SerializeField] public Bodypart ears = null;
+    [SerializeField] public Bodypart earsBack = null;
+    [SerializeField] public Bodypart clothes = null;
+    [SerializeField] public Bodypart ornament = null;
+    [SerializeField] public SpriteMask headMask = null;
+    public void SetBodypartPosition(Head headData)
     {
         
         // Sets the head asset and the position for the other parts
-        if (_Head != null && head != null)
+        if (headData != null && head != null)
         {
-            _Head.transform.localPosition = new Vector3(0, 0, -0.5f);
+            head.transform.localPosition = new Vector3(0, 0, -0.5f);
 
             // Sets the body parts position according to the given head
-            if (_Tattoo != null)
-                _Tattoo.transform.localPosition = new Vector3(head._TattooPos.x, head._TattooPos.y, -1f);
+            if (tattoo != null)
+                tattoo.transform.localPosition = new Vector3(headData.tattooPos.x, headData.tattooPos.y, -1f);
 
-            if (_Eyes != null)
-                _Eyes.transform.localPosition = new Vector3(head._EyesPos.x, head._EyesPos.y, -1f);
+            if (eyes != null)
+                eyes.transform.localPosition = new Vector3(headData.eyesPos.x, headData.eyesPos.y, -1f);
 
-            if (_Mouth != null)
-                _Mouth.transform.localPosition = new Vector3(head._MouthPos.x, head._MouthPos.y, -1f);
+            if (mouth != null)
+                mouth.transform.localPosition = new Vector3(headData.mouthPos.x, headData.mouthPos.y, -1f);
 
-            if (_Hair != null)
-                _Hair.transform.localPosition = new Vector3(head._HairPos.x, head._HairPos.y, -1f);
+            if (hair != null)
+                hair.transform.localPosition = new Vector3(headData.hairPos.x, headData.hairPos.y, -1f);
 
-            if (_TopHead != null)
-                _TopHead.transform.localPosition = new Vector3(head._TopHeadPos.x, head._TopHeadPos.y, -1.5f);
+            if (topHead != null)
+                topHead.transform.localPosition = new Vector3(headData.topHeadPos.x, headData.topHeadPos.y, -1.5f);
             
-            if (_Ears != null)
-                _Ears.transform.localPosition = new Vector3(head._EarsPos.x, head._EarsPos.y, -2f);;
+            if (ears != null)
+                ears.transform.localPosition = new Vector3(headData.earsPos.x, headData.earsPos.y, -2f);;
 
-            if (_EarsBack != null)
-                _EarsBack.transform.localPosition = new Vector3(head._EarsBackPos.x, head._EarsBackPos.y, 0f);
+            if (earsBack != null)
+                earsBack.transform.localPosition = new Vector3(headData.earsBackPos.x, headData.earsBackPos.y, 0f);
 
-            if (_Clothes != null)
-                _Clothes.transform.localPosition = new Vector3(head._ClothesPos.x, head._ClothesPos.y, -1f);
+            if (clothes != null)
+                clothes.transform.localPosition = new Vector3(headData.clothesPos.x, headData.clothesPos.y, -1f);
 
-            if (_Ornament != null)
-                _Ornament.transform.localPosition = new Vector3(head._OrnamentPos.x, head._OrnamentPos.y, -1.5f);
+            if (ornament != null)
+                ornament.transform.localPosition = new Vector3(headData.ornamentPos.x, headData.ornamentPos.y, -1.5f);
         }
     }
 
     public void ChangeHead(Sprite sprite, Sprite mask)
     {
-        if (_Head == null)
+        if (head == null)
             return;
 
-        _Head.SetSprite(sprite);
-        _HeadMask.sprite = mask;
+        head.SetSprite(sprite);
+        headMask.sprite = mask;
     }
     public void ChangeTattoo(Sprite sprite)
     {
-        if (_Tattoo == null)
+        if (tattoo == null)
             return;
             
-        _Tattoo.SetSprite(sprite);
+        tattoo.SetSprite(sprite);
     }
     public void ChangeEyes(Sprite sprite)
     {
-        if (_Eyes == null)
+        if (eyes == null)
             return;
             
-        _Eyes.SetSprite(sprite);
+        eyes.SetSprite(sprite);
     }
     public void ChangeMouth(Sprite sprite)
     {
-        if (_Mouth == null)
+        if (mouth == null)
             return;
             
-        _Mouth.SetSprite(sprite);
+        mouth.SetSprite(sprite);
     }
     public void ChangeHair(Sprite sprite)
     {
-        if (_Hair == null)
+        if (hair == null)
             return;
             
-        _Hair.SetSprite(sprite);
+        hair.SetSprite(sprite);
     }
     public void ChangeTopHead(Sprite sprite)
     {
-        if (_TopHead == null)
+        if (topHead == null)
             return;
             
-        _TopHead.SetSprite(sprite);
+        topHead.SetSprite(sprite);
     }
     public void ChangeEars(Sprite sprite, Sprite earsBackSprite)
     {
-        if (_Ears == null || _EarsBack == null)
+        if (ears == null || earsBack == null)
             return;
             
-        _Ears.SetSprite(sprite);
-        _EarsBack.SetSprite(earsBackSprite);
+        ears.SetSprite(sprite);
+        earsBack.SetSprite(earsBackSprite);
     }
     public void ChangeClothes(Sprite sprite)
     {
-        if (_Clothes == null)
+        if (clothes == null)
             return;
             
-        _Clothes.SetSprite(sprite);
+        clothes.SetSprite(sprite);
     }
     public void ChangeOrnament(Sprite sprite)
     {
-        if (_Ornament == null)
+        if (ornament == null)
             return;
             
-        _Ornament.SetSprite(sprite);
+        ornament.SetSprite(sprite);
     }
 }

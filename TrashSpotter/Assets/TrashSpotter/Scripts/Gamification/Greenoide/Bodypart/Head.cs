@@ -5,20 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GreenoideHead", menuName = "Trashspotter/Greenoide/GreenoideHead", order = 2)]
 public class Head : ScriptableObject
 {
-    [SerializeField] public int _HeadAssetId = 0;
-    Sprite _HeadSprite;
+    [SerializeField] public int headAssetId = 0;
+    Sprite headSprite;
 
-    [SerializeField] public Sprite _Mask = null;
+    [SerializeField] public Sprite mask = null;
 
     // Other body parts position are decided from the head
-    [SerializeField] public Vector2 _TattooPos = new Vector2();
-    [SerializeField] public Vector2 _EyesPos = new Vector2();
-    [SerializeField] public Vector2 _MouthPos = new Vector2();
-    [SerializeField] public Vector2 _HairPos = new Vector2();
-    [SerializeField] public Vector2 _TopHeadPos = new Vector2();
-    [SerializeField] public Vector2 _EarsPos = new Vector2();
-    [SerializeField] public Vector2 _EarsBackPos = new Vector2();
-    [SerializeField] public Vector2 _ClothesPos = new Vector2();
-    [SerializeField] public Vector2 _OrnamentPos = new Vector2();
+    [SerializeField] public Vector2 tattooPos = new Vector2();
+    [SerializeField] public Vector2 eyesPos = new Vector2();
+    [SerializeField] public Vector2 mouthPos = new Vector2();
+    [SerializeField] public Vector2 hairPos = new Vector2();
+    [SerializeField] public Vector2 topHeadPos = new Vector2();
+    [SerializeField] public Vector2 earsPos = new Vector2();
+    [SerializeField] public Vector2 earsBackPos = new Vector2();
+    [SerializeField] public Vector2 clothesPos = new Vector2();
+    [SerializeField] public Vector2 ornamentPos = new Vector2();
 
 }

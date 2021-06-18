@@ -15,3 +15,6 @@ MonoBehaviour:
   _Sprite: {fileID: 21300000, guid: 4d98d24b6c3d04346927f35da8e6d316, type: 3}
   _Id: 207
   _Type: 2
+  _Family: 0
+  _Price: 10
+  _Level: 4

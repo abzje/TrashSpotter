@@ -49,6 +49,10 @@ namespace Com.TrashSpotter
 
 		private Text switchShopButtonText;
 
+		[Header("TO REMOVE REPLACE BY DEACTIVATING BUTTONS")]
+
+		[SerializeField] Sprite empty;
+
         private void Start()
 		{
 			switchShopButtonText = switchCustoToggle.GetComponentInChildren<Text>();
@@ -73,7 +77,7 @@ namespace Com.TrashSpotter
 			InitScrollView();
 
 			headButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetHeadSprite();
-			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetTattooSprite() ;
+			tattoButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetTattooSprite();
 			eyeButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetEyesSprite();
 			mouthButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetMouthSprite();
 			hairButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetHairSprite();
@@ -81,6 +85,7 @@ namespace Com.TrashSpotter
 			earButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetEarsSprite();
 			clothButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetClothesSprite();
 			ornamentButton.transform.GetChild(0).GetComponent<Image>().sprite = greenoidManager.GetOrnamentSprite();
+
 		}
 
         public override void Open()
@@ -89,7 +94,7 @@ namespace Com.TrashSpotter
 			FilterToggleGroup.OnFilterClicked += UpdateFilter;
 
 			//Set the correct animal totem
-			animalTotemButton.GetComponentsInChildren<Image>()[1].sprite = greenoidManager._Totem._Image;
+			animalTotemButton.GetComponentsInChildren<Image>()[1].sprite = greenoidManager.totem._Image;
 		}
 
 		public override void Close()
@@ -118,16 +123,20 @@ namespace Com.TrashSpotter
 
 			BodypartAsset lBodypartAssetByTypeAndFilter;
 
-			for (int i = 0; i < greenoidManager._BodypartAvailable.GetCount(); i++)
+			for (int i = 0; i < greenoidManager.bodypartAvailable.GetCount(); i++)
             {
-				lBodypartAssetByTypeAndFilter = greenoidManager._BodypartAvailable.GetBodypartAsset(i);
-
-				//filter by type
-				if (lBodypartAssetByTypeAndFilter._Type == currentType)
-                {
-					//filter by family
-					if (lBodypartAssetByTypeAndFilter._Family == currentFilter)
-						bodypartsBySelectedType.Add(lBodypartAssetByTypeAndFilter);
+				lBodypartAssetByTypeAndFilter = greenoidManager.bodypartAvailable.GetBodypartAsset(i);
+				
+				//filter by level
+				if (lBodypartAssetByTypeAndFilter._Level <= greenoidManager.GetLevel())
+				{
+					//filter by type
+					if (lBodypartAssetByTypeAndFilter._Type == currentType)
+					{
+						//filter by family
+						if (lBodypartAssetByTypeAndFilter._Family == currentFilter || currentFilter == EFamily.COMMON)
+							bodypartsBySelectedType.Add(lBodypartAssetByTypeAndFilter);
+					}
 				}
 			}
 
