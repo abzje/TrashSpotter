@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5897ef58046b48443aa81752b37ae99b, type: 3}
   m_Name: Totem01
   m_EditorClassIdentifier: 
-  type: 0
-  sprite: {fileID: 0}
+  type: 1
+  sprite: {fileID: 21300000, guid: 65c2a1ddae034c04b8475f70be1f5257, type: 3}
   price: 10
