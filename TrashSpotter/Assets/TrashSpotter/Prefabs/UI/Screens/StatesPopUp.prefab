@@ -996,7 +996,7 @@ RectTransform:
   m_GameObject: {fileID: 1873043886371652267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 109008968647983692}
   m_RootOrder: 0
@@ -1611,7 +1611,6 @@ MonoBehaviour:
   exploitRightImage: {fileID: 3532021963003223262}
   spotsValue: {fileID: 2457671616915660688}
   cleanValue: {fileID: 6095286306564035079}
-  operationValue: {fileID: 4929711331057023293}
   totalAmountDonatedValue: {fileID: 1446794929367845601}
   defendValue: {fileID: 6981578487911054973}
   explorationValue: {fileID: 4323420631720343826}
@@ -1625,6 +1624,7 @@ MonoBehaviour:
     type: 3}
   backgroundSentries: {fileID: 5381024424920484560, guid: d8432f8fec009784b8812f9223e48c11,
     type: 3}
+  greenoide: {fileID: 0}
 --- !u!95 &3286159272535392981
 Animator:
   serializedVersion: 3
@@ -4951,15 +4951,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8428402576854739253}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4929711331057023293 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3503353192701677576, guid: ea8dac6676e6b1749b8a39e38fe65e0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8428402576854739253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

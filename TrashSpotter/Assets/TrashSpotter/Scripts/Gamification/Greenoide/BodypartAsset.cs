@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum EBodypartType
 {
@@ -24,4 +22,6 @@ public class BodypartAsset : ScriptableObject
     public EFamily _Family = EFamily.COMMON;
     public int _Price = 10;
     public int _Level = 1;
+    public bool _IsBought = false;
+    public bool _Isfavorited = false;
 }

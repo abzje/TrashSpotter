@@ -63,6 +63,7 @@ namespace Com.TrashSpotter
 			switchCustoToggle.onValueChanged.AddListener((value) => OnSwitchCustoToggle(value));
 			animalTotemButton.onClick.AddListener(OnClickAnimalTotem);
 
+			//bodypart top buttons
 			headButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.HEAD));
 			eyeButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.EYES));
 			mouthButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.MOUTH));
@@ -72,6 +73,17 @@ namespace Com.TrashSpotter
 			clothButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.CLOTHES));
 			earButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.EARS));
 			ornamentButton.onValueChanged.AddListener((value) => UpdateType(EBodypartType.ORNAMENT));
+
+			//favorite toggles
+			headButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, headButton));
+			eyeButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, eyeButton));
+			mouthButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, mouthButton));
+			tattoButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, tattoButton));
+			hairButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, hairButton));
+			topHeadButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, topHeadButton));
+			clothButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, clothButton));
+			earButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, earButton));
+			ornamentButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.AddListener((value) => OnClickFavoriteBodypart(value, ornamentButton));
 
 			//Set scrollsnap & content
 			InitScrollView();
@@ -158,27 +170,23 @@ namespace Com.TrashSpotter
         {
 
 			//***Set button data***
-			//***if bought and available -> Set item image, display it and change background
+			//***if available -> Set item image, display it and change background
 			currentScrollSnapElement.transform.GetChild(0).gameObject.SetActive(true);
 			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
 
 			//***if favortite -> Display tiny star image
-			SetFavoriteBodypart(currentBodypart, currentScrollSnapElement);
+			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
+			{
+
+				if (currentBodypart._Id == bodypartID)
+					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
+			}
 
 			//***if not already bought -> Set price, display banner
-			string lId = currentBodypart._Id.ToString();
 			Transform lMoneyBanner = currentScrollSnapElement.transform.GetChild(2);
-
-			if (lId.Substring(lId.Length - 1) == "0")
-            {
-				lMoneyBanner.gameObject.SetActive(false);
-			}
-			else
-            {
-				lMoneyBanner.gameObject.SetActive(true);
-				lMoneyBanner.GetComponentInChildren<Text>().text = "" + currentBodypart._Price;
-			}
+			lMoneyBanner.gameObject.SetActive(!currentBodypart._IsBought);
+			lMoneyBanner.GetComponentInChildren<Text>().text = "" + currentBodypart._Price;
 
 			// Set graphic effects
 			currentScrollSnapElement.GetComponent<Shadow>().effectDistance *= -1;
@@ -188,17 +196,6 @@ namespace Com.TrashSpotter
 
 			itemButton.interactable = true;
 			itemButton.onValueChanged.AddListener((value) => OnClickBodyPartButton(value, itemButton, currentBodypart));
-		}
-
-		private void SetFavoriteBodypart(BodypartAsset currentBodypart, GameObject currentScrollSnapElement)
-        {
-
-			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
-			{
-
-				if (currentBodypart._Id == bodypartID)
-					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
-			}
 		}
 
 		#endregion
@@ -223,9 +220,28 @@ namespace Com.TrashSpotter
 			currentType = bodypartType;
 			InitScrollView();
 		}
-        #endregion
+		#endregion
 
-        #region Event Listeners
+		#region Event Listeners
+
+		/// <summary>
+		/// Change the bodypart saved between screens (favorite one)
+		/// </summary>
+		/// <param name="value">The new valut of the toggle</param>
+		/// <param name="bodypartButton">The parent button that contain this favorite toggle</param>
+		private void OnClickFavoriteBodypart(bool value, Toggle bodypartButton)
+        {
+			bodypartButton.transform.GetChild(1).GetChild(0).gameObject.SetActive(value);
+
+			bool lIsFavorite;
+
+            foreach (GameObject scrollsnapElement in scrollsnapElements)
+            {
+				lIsFavorite = scrollsnapElement.transform.GetChild(0).GetComponent<Image>().sprite == bodypartButton.transform.GetChild(0).GetComponent<Image>().sprite;
+				scrollsnapElement.transform.GetChild(1).gameObject.SetActive(lIsFavorite);
+			}
+		}
+
         /// <summary>
         /// Change the bodypart of the greenoid by cliking on it
         /// Update the body part selected toggle image
@@ -233,11 +249,10 @@ namespace Com.TrashSpotter
         /// <param name="bodypart">The bodypart you want to apply</param>
         private void OnClickBodyPartButton(bool value, Toggle toggle, BodypartAsset bodypart)
         {
-			//Reset others elements
+			//Reset shadow
 			for (int i = 0; i < scrollsnapElements.Length; i++)
             {
 				scrollsnapElements[i].GetComponent<Shadow>().enabled = true;
-				scrollsnapElements[i].transform.GetChild(1).gameObject.SetActive(false);
 			}
 
 			//Disable shadow for the selected one
@@ -248,6 +263,7 @@ namespace Com.TrashSpotter
                 case EBodypartType.HEAD:
 					greenoidManager.ChangeHead(bodypart._Sprite, bodypart._Id);
 					headButton.transform.GetChild(0).GetComponent<Image>().sprite = bodypart._Sprite;
+					headButton.transform.GetChild(1).GetChild(0).gameObject.SetActive(value);
 					break;
 
                 case EBodypartType.TATTOO:
@@ -295,8 +311,7 @@ namespace Com.TrashSpotter
                     break;
             }
 
-			SetFavoriteBodypart(bodypart, toggle.gameObject);
-			BuyItem(bodypart._Price, toggle.transform.GetChild(2).gameObject);
+			BuyItem(bodypart, toggle.transform.GetChild(2).gameObject);
 		}
 
 		/// <summary>
@@ -349,9 +364,10 @@ namespace Com.TrashSpotter
         }
         #endregion
 
-		private void BuyItem(int price, GameObject priceBanner)
+		private void BuyItem(BodypartAsset bodypart, GameObject priceBanner)
         {
-			Gamification.Instance.Money -= price;
+			Gamification.Instance.Money -= bodypart._Price;
+			bodypart._IsBought = true;
 			priceBanner.SetActive(false);
 			money.text = "" + Gamification.Instance.Money;
 		}
@@ -386,6 +402,17 @@ namespace Com.TrashSpotter
 			clothButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.CLOTHES));
 			earButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.EARS));
 			ornamentButton.onValueChanged.RemoveListener((value) => UpdateType(EBodypartType.ORNAMENT));
+
+			//favorite toggles
+			headButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, headButton));
+			eyeButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, eyeButton));
+			mouthButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, mouthButton));
+			tattoButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, tattoButton));
+			hairButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, hairButton));
+			topHeadButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, topHeadButton));
+			clothButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, clothButton));
+			earButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, earButton));
+			ornamentButton.transform.GetChild(1).GetComponent<Toggle>().onValueChanged.RemoveListener((value) => OnClickFavoriteBodypart(value, ornamentButton));
 
 		}
 	}
