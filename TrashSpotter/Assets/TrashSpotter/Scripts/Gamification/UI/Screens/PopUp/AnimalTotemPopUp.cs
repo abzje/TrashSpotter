@@ -28,14 +28,17 @@ namespace Com.TrashSpotter
         private GameObject[] scrollsnapElements = null;
         private EFamily currentFamilyFilter = EFamily.COMMON;
         private List<TotemAnimal> totemsBySelection = null;
-
-        private string favoriteAnimalName;
         private TotemAnimal currentTotemAnimalSelected;
 
         public override void Open()
         {
             base.Open();
-            SetTotemInfos(greenoide.totem);
+            SetTotemSelectedInfos(greenoide.totem);
+
+            foreach (GameObject animalButton in scrollsnapElements)
+            {
+                animalButton.transform.GetChild(1).gameObject.SetActive(animalButton.transform.GetChild(2).GetComponent<Text>().text == greenoide.totem._Name);
+            }
         }
 
         private void Start()
@@ -67,7 +70,7 @@ namespace Com.TrashSpotter
             
             foreach(TotemAnimal totem in availableTotems)
             {
-                if (currentFamilyFilter == EFamily.COMMON || totem._Family == currentFamilyFilter)
+                if (currentFamilyFilter == EFamily.COMMON || totem.family == currentFamilyFilter)
                     totemsBySelection.Add(totem);
             }
 
@@ -96,36 +99,34 @@ namespace Com.TrashSpotter
             lAnimalName.text = currentTotem._Name;
 
             //Set favorite
-            currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(favoriteAnimalName == currentTotem._Name);
-
+            currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(greenoide.totem._Name == currentTotem._Name);
             currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentTotem._Image;
 
             // Add onclick listener
 			Toggle itemButton = currentScrollSnapElement.GetComponent<Toggle>();
             itemButton.interactable = true;
-			itemButton.onValueChanged.AddListener((value) => OnClickTotemButton(value, itemButton, currentTotem));
+			itemButton.onValueChanged.AddListener((value) => OnClickTotemButton(currentTotem));
         }
         #endregion
 
         #region Event Listeners
         
-        private void OnClickTotemButton(bool value, Toggle toggle, TotemAnimal totem)
+        private void OnClickTotemButton(TotemAnimal totem)
         {
-            // Change seen totem
-            SetTotemInfos(totem);
+            SetTotemSelectedInfos(totem);
         }
 
         private void OnClickFavorite(bool value)
         {
             favoriteButton.transform.GetChild(0).gameObject.SetActive(value);
-            favoriteAnimalName = animalNameText.text;
 
             // Set favorite Totem
-            greenoide.ChangeTotem(currentTotemAnimalSelected);
+            if (value)
+                greenoide.ChangeTotem(currentTotemAnimalSelected);
 
             foreach (GameObject animalButton in scrollsnapElements)
             {
-                animalButton.transform.GetChild(1).gameObject.SetActive(animalButton.transform.GetChild(2).GetComponent<Text>().text == favoriteAnimalName);
+                animalButton.transform.GetChild(1).gameObject.SetActive(animalButton.transform.GetChild(2).GetComponent<Text>().text == greenoide.totem._Name);
             }
         }
 
@@ -136,10 +137,10 @@ namespace Com.TrashSpotter
 
         #endregion
 
-        public void SetTotemInfos(TotemAnimal totem)
+        public void SetTotemSelectedInfos(TotemAnimal totem)
         {
             currentTotemAnimalSelected = totem;
-            favoriteButton.isOn = totem._Name == favoriteAnimalName;
+            favoriteButton.isOn = totem._Name == greenoide.totem._Name;
 
             animalImage.sprite = totem._Image;
             animalNameText.text = totem._Name;

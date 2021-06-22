@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum EBodypartType
 {
@@ -18,10 +16,12 @@ public enum EBodypartType
 [CreateAssetMenu(fileName = "BodypartAsset", menuName = "Trashspotter/Greenoide/BodypartAsset", order = 1)]
 public class BodypartAsset : ScriptableObject
 {
-    public Sprite _Sprite = null;
-    public int _Id = 0;
-    public EBodypartType _Type = EBodypartType.EYES;
-    public EFamily _Family = EFamily.COMMON;
-    public int _Price = 10;
-    public int _Level = 1;
+    public Sprite sprite = null;
+    public int id = 0;
+    public EBodypartType type = EBodypartType.EYES;
+    public EFamily family = EFamily.COMMON;
+    public int price = 10;
+    public int level = 1;
+    public bool isBought = false;
+    public bool isfavorited = false;
 }

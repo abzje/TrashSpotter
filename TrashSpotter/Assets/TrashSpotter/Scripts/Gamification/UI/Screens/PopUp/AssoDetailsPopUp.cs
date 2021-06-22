@@ -15,10 +15,10 @@ namespace Com.TrashSpotter
 
         public void SetPopUp(Association assoc)
         {
-            assoImage.sprite = assoc._Logo;
-            assoNameText.text = assoc._Name;
-            presentationText.text = assoc._Presentation;
-            actionsText.text = assoc._Actions;
+            assoImage.sprite = assoc.logo;
+            assoNameText.text = assoc.assoName;
+            presentationText.text = assoc.presentation;
+            actionsText.text = assoc.actions;
         }
 
         private void Start()

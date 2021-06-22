@@ -86,7 +86,7 @@ namespace Com.TrashSpotter
 
             foreach (Association asso in associations)
             {
-                if (asso._Category != currentAssoCategorySelected)
+                if (asso.category != currentAssoCategorySelected)
                     continue;
 
                 assoByCurrentCategory.Add(asso);
@@ -99,7 +99,7 @@ namespace Com.TrashSpotter
             {
                 int lClosureIndex = i;
 
-                scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = assoByCurrentCategory[i]._Logo;
+                scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = assoByCurrentCategory[i].logo;
                 scrollsnapElements[lClosureIndex].GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(assoByCurrentCategory[i]); });
             }
         }
@@ -121,12 +121,12 @@ namespace Com.TrashSpotter
 
             foreach (Association asso in associations)
             {
-                if (asso._Category != currentAssoCategorySelected)
+                if (asso.category != currentAssoCategorySelected)
                     continue;
 
                 assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
 
-                assoButton.GetComponent<Image>().sprite = asso._Logo;
+                assoButton.GetComponent<Image>().sprite = asso.logo;
                 assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(asso); });
             }
         }*/

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "TotemAnimal", menuName = "Trashspotter/Totem/TotemAnimal", order = 4)]
 public class TotemAnimal : ScriptableObject
 {
-    [SerializeField] public EFamily _Family;
+    [SerializeField] public EFamily family;
     [SerializeField] public string _Name;
     [SerializeField] public Sprite _Image;
     [SerializeField] public string _KeyWord1;

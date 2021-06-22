@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72daaee88649c942abef9ee3bf27240, type: 3}
   m_Name: ArmeeDuSalut
   m_EditorClassIdentifier: 
-  _Logo: {fileID: 21300000, guid: 18496708290a6b64fa1f6ab511913feb, type: 3}
-  _Name: "Arm\xE9e Du Salut"
-  _Category: 0
-  _Presentation: "pr\xE9sentation"
-  _Actions: cette asso fait ces actions
+  logo: {fileID: 21300000, guid: 18496708290a6b64fa1f6ab511913feb, type: 3}
+  assoName: "Arm\xE9e du salut"
+  category: 0
+  presentation: "pr\xE9sentation"
+  actions: cette asso fait ces actions

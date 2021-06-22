@@ -34,6 +34,7 @@ namespace Com.TrashSpotter
 		[SerializeField] private Sprite backgroundNavigator = null;
 		[SerializeField] private Sprite backgroundGuardian = null;
 		[SerializeField] private Sprite backgroundSentries = null;
+		[SerializeField] private GreenoideManager greenoide = null;
 
 		private List<Sprite> backgrounds = new List<Sprite>();
 
@@ -54,6 +55,7 @@ namespace Com.TrashSpotter
 			//Replace this line by the something like : is the user from sentries family ? so use this image
 			backgroundImage.sprite = backgrounds[(int)Mathf.Round(Random.Range(0, backgrounds.Count - 0.01f))];
 
+			totemImage.sprite = greenoide.totem._Image;
 		}
 
         private void OnClickQuit()
