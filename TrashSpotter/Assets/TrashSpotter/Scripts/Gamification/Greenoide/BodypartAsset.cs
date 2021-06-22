@@ -20,8 +20,8 @@ public class BodypartAsset : ScriptableObject
     public int id = 0;
     public EBodypartType type = EBodypartType.EYES;
     public EFamily family = EFamily.COMMON;
-    public int price = 10;
     public int level = 1;
-    public bool isBought = false;
+    public int price = 10;
     public bool isfavorited = false;
+    public bool isBought = false;
 }
