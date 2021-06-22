@@ -77,12 +77,12 @@ namespace Com.TrashSpotter
 
             foreach (Association asso in associations)
             {
-                if (asso._Category != currentAssoCategorySelected)
+                if (asso.category != currentAssoCategorySelected)
                     continue;
 
                 assoButton = Instantiate(assoButtonPrefab, assosButtonContainer);
 
-                assoButton.GetComponent<Image>().sprite = asso._Logo;
+                assoButton.GetComponent<Image>().sprite = asso.logo;
                 assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(asso); });
             }
         }

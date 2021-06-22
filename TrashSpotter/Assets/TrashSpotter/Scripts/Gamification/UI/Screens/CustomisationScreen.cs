@@ -155,7 +155,7 @@ namespace Com.TrashSpotter
 				lBodypartAssetByTypeAndFilter = greenoidManager.bodypartAvailable.GetBodypartAsset(i);
 				
 				//filter by level
-				if (lBodypartAssetByTypeAndFilter._Level <= greenoidManager.GetLevel())
+				if (lBodypartAssetByTypeAndFilter._Level <= Gamification.Instance.Level)
 				{
 					//filter by type
 					if (lBodypartAssetByTypeAndFilter._Type == currentType)
@@ -325,7 +325,7 @@ namespace Com.TrashSpotter
 
                 case EBodypartType.EARS:
 					Ears earsAsset = (Ears)bodypart;
-					greenoidManager.ChangeEars(earsAsset._Sprite, earsAsset._EarsBackSprite, bodypart._Id);
+					greenoidManager.ChangeEars(earsAsset._Sprite, earsAsset.earsBackSprite, bodypart._Id);
 					earButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
 					break;
 

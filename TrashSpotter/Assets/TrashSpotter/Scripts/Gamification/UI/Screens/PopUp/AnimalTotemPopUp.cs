@@ -70,7 +70,7 @@ namespace Com.TrashSpotter
             
             foreach(TotemAnimal totem in availableTotems)
             {
-                if (totem._Family == currentFamilyFilter)
+                if (totem.family == currentFamilyFilter)
                     totemsBySelection.Add(totem);
             }
 
