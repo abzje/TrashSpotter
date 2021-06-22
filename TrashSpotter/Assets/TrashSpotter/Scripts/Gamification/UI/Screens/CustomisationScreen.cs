@@ -45,7 +45,7 @@ namespace Com.TrashSpotter
 		[SerializeField] private Toggle maskButton = null;
 		[SerializeField] private Toggle tikisButton = null;
 		[SerializeField] private Toggle totemButton = null;
-		private EAltarType currentAltarType = EAltarType.MASK; 
+		private EAltarType currentAltarType = EAltarType.MASK;
 
 		private GameObject[] scrollsnapElements;
 		private List<BodypartAsset> bodypartsBySelectedType;
