@@ -6,5 +6,6 @@ public enum EFamily
 {
     GUARDIANS,
     NAVIGATORS,
-    SENTRIES
+    SENTRIES,
+    COMMON
 }

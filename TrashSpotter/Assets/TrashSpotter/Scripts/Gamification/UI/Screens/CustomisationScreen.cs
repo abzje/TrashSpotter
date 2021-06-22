@@ -155,13 +155,13 @@ namespace Com.TrashSpotter
 				lBodypartAssetByTypeAndFilter = greenoidManager.bodypartAvailable.GetBodypartAsset(i);
 				
 				//filter by level
-				if (lBodypartAssetByTypeAndFilter._Level <= Gamification.Instance.Level)
+				if (lBodypartAssetByTypeAndFilter.level <= Gamification.Instance.Level)
 				{
 					//filter by type
-					if (lBodypartAssetByTypeAndFilter._Type == currentType)
+					if (lBodypartAssetByTypeAndFilter.type == currentType)
 					{
 						//filter by family
-						if (lBodypartAssetByTypeAndFilter._Family == currentFilter || currentFilter == EFamily.GUARDIANS)
+						if (lBodypartAssetByTypeAndFilter.family == currentFilter || currentFilter == EFamily.COMMON)
 							bodypartsBySelectedType.Add(lBodypartAssetByTypeAndFilter);
 					}
 				}
@@ -187,21 +187,21 @@ namespace Com.TrashSpotter
 			//***Set button data***
 			//***if available -> Set item image, display it and change background
 			currentScrollSnapElement.transform.GetChild(0).gameObject.SetActive(true);
-			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart._Sprite;
+			currentScrollSnapElement.transform.GetChild(0).GetComponent<Image>().sprite = currentBodypart.sprite;
 			currentScrollSnapElement.GetComponent<Image>().sprite = imageShopItemAvailable;
 
 			//***if favortite -> Display tiny star image
 			foreach (int bodypartID in greenoidManager.GetCurrentBodyPartsIds())
 			{
 
-				if (currentBodypart._Id == bodypartID)
+				if (currentBodypart.id == bodypartID)
 					currentScrollSnapElement.transform.GetChild(1).gameObject.SetActive(true);
 			}
 
 			//***if not already bought -> Set price, display banner
 			Transform lMoneyBanner = currentScrollSnapElement.transform.GetChild(2);
-			lMoneyBanner.gameObject.SetActive(!currentBodypart._IsBought);
-			lMoneyBanner.GetComponentInChildren<Text>().text = "" + currentBodypart._Price;
+			lMoneyBanner.gameObject.SetActive(!currentBodypart.isBought);
+			lMoneyBanner.GetComponentInChildren<Text>().text = "" + currentBodypart.price;
 
 			// Set graphic effects
 			currentScrollSnapElement.GetComponent<Shadow>().effectDistance *= -1;
@@ -282,61 +282,61 @@ namespace Com.TrashSpotter
 			//Disable shadow for the selected one
 			toggle.GetComponent<Shadow>().enabled = false;
 
-			buyButton.gameObject.SetActive(!bodypart._IsBought);
+			buyButton.gameObject.SetActive(!bodypart.isBought);
 
-			if (!bodypart._IsBought)
+			if (!bodypart.isBought)
 			{
 				itemToBuySelected = bodypart;
 				itemToBuyPriceBanner = toggle.transform.GetChild(2).gameObject;
 				return;
 			}
 
-			switch (bodypart._Type)
+			switch (bodypart.type)
             {
                 case EBodypartType.HEAD:
-					greenoidManager.ChangeHead(bodypart._Sprite, bodypart._Id);
-					headButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeHead(bodypart.sprite, bodypart.id);
+					headButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.TATTOO:
-					greenoidManager.ChangeTattoo(bodypart._Sprite, bodypart._Id);
-					tattoButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeTattoo(bodypart.sprite, bodypart.id);
+					tattoButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
 				case EBodypartType.EYES:
-					greenoidManager.ChangeEyes(bodypart._Sprite, bodypart._Id);
-					eyeButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeEyes(bodypart.sprite, bodypart.id);
+					eyeButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.MOUTH:
-					greenoidManager.ChangeMouth(bodypart._Sprite, bodypart._Id);
-					mouthButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeMouth(bodypart.sprite, bodypart.id);
+					mouthButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.HAIR:
-					greenoidManager.ChangeHair(bodypart._Sprite, bodypart._Id);
-					hairButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeHair(bodypart.sprite, bodypart.id);
+					hairButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.TOP_HEAD:
-					greenoidManager.ChangeTopHead(bodypart._Sprite, bodypart._Id);
-					topHeadButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeTopHead(bodypart.sprite, bodypart.id);
+					topHeadButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.EARS:
 					Ears earsAsset = (Ears)bodypart;
-					greenoidManager.ChangeEars(earsAsset._Sprite, earsAsset.earsBackSprite, bodypart._Id);
-					earButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeEars(earsAsset.sprite, earsAsset.earsBackSprite, bodypart.id);
+					earButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.CLOTHES:
-					greenoidManager.ChangeClothes(bodypart._Sprite, bodypart._Id);
-					clothButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeClothes(bodypart.sprite, bodypart.id);
+					clothButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
 
                 case EBodypartType.ORNAMENT:
-					greenoidManager.ChangeOrnament(bodypart._Sprite, bodypart._Id);
-					ornamentButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart._Sprite;
+					greenoidManager.ChangeOrnament(bodypart.sprite, bodypart.id);
+					ornamentButton.transform.GetChild(1).GetComponent<Image>().sprite = bodypart.sprite;
 					break;
                 
 				default:
@@ -396,8 +396,8 @@ namespace Com.TrashSpotter
 
 		private void BuyItem()
         {
-			Gamification.Instance.Money -= itemToBuySelected._Price;
-			itemToBuySelected._IsBought = true;
+			Gamification.Instance.Money -= itemToBuySelected.price;
+			itemToBuySelected.isBought = true;
 			itemToBuyPriceBanner.SetActive(false);
 			money.text = "" + Gamification.Instance.Money;
 		}
