@@ -53,6 +53,7 @@ MonoBehaviour:
   clothesAssetId: 3701
   ornamentAssetId: 3801
   totem: {fileID: 11400000, guid: fc5e527125b9d564a9000975ecdd15c6, type: 2}
+  level: 1
   greenoides:
   - {fileID: 0}
   - {fileID: 0}
