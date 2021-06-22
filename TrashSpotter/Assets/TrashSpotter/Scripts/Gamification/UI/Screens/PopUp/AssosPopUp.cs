@@ -9,7 +9,7 @@ namespace Com.TrashSpotter
         [Header ("General Settings")]
         [SerializeField] private Transform assosButtonContainer = null;
         [SerializeField] private Button backgroundButton = null;
-        [SerializeField] private ScrollsnapHandler scrollsnap = null;
+        [SerializeField] private GameObject assoButtonPrefab = null;
 
         [Header ("Category Image")]
         [SerializeField] private Image assoCategoryImage = null;
@@ -60,48 +60,6 @@ namespace Com.TrashSpotter
             }
 
             currentAssoCategorySelected = assoCategory;
-            InitScrollView();
-        }
-
-        private GameObject[] scrollsnapElements;
-        private List<Association> assoByCurrentCategory;
-
-        /// <summary>
-        /// Init scroll snap, draw asso list by category
-        /// </summary>
-        private void InitScrollView()
-        {
-            //reset listener
-            if (scrollsnapElements != null)
-            {
-                for (int i = 0; i < scrollsnapElements.Length; i++)
-                {
-                    int lClosureIndex = i;
-                    scrollsnapElements[lClosureIndex].GetComponent<Button>().onClick.RemoveAllListeners();
-                }
-            }
-
-            int assoNumber = 0;
-            assoByCurrentCategory = new List<Association>();
-
-            foreach (Association asso in associations)
-            {
-                if (asso._Category != currentAssoCategorySelected)
-                    continue;
-
-                assoByCurrentCategory.Add(asso);
-                assoNumber++;
-            }
-
-            scrollsnapElements = scrollsnap.InitScrollSnap(assoNumber);
-
-            for (int i = 0; i < scrollsnapElements.Length; i++)
-            {
-                int lClosureIndex = i;
-
-                scrollsnapElements[lClosureIndex].GetComponent<Image>().sprite = assoByCurrentCategory[i]._Logo;
-                scrollsnapElements[lClosureIndex].GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(assoByCurrentCategory[i]); });
-            }
         }
 
         private void EmptyScrollview()
@@ -112,8 +70,6 @@ namespace Com.TrashSpotter
                 Destroy(assosButtonContainer.GetChild(i).gameObject);
             }
         }
-
-        /*
 
         private void SetPopUpContent()
         {
@@ -129,12 +85,18 @@ namespace Com.TrashSpotter
                 assoButton.GetComponent<Image>().sprite = asso._Logo;
                 assoButton.GetComponent<Button>().onClick.AddListener(delegate { OnCLickAssoButton(asso); });
             }
-        }*/
+        }
 
         private void OnCLickAssoButton(Association asso)
         {
             UIManager.Instance.CloseScreen(this);
             UIManager.Instance.OpenAssoDetailsPopUp(UIManager.Instance.assoDetailsPopUp, asso);
+        }
+
+        public override void Open()
+        {
+            base.Open();
+            SetPopUpContent();
         }
 
         public override void Close()

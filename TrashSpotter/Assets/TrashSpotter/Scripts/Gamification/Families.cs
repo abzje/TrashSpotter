@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum EFamily
 {
-    COMMON,
     GUARDIANS,
     NAVIGATORS,
     SENTRIES

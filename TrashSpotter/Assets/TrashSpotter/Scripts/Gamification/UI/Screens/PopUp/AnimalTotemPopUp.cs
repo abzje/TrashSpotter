@@ -26,7 +26,7 @@ namespace Com.TrashSpotter
         [SerializeField] private List<TotemAnimal> availableTotems = null;
 
         private GameObject[] scrollsnapElements = null;
-        private EFamily currentFamilyFilter = EFamily.COMMON;
+        private EFamily currentFamilyFilter = EFamily.GUARDIANS;
         private List<TotemAnimal> totemsBySelection = null;
         private TotemAnimal currentTotemAnimalSelected;
 
@@ -70,7 +70,7 @@ namespace Com.TrashSpotter
             
             foreach(TotemAnimal totem in availableTotems)
             {
-                if (currentFamilyFilter == EFamily.COMMON || totem._Family == currentFamilyFilter)
+                if (totem._Family == currentFamilyFilter)
                     totemsBySelection.Add(totem);
             }
 

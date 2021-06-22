@@ -652,10 +652,9 @@ MonoBehaviour:
   animator: {fileID: 5975811070394585253}
   previousScreen: {fileID: 0}
   assosButtonContainer: {fileID: 8234468015896085354}
+  backgroundButton: {fileID: 4832854187377197721}
   assoButtonPrefab: {fileID: 4586956078047479175, guid: 18e2bf837c136d4478c385d46818a7ed,
     type: 3}
-  backgroundButton: {fileID: 4832854187377197721}
-  scrollsnap: {fileID: 8234468015982425216}
   assoCategoryImage: {fileID: 5539959697281685017}
   humanCategoryImage: {fileID: -3062040263984288913, guid: 33068f43a489f7348a1d3d9e6cf17ed7,
     type: 3}
@@ -671,22 +670,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b3cd75475ea12f142842cae741adfd20, type: 2}
   - {fileID: 11400000, guid: e164891499098fb429a2c9eff5fa4ffb, type: 2}
   - {fileID: 11400000, guid: 3ad4f5a29207af14a88bf27ecd6cea88, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
-  - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
   - {fileID: 11400000, guid: 87a30a50fd72a6341ae588d46cfc228d, type: 2}
   currentAssoCategorySelected: 0
 --- !u!1 &5975811070410454143
@@ -1285,10 +1268,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8234468015982425217}
   - component: {fileID: 8234468015982425218}
-  - component: {fileID: 8234468015982425216}
   - component: {fileID: 2821452101393088662}
   m_Layer: 5
-  m_Name: Scrollsnap
+  m_Name: Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1324,25 +1306,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8234468015982425222}
   m_CullTransparentMesh: 0
---- !u!114 &8234468015982425216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8234468015982425222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800b04a09049d3c41a55c9007453b0c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollBar: {fileID: 8234468016804572636}
-  content: {fileID: 8234468015896085355}
-  sectionPrefab: {fileID: 6165858408792391853, guid: 6c12ad36aaa543745b97177a70e9523f,
-    type: 3}
-  elementInSectionPrefab: {fileID: 4586956078047479175, guid: 18e2bf837c136d4478c385d46818a7ed,
-    type: 3}
-  numberElementPerSection: 1
 --- !u!114 &2821452101393088662
 MonoBehaviour:
   m_ObjectHideFlags: 0

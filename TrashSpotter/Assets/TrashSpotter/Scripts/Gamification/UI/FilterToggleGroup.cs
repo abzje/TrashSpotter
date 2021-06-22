@@ -9,29 +9,27 @@ namespace Com.TrashSpotter
         [SerializeField] private Toggle guardianFilter = null;
         [SerializeField] private Toggle sentriesFilter = null;
         [SerializeField] private Toggle navigatorFilter = null;
-        [SerializeField] private Toggle allFilter = null;
 
         public static Action <EFamily> OnFilterClicked;
 
         private void Start()
         {
-            guardianFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.GUARDIANS));
-            sentriesFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.SENTRIES));
-            navigatorFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.NAVIGATORS));
-            allFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.COMMON));
+            guardianFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.GUARDIANS, guardianFilter));
+            sentriesFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.SENTRIES, sentriesFilter));
+            navigatorFilter.onValueChanged.AddListener((value) => OnClickFiler(EFamily.NAVIGATORS, navigatorFilter));
         }
 
-        private void OnClickFiler(EFamily filter)
+        private void OnClickFiler(EFamily filter, Toggle toggle)
         {
             OnFilterClicked?.Invoke(filter);
+            toggle.transform.GetChild(0).gameObject.SetActive(toggle.isOn);
         }
 
         private void OnDestroy()
         {
-            guardianFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.GUARDIANS));
-            sentriesFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.SENTRIES));
-            navigatorFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.NAVIGATORS));
-            allFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.COMMON));
+            guardianFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.GUARDIANS, guardianFilter));
+            sentriesFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.SENTRIES, sentriesFilter));
+            navigatorFilter.onValueChanged.RemoveListener((value) => OnClickFiler(EFamily.NAVIGATORS, navigatorFilter));
         }
     }
 }
