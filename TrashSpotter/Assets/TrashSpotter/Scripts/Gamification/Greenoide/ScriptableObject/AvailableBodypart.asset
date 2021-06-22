@@ -22,7 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 21cfb183eb0ee7f478188a4674c1b9b9, type: 2}
   - {fileID: 11400000, guid: d19abf04709c90543906cc1d4a93bd12, type: 2}
   _TattooList:
-  - {fileID: 11400000, guid: 618064120d183294f8e4d18fb0ada72d, type: 2}
   - {fileID: 11400000, guid: 3d6ec3c781ed59340b5354dbd21e8b0f, type: 2}
   - {fileID: 11400000, guid: 6d334409fbc35664c938dfbc577886d3, type: 2}
   - {fileID: 11400000, guid: 4577571afc45bc14ca62d81f1cf3da81, type: 2}

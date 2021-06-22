@@ -18,7 +18,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetHeadAsset(int id)
     {
         foreach (BodypartAsset b in headList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -26,7 +26,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetTattooAsset(int id)
     {
         foreach (BodypartAsset b in _TattooList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -34,7 +34,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetEyesAsset(int id)
     {
         foreach (BodypartAsset b in _EyesList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -42,7 +42,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetMouthAsset(int id)
     {
         foreach (BodypartAsset b in _MouthList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -50,7 +50,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetHairAsset(int id)
     {
         foreach (BodypartAsset b in _HairList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -58,7 +58,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetTopHeadAsset(int id)
     {
         foreach (BodypartAsset b in _TopHeadList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -66,7 +66,7 @@ public class BodypartList : ScriptableObject
     public Ears GetEarsAsset(int id)
     {
         foreach (Ears b in _EarsList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -74,7 +74,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetClothesAsset(int id)
     {
         foreach (BodypartAsset b in _ClothesList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -82,7 +82,7 @@ public class BodypartList : ScriptableObject
     public BodypartAsset GetOrnamentAsset(int id)
     {
         foreach (BodypartAsset b in _OrnamentList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }

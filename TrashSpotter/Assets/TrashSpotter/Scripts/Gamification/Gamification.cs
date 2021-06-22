@@ -86,7 +86,7 @@ namespace Com.TrashSpotter
             Level = 0;
             Money = 1000;
             LevelXP = 100;
-            Seeds = 100;
+            Seeds = 300;
         }
 
         private void Awake()

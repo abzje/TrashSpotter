@@ -15,4 +15,5 @@ public class Altar : ScriptableObject
     public EAltarType type = EAltarType.TIKI;
     public Sprite sprite = null;
     public int price = 10;
+    public int level = 1;
 }

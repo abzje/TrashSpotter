@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: TopHead01
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: 18d8541ac885c2a4488fcdf913c0559d, type: 3}
-  _Id: 1501
-  _Type: 5
-  _Family: 1
-  _Price: 10
-  _Level: 4
+  sprite: {fileID: 21300000, guid: 18d8541ac885c2a4488fcdf913c0559d, type: 3}
+  id: 1501
+  type: 5
+  family: 1
+  price: 10
+  level: 5
+  isBought: 0
+  isfavorited: 0
