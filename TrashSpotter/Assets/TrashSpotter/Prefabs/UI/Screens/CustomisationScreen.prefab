@@ -7902,6 +7902,19 @@ MonoBehaviour:
   totemCusto: {fileID: 2088878269756435052}
   animalTotemButton: {fileID: 2088878271569943152}
   totemImage: {fileID: 2088878270325629740}
+  altars:
+  - {fileID: 11400000, guid: 98b525ddb1d873d46b41899385d05ba3, type: 2}
+  - {fileID: 11400000, guid: 703ba9ff598bf614993c47cef7769a5b, type: 2}
+  - {fileID: 11400000, guid: f1a46e94619f80441979d5e1d9136bcc, type: 2}
+  - {fileID: 11400000, guid: e3e790f925c11d24da20d83d9533dbfc, type: 2}
+  - {fileID: 11400000, guid: cc45109ea73fd1543b29572a2a224c1a, type: 2}
+  - {fileID: 11400000, guid: d0ca9245cb0a3274eadaae7c55f30dcb, type: 2}
+  - {fileID: 11400000, guid: 799f102e1c61e704491ad2630e114783, type: 2}
+  - {fileID: 11400000, guid: 748aeb8207c9115448be6fc9db64b1b4, type: 2}
+  - {fileID: 11400000, guid: 79df52b27eeb48f4c89ba5a643c7fa78, type: 2}
+  maskButton: {fileID: 1611819729}
+  tikisButton: {fileID: 1084172766}
+  totemButton: {fileID: 81420259}
 --- !u!225 &2088878271487531688
 CanvasGroup:
   m_ObjectHideFlags: 0

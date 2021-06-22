@@ -47,14 +47,14 @@ namespace Com.TrashSpotter
             favoriteButton.onValueChanged.AddListener(OnClickFavorite);
 
             //Set scrollsnap & content
-            InitScrollView();
+            InitCustoScrollView();
         }
 
         #region Initialization
         /// <summary>
         /// Inits scroll snap, fills totem button by family
         /// </summary>
-        private void InitScrollView()
+        private void InitCustoScrollView()
         {
             //reset listener
             if (scrollsnapElements != null)

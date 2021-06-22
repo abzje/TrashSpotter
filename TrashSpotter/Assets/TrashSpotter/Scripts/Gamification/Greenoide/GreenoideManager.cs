@@ -37,6 +37,19 @@ public class GreenoideManager : MonoBehaviour
         SetBodypartPosition();
         SetupSprites();
         SetCurrentBodyPartsIds();
+
+        // Buy the starting elements of the greenoide
+        BodypartAsset asset = bodypartAvailable.GetHeadAsset(headData.headAssetId);
+        if (asset)
+            asset.isBought = true;
+
+        asset = bodypartAvailable.GetEyesAsset(eyesAssetId);
+        if (asset)
+            asset.isBought = true;
+
+        asset = bodypartAvailable.GetMouthAsset(mouthAssetId);
+        if (asset)
+            asset.isBought = true;
     }
     #endregion
 
