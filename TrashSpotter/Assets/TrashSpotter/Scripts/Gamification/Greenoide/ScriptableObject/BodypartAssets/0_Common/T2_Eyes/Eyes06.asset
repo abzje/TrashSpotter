@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Eyes06
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: 16f1ff7d71e590c48940c68f5792179b, type: 3}
-  _Id: 206
-  _Type: 2
-  _Family: 0
-  _Price: 10
-  _Level: 3
+  sprite: {fileID: 21300000, guid: 16f1ff7d71e590c48940c68f5792179b, type: 3}
+  id: 206
+  type: 2
+  family: 0
+  price: 10
+  level: 2
+  isBought: 0
+  isfavorited: 0

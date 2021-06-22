@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Com.TrashSpotter;
 
 public class GreenoideManager : MonoBehaviour
 {
@@ -19,9 +20,6 @@ public class GreenoideManager : MonoBehaviour
 
     [Header ("Totem")]
     [SerializeField] public TotemAnimal totem;
-
-    [Header ("Level")]
-    [SerializeField] private int level = 1;
 
     [Header ("Lists")]
     [SerializeField] public List<Greenoide> greenoides;
@@ -81,63 +79,63 @@ public class GreenoideManager : MonoBehaviour
     {
         BodypartAsset asset = bodypartAvailable.GetHeadAsset(headData.headAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetTattooSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetTattooAsset(tattooAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetEyesSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetEyesAsset(eyesAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetMouthSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetMouthAsset(mouthAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetHairSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetHairAsset(hairAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetTopHeadSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetTopHeadAsset(topHeadAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetEarsSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetEarsAsset(earsAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetClothesSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetClothesAsset(clothesAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     public Sprite GetOrnamentSprite()
     {
         BodypartAsset asset = bodypartAvailable.GetOrnamentAsset(ornamentAssetId);
         if (asset)
-            return asset._Sprite;
+            return asset.sprite;
         return null;
     }
     #endregion
@@ -155,7 +153,7 @@ public class GreenoideManager : MonoBehaviour
         {
             foreach(Greenoide g in greenoides)
             {
-                g.ChangeHead(headAsset._Sprite, headData.mask);
+                g.ChangeHead(headAsset.sprite, headData.mask);
                 g.SetBodypartPosition(headData);
             }
         }
@@ -165,75 +163,65 @@ public class GreenoideManager : MonoBehaviour
     {
         // sets the sprite for all body parts
         BodypartAsset asset = bodypartAvailable.GetTattooAsset(tattooAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeTattoo(asset._Sprite);
+                g.ChangeTattoo(asset.sprite);
         }
 
         asset = bodypartAvailable.GetEyesAsset(eyesAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeEyes(asset._Sprite);
+                g.ChangeEyes(asset.sprite);
         }
         
         asset = bodypartAvailable.GetMouthAsset(mouthAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeMouth(asset._Sprite);
+                g.ChangeMouth(asset.sprite);
         }
         
         asset = bodypartAvailable.GetHairAsset(hairAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeHair(asset._Sprite);
+                g.ChangeHair(asset.sprite);
         }
 
         asset = bodypartAvailable.GetTopHeadAsset(topHeadAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeTopHead(asset._Sprite);
+                g.ChangeTopHead(asset.sprite);
         }  
 
         Ears earAsset = bodypartAvailable.GetEarsAsset(earsAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeEars(earAsset._Sprite, earAsset._EarsBackSprite);
+                g.ChangeEars(earAsset.sprite, earAsset.earsBackSprite);
         } 
             
         asset = bodypartAvailable.GetClothesAsset(clothesAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeClothes(asset._Sprite);
+                g.ChangeClothes(asset.sprite);
         } 
 
         asset = bodypartAvailable.GetOrnamentAsset(ornamentAssetId);
-        if (asset != null && asset._Level <= level)
+        if (asset != null && asset.level <= Gamification.Instance.Level)
         {
             foreach (Greenoide g in greenoides)
-                g.ChangeOrnament(asset._Sprite);
+                g.ChangeOrnament(asset.sprite);
         } 
     }
 
     public void ChangeTotem(TotemAnimal newTotem)
     {
         totem = newTotem;
-    }
-
-    public void GainLevel()
-    {
-        level++;
-    }
-
-    public int GetLevel()
-    {
-        return level;
     }
 
     #region Change Bodyparts

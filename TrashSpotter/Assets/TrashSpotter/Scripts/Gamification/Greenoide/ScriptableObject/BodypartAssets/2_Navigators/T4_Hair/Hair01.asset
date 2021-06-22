@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Hair01
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: ffd8d78551dec1741905d0ae7f0a3ea6, type: 3}
-  _Id: 2401
-  _Type: 4
-  _Family: 2
-  _Price: 10
-  _Level: 3
+  sprite: {fileID: 21300000, guid: ffd8d78551dec1741905d0ae7f0a3ea6, type: 3}
+  id: 2401
+  type: 4
+  family: 2
+  price: 10
+  level: 3
+  isBought: 0
+  isfavorited: 0

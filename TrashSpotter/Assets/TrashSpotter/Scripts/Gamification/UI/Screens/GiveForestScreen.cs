@@ -49,6 +49,7 @@ namespace Com.TrashSpotter
                 .SetEase(blossomCurve)
                 .SetDelay(Random.Range(blossomMinDelay, blossomMaxDelay));
             }
+            Gamification.Instance.Level++;
         }
 
         public override void Open()
