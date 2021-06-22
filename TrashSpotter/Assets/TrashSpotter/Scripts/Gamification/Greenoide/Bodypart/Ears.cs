@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ears", menuName = "Trashspotter/Greenoide/BodypartEarsAsset", order = 3)]
 public class Ears : BodypartAsset
 {
-    public Sprite _EarsBackSprite = null;
+    public Sprite earsBackSprite = null;
 }

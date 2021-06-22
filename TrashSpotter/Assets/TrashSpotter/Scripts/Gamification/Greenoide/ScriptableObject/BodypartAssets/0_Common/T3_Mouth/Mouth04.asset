@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4fdde5761b1f24987deb5b90f1d88d, type: 3}
   m_Name: Mouth04
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: 7243e781b1ccd3c4c85c2b18fa476b71, type: 3}
-  _Id: 304
-  _Type: 3
+  sprite: {fileID: 21300000, guid: 7243e781b1ccd3c4c85c2b18fa476b71, type: 3}
+  id: 304
+  type: 3
+  family: 0
+  price: 10
+  level: 2
+  isBought: 0
+  isfavorited: 0

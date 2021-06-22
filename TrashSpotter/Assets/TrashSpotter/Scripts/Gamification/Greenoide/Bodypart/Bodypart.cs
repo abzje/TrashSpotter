@@ -3,15 +3,15 @@
 [RequireComponent(typeof(SpriteRenderer))]
 public class Bodypart : MonoBehaviour
 {
-    SpriteRenderer _Renderer;
+    SpriteRenderer renderer;
 
     protected virtual void Awake()
     {
-        _Renderer = GetComponent<SpriteRenderer>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     public void SetSprite(Sprite sprite)
     {
-        _Renderer.sprite = sprite;
+        renderer.sprite = sprite;
     }
 }

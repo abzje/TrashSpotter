@@ -6,83 +6,83 @@ using UnityEngine;
 public class BodypartList : ScriptableObject
 {
     public List<BodypartAsset> headList;
-    public List<BodypartAsset> _TattooList;
-    public List<BodypartAsset> _EyesList;
-    public List<BodypartAsset> _MouthList;
-    public List<BodypartAsset> _HairList;
-    public List<BodypartAsset> _TopHeadList;
-    public List<Ears> _EarsList;
-    public List<BodypartAsset> _ClothesList;
-    public List<BodypartAsset> _OrnamentList;
+    public List<BodypartAsset> tattooList;
+    public List<BodypartAsset> eyesList;
+    public List<BodypartAsset> mouthList;
+    public List<BodypartAsset> hairList;
+    public List<BodypartAsset> topHeadList;
+    public List<Ears> earsList;
+    public List<BodypartAsset> clothesList;
+    public List<BodypartAsset> ornamentList;
 
     public BodypartAsset GetHeadAsset(int id)
     {
         foreach (BodypartAsset b in headList)
-            if (b._Id == id)    
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetTattooAsset(int id)
     {
-        foreach (BodypartAsset b in _TattooList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in tattooList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetEyesAsset(int id)
     {
-        foreach (BodypartAsset b in _EyesList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in eyesList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetMouthAsset(int id)
     {
-        foreach (BodypartAsset b in _MouthList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in mouthList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetHairAsset(int id)
     {
-        foreach (BodypartAsset b in _HairList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in hairList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetTopHeadAsset(int id)
     {
-        foreach (BodypartAsset b in _TopHeadList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in topHeadList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public Ears GetEarsAsset(int id)
     {
-        foreach (Ears b in _EarsList)
-            if (b._Id == id)    
+        foreach (Ears b in earsList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetClothesAsset(int id)
     {
-        foreach (BodypartAsset b in _ClothesList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in clothesList)
+            if (b.id == id)    
                 return b;
         return null;
     }
 
     public BodypartAsset GetOrnamentAsset(int id)
     {
-        foreach (BodypartAsset b in _OrnamentList)
-            if (b._Id == id)    
+        foreach (BodypartAsset b in ornamentList)
+            if (b.id == id)    
                 return b;
         return null;
     }
@@ -101,68 +101,68 @@ public class BodypartList : ScriptableObject
             return headList[indexInList];
         
         // TATTOO
-        count += _TattooList.Count;
+        count += tattooList.Count;
         indexInList -= headList.Count;
         
         if (index < count)
-            return _TattooList[indexInList];
+            return tattooList[indexInList];
 
         // EYES
-        count += _EyesList.Count;
-        indexInList -= _TattooList.Count;
+        count += eyesList.Count;
+        indexInList -= tattooList.Count;
         
         if (index < count)
-            return _EyesList[indexInList];
+            return eyesList[indexInList];
 
         // MOUTH
-        count += _MouthList.Count;
-        indexInList -= _EyesList.Count;
+        count += mouthList.Count;
+        indexInList -= eyesList.Count;
         
         if (index < count)
-            return _MouthList[indexInList];
+            return mouthList[indexInList];
 
         // HAIR
-        count += _HairList.Count;
-        indexInList -= _MouthList.Count;
+        count += hairList.Count;
+        indexInList -= mouthList.Count;
         
         if (index < count)
-            return _HairList[indexInList];
+            return hairList[indexInList];
 
         // TOP HEAD
-        count += _TopHeadList.Count;
-        indexInList -= _HairList.Count;
+        count += topHeadList.Count;
+        indexInList -= hairList.Count;
         
         if (index < count)
-            return _TopHeadList[indexInList];
+            return topHeadList[indexInList];
 
         // EARS
-        count += _EarsList.Count;
-        indexInList -= _TopHeadList.Count;
+        count += earsList.Count;
+        indexInList -= topHeadList.Count;
         
         if (index < count)
-            return _EarsList[indexInList];
+            return earsList[indexInList];
 
         // CLOTHES
-        count += _ClothesList.Count;
-        indexInList -= _EarsList.Count;
+        count += clothesList.Count;
+        indexInList -= earsList.Count;
         
         if (index < count)
-            return _ClothesList[indexInList];
+            return clothesList[indexInList];
 
         // ORNAMENT
-        count += _OrnamentList.Count;
-        indexInList -= _ClothesList.Count;
+        count += ornamentList.Count;
+        indexInList -= clothesList.Count;
         
         if (index < count)
-            return _OrnamentList[indexInList];
+            return ornamentList[indexInList];
 
         return null; // impossible
     }
 
     public int GetCount()
     {
-        return  headList.Count + _TattooList.Count + _EyesList.Count + 
-                _MouthList.Count + _HairList.Count + _TopHeadList.Count + 
-                _EarsList.Count + _ClothesList.Count + _OrnamentList.Count;
+        return  headList.Count + tattooList.Count + eyesList.Count + 
+                mouthList.Count + hairList.Count + topHeadList.Count + 
+                earsList.Count + clothesList.Count + ornamentList.Count;
     }
 }
