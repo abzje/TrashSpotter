@@ -1800,7 +1800,7 @@ MonoBehaviour:
   assoAgricultureButton: {fileID: 0}
   assoEcologyButton: {fileID: 0}
   assoIndustryButton: {fileID: 0}
-  assoEnergyButton: {fileID: 0}
+  assoEnergyButton: {fileID: 833193980419766378}
   UIElementContainer: {fileID: 3739572214691959721}
   treeButton: {fileID: 0}
   moneyValueText: {fileID: 3739572214404818674}
