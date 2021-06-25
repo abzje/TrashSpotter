@@ -41,6 +41,8 @@ namespace Com.TrashSpotter
 
         private void BlossomTree()
         {
+            treeImage.gameObject.SetActive(true);
+
             for (int i = 0; i < treeImage.transform.childCount; i++)
             {
                 treeImage.transform.GetChild(i).transform.DOScale(
