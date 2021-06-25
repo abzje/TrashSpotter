@@ -122,7 +122,11 @@ namespace Com.TrashSpotter
 
             // Set favorite Totem
             if (value)
+            {
                 greenoide.ChangeTotem(currentTotemAnimalSelected);
+                CustomisationScreen.Instance.SetTotemImage(currentTotemAnimalSelected._Image);
+            }
+                
 
             foreach (GameObject animalButton in scrollsnapElements)
             {
