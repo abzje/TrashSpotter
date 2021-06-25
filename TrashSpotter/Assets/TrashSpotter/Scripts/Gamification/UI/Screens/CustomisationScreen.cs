@@ -34,6 +34,7 @@ namespace Com.TrashSpotter
 		[SerializeField] private Toggle clothButton = null;
 		[SerializeField] private Toggle earButton = null;
 		[SerializeField] private Toggle ornamentButton = null;
+		[SerializeField] private Toggle favoriteButton = null;
 
 		[Header("Totem settings")]
 		[SerializeField] private GameObject totemCusto = null;
